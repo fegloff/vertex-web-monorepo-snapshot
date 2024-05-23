@@ -14,6 +14,10 @@ const BG_HIGHLIGHT_IMAGES = {
     mobile: blitzMobileHighlightsImage,
     desktop: blitzDesktopHighlightsImage,
   },
+  harmony: {
+    mobile: vertexMobileHighlightsImage,
+    desktop: vertexDesktopHighlightsImage,
+  },
 }[clientEnv.base.brandName];
 
 export function AppBackgroundHighlights() {

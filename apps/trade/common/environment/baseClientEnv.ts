@@ -6,7 +6,9 @@ export type DataEnv =
   | 'vertexTestnet'
   | 'vertexMainnet'
   | 'blitzTestnet'
-  | 'blitzMainnet';
+  | 'blitzMainnet'
+  | 'harmonyMainnet'
+  | 'harmonyTestnet';
 
 export interface BaseClientEnv {
   // Determines supported chains to interact with

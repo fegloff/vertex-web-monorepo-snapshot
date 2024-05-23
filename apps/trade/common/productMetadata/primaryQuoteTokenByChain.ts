@@ -5,6 +5,7 @@ import {
   blast,
   blastSepolia,
   hardhat,
+  harmonyOne,
   localhost,
   mantleSepoliaTestnet,
 } from '@wagmi/core/chains';
@@ -19,6 +20,7 @@ import {
 import { USDC_HARDHAT } from 'common/productMetadata/local/tokens';
 import { USDC_MANTLE_SEPOLIA } from 'common/productMetadata/mantle/tokens';
 import { Token } from 'common/productMetadata/types';
+import { USDC_HARMONY } from './harmony/tokens';
 
 export const PRIMARY_QUOTE_TOKEN_BY_CHAIN: Record<number, Token> = {
   [arbitrum.id]: USDC_ARB_ONE,
@@ -28,4 +30,5 @@ export const PRIMARY_QUOTE_TOKEN_BY_CHAIN: Record<number, Token> = {
   [mantleSepoliaTestnet.id]: USDC_MANTLE_SEPOLIA,
   [hardhat.id]: USDC_HARDHAT,
   [localhost.id]: USDC_HARDHAT,
+  [harmonyOne.id]: USDC_HARMONY,
 } satisfies Record<PrimaryChainID, Token>;

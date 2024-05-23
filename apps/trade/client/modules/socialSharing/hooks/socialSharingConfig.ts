@@ -103,4 +103,17 @@ export const SOCIAL_SHARING_THEMES: SocialSharingTheme[] = {
       },
     },
   ],
+  harmony: [
+    {
+      id: 'default',
+      name: 'Default',
+      description: '',
+      previewImageSrc: defaultPreview,
+      backgroundImageSrc: {
+        positive: '/social_sharing/blitz/background/default.png',
+        negative: '/social_sharing/blitz/background/default.png',
+        zero: '/social_sharing/blitz/background/default.png',
+      },
+    },
+  ],
 }[clientEnv.base.brandName];

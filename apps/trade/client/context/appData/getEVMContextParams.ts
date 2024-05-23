@@ -6,18 +6,20 @@ import {
   arbitrum,
   avalanche,
   base,
-  blast,
-  blastSepolia,
   bsc,
   fantom,
+  mainnet,
+  blast,
+  blastSepolia,
   hardhat,
   localhost,
-  mainnet,
   mantle,
   optimism,
   polygon,
   sepolia,
-} from 'wagmi/chains';
+  harmonyOne,
+  harmonyTestnet,
+} from '@vertex-protocol/web-data';
 
 export function getEVMContextParams(): EVMContextParams {
   const connectorOptions: WagmiConfigParams['connectorOptions'] = {
@@ -74,6 +76,18 @@ export function getEVMContextParams(): EVMContextParams {
       return {
         supportedChainEnvs: ['blastMainnet'],
         supportedChains: [blast, mainnet],
+        connectorOptions,
+      };
+    case 'harmonyMainnet':
+      return {
+        supportedChainEnvs: ['harmonyOne'],
+        supportedChains: [harmonyOne],
+        connectorOptions,
+      };
+    case 'harmonyTestnet':
+      return {
+        supportedChainEnvs: ['harmonyTestnet'],
+        supportedChains: [harmonyTestnet],
         connectorOptions,
       };
   }

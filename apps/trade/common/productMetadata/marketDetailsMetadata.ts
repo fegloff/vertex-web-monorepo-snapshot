@@ -309,3 +309,17 @@ export const JUP_PERP_MARKET_DETAILS: MarketDetailsMetadata = {
   description: `As one of the industry's most advanced swap aggregation engines, Jupiter excels in delivering essential liquidity infrastructure for the Solana ecosystem.`,
   cmcLink: 'https://coinmarketcap.com/currencies/jupiter-ag/',
 };
+
+export const ONE_SPOT_MARKET_DETAILS: MarketDetailsMetadata = {
+  subtitle: `ONE-${PRIMARY_QUOTE_SYMBOL} Spot`,
+  description:
+    'Harmony (ONE) is a blockchain platform designed to facilitate the creation and use of decentralized applications (DApps). The network aims to innovate the way decentralized applications work by focusing on random state sharding, which allows creating blocks in seconds.',
+  cmcLink: 'https://coinmarketcap.com/currencies/harmony/',
+};
+
+export const ONE_PERP_MARKET_DETAILS: MarketDetailsMetadata = {
+  subtitle: `ONE-${PRIMARY_QUOTE_SYMBOL} Perpetual`,
+  description:
+    'Harmony (ONE) is a fast and secure blockchain for decentralized applications. It uses a novel sharding approach to achieve scalability and enable fast block generation. Harmony aims to build an open network of nodes operated and governed by a large community.',
+  cmcLink: 'https://coinmarketcap.com/currencies/harmony/',
+};

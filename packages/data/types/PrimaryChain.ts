@@ -6,7 +6,9 @@ import {
   hardhat,
   localhost,
   mantleSepoliaTestnet,
-} from 'wagmi/chains';
+  harmonyOne,
+  harmonyTestnet,
+} from '@vertex-protocol/web-data/context/evm/utils';
 
 const PRIMARY_CHAINS = [
   localhost,
@@ -16,6 +18,8 @@ const PRIMARY_CHAINS = [
   blastSepolia,
   blast,
   mantleSepoliaTestnet,
+  harmonyOne,
+  harmonyTestnet,
 ] as const;
 
 export type PrimaryChain = (typeof PRIMARY_CHAINS)[number];

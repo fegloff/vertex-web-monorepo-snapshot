@@ -30,6 +30,7 @@ import {
   MKR_PERP_MARKET_DETAILS,
   MPEPE_PERP_MARKET_DETAILS,
   NEAR_PERP_MARKET_DETAILS,
+  ONE_PERP_MARKET_DETAILS,
   OP_PERP_MARKET_DETAILS,
   PYTH_PERP_MARKET_DETAILS,
   SEI_PERP_MARKET_DETAILS,
@@ -379,4 +380,12 @@ export const JUP_PERP_METADATA: PerpProductMetadata = {
   icon: TOKEN_ICONS.jup,
   marketName: 'JUP-PERP',
   marketDetails: JUP_PERP_MARKET_DETAILS,
+};
+
+export const ONE_PERP_METADATA: PerpProductMetadata = {
+  name: 'ONE-PERP',
+  symbol: 'ONE',
+  icon: TOKEN_ICONS.jup,
+  marketName: 'ONE-PERP',
+  marketDetails: ONE_PERP_MARKET_DETAILS,
 };

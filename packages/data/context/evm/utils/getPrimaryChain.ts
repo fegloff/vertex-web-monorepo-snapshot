@@ -6,7 +6,9 @@ import {
   blastSepolia,
   localhost,
   mantleSepoliaTestnet,
-} from 'wagmi/chains';
+  harmonyOne,
+  harmonyTestnet,
+} from '@vertex-protocol/web-data';
 import { PrimaryChain } from '../../../types';
 
 export function getPrimaryChain(chainEnv: ChainEnv): PrimaryChain {
@@ -23,5 +25,9 @@ export function getPrimaryChain(chainEnv: ChainEnv): PrimaryChain {
       return arbitrum;
     case 'blastMainnet':
       return blast;
+    case 'harmonyOne':
+      return harmonyOne;
+    case 'harmonyTestnet':
+      return harmonyTestnet;
   }
 }

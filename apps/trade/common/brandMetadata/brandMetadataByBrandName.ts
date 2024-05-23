@@ -8,4 +8,7 @@ export const BRAND_METADATA_BY_BRAND_NAME: Record<BrandName, BrandMetadata> = {
   blitz: {
     displayName: 'Blitz',
   },
+  harmony: {
+    displayName: 'Harmony',
+  },
 };

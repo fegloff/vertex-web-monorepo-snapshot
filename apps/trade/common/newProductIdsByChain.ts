@@ -6,8 +6,10 @@ import {
   blast,
   blastSepolia,
   hardhat,
+  harmonyOne,
   localhost,
-} from 'wagmi/chains';
+  harmonyTestnet,
+} from '@vertex-protocol/web-data';
 
 export const NEW_PRODUCT_IDS_BY_CHAIN: Record<number, Set<number>> = {
   [arbitrum.id]: new Set(),
@@ -17,4 +19,6 @@ export const NEW_PRODUCT_IDS_BY_CHAIN: Record<number, Set<number>> = {
   [mantleSepoliaTestnet.id]: new Set(),
   [hardhat.id]: new Set(),
   [localhost.id]: new Set(),
+  [harmonyOne.id]: new Set(),
+  [harmonyTestnet.id]: new Set(),
 } satisfies Record<PrimaryChainID, Set<number>>;
