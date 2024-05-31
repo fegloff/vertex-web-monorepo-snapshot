@@ -1,23 +1,27 @@
 import { EVMContextParams, WagmiConfigParams } from '@vertex-protocol/web-data';
-import { arbitrumSepolia, mantleSepoliaTestnet } from '@wagmi/core/chains';
 import { CONNECTOR_OPTIONS_METADATA } from 'client/modules/brand/consts/connectorMetadata';
 import { clientEnv } from 'common/environment/clientEnv';
+import { ChainEnv } from '@vertex-protocol/client';
 import {
   arbitrum,
   avalanche,
   base,
-  blast,
-  blastSepolia,
   bsc,
   fantom,
+  mainnet,
+  blast,
+  blastSepolia,
   hardhat,
   localhost,
-  mainnet,
   mantle,
   optimism,
   polygon,
   sepolia,
-} from 'wagmi/chains';
+  harmonyMainnet,
+  harmonyTestnet,
+  arbitrumSepolia,
+  mantleSepoliaTestnet,
+} from '@vertex-protocol/web-data';
 
 export function getEVMContextParams(): EVMContextParams {
   const connectorOptions: WagmiConfigParams['connectorOptions'] = {
@@ -74,6 +78,18 @@ export function getEVMContextParams(): EVMContextParams {
       return {
         supportedChainEnvs: ['blastMainnet'],
         supportedChains: [blast, mainnet],
+        connectorOptions,
+      };
+    case 'harmonyMainnet':
+      return {
+        supportedChainEnvs: ['harmonyMainnet'],
+        supportedChains: [harmonyMainnet],
+        connectorOptions,
+      };
+    case 'harmonyTestnet':
+      return {
+        supportedChainEnvs: ['harmonyTestnet'],
+        supportedChains: [harmonyTestnet],
         connectorOptions,
       };
   }

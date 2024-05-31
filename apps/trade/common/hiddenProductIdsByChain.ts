@@ -1,5 +1,4 @@
 import { PrimaryChainID } from '@vertex-protocol/web-data';
-import { mantleSepoliaTestnet } from '@wagmi/core/chains';
 import {
   arbitrum,
   arbitrumSepolia,
@@ -7,7 +6,10 @@ import {
   blastSepolia,
   hardhat,
   localhost,
-} from 'wagmi/chains';
+  harmonyMainnet,
+  mantleSepoliaTestnet,
+  harmonyTestnet,
+} from '@vertex-protocol/web-data';
 
 export const HIDDEN_PRODUCT_IDS_BY_CHAIN: Record<number, Set<number>> = {
   [arbitrum.id]: new Set(),
@@ -17,4 +19,6 @@ export const HIDDEN_PRODUCT_IDS_BY_CHAIN: Record<number, Set<number>> = {
   [mantleSepoliaTestnet.id]: new Set(),
   [hardhat.id]: new Set(),
   [localhost.id]: new Set(),
+  [harmonyMainnet.id]: new Set(),
+  [harmonyTestnet.id]: new Set(),
 } satisfies Record<PrimaryChainID, Set<number>>;

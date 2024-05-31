@@ -41,6 +41,19 @@ const BRAND_SEO_METADATA_BY_BRAND_NAME: Record<BrandName, BrandSeoMetadata> = {
     tileColor: '#FF036D',
     headerColor: '#07070A',
   },
+  harmony: {
+    title: 'Harmony | A Leading Exchange for Spot & Perpetuals Trading',
+    description:
+      'A decentralized exchange for spot and perpetual trading on Harmony. Powered by Vertex Edge.',
+    bannerImage: 'https://blitz.exchange/img/twitter-preview-banner.png',
+    favicon: '/harmony-favicon.ico',
+    appleTouchIcon: '/harmony-apple-touch-icon.png',
+    favicon32x32: '/harmony-favicon-32x32.png',
+    favicon16x16: '/harmony-favicon-16x16.png',
+    safariPinnedTab: '/harmony-icon.svg',
+    tileColor: '#00AEE9',
+    headerColor: '#0C0C14',
+  },
 };
 
 export const BRAND_SEO_METADATA =

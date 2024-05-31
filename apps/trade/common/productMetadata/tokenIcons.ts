@@ -50,6 +50,7 @@ import wbtcIcon from 'public/tokens/wbtc.svg';
 import wethIcon from 'public/tokens/weth.svg';
 import wldIcon from 'public/tokens/wld.svg';
 import xrpIcon from 'public/tokens/xrp.svg';
+import oneIcon from 'public/tokens/one.svg';
 
 export interface TokenIconMetadata {
   url: string;
@@ -260,5 +261,9 @@ export const TOKEN_ICONS = {
   jup: {
     url: '/tokens/jup.svg',
     asset: jupIcon,
+  },
+  one: {
+    url: '/tokens/one.svg',
+    asset: oneIcon,
   },
 } satisfies Record<string, TokenIconMetadata>;

@@ -5,8 +5,11 @@ import {
   NotifiSubscriptionCard,
 } from '@notifi-network/notifi-react-card';
 import { NotifiEnvironment } from '@notifi-network/notifi-react-hooks';
-import { useEVMContext } from '@vertex-protocol/web-data';
-import { arbitrum, arbitrumSepolia } from '@wagmi/core/chains';
+import {
+  useEVMContext,
+  arbitrum,
+  arbitrumSepolia,
+} from '@vertex-protocol/web-data';
 import { SENSITIVE_DATA } from 'common/environment/sensitiveData';
 import { toBytes } from 'viem';
 

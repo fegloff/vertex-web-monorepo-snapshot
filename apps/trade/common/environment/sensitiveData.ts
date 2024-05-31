@@ -11,10 +11,12 @@ export const SENSITIVE_DATA = {
   googleAnalyticsId: {
     vertex: '',
     blitz: '',
+    harmony: '',
   },
   walletConnectProjectId: {
     vertex: '',
     blitz: '',
+    harmony: '',
   },
   notifiCardId: {
     prod: '',

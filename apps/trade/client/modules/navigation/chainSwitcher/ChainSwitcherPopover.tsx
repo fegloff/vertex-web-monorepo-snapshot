@@ -6,18 +6,17 @@ import {
   VERTEX_SPECIFIC_LINKS,
   WithChildren,
 } from '@vertex-protocol/web-common';
-import { PrimaryChainID, useEVMContext } from '@vertex-protocol/web-data';
+import {
+  harmonyTestnet,
+  PrimaryChainID,
+  useEVMContext,
+} from '@vertex-protocol/web-data';
 import {
   Divider,
   Icons,
   NavBarCardButton,
   PrimaryButton,
 } from '@vertex-protocol/web-ui';
-import {
-  arbitrum,
-  arbitrumSepolia,
-  mantleSepoliaTestnet,
-} from '@wagmi/core/chains';
 import { CHAIN_ICON_BY_CHAIN } from 'client/assets/chains/chainIcons';
 import { ChainSwitcherItemButton } from 'client/modules/navigation/chainSwitcher/components/ChainSwitcherItemButton';
 import { NavPopoverContentContainer } from 'client/modules/navigation/components/NavPopoverContentContainer';
@@ -27,6 +26,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import blitzIcon from './assets/blitz-chain-switcher-icon.svg';
+import harmonyIcon from './assets/one.svg';
+
+import {
+  harmonyMainnet,
+  arbitrum,
+  arbitrumSepolia,
+  mantleSepoliaTestnet,
+} from '@vertex-protocol/web-data';
 
 interface NetworkOption {
   icon: NextImageSrc;
@@ -61,6 +68,24 @@ const NETWORK_OPTIONS = ((): NetworkOption[] => {
           chainEnv: 'mainnet',
         },
       ];
+    case 'harmonyMainnet':
+      return [
+        {
+          icon: CHAIN_ICON_BY_CHAIN[harmonyMainnet.id],
+          label: 'Harmony',
+          primaryChainId: harmonyMainnet.id,
+          chainEnv: 'harmonyMainnet',
+        },
+      ];
+    case 'harmonyTestnet':
+      return [
+        {
+          icon: CHAIN_ICON_BY_CHAIN[harmonyMainnet.id],
+          label: 'Harmony Testnet',
+          primaryChainId: harmonyTestnet.id,
+          chainEnv: 'harmonyTestnet',
+        },
+      ];
     default:
       console.error(
         '[ChainSwitcherPopover] Invalid dataEnv for chain switcher',
@@ -75,6 +100,7 @@ export function ChainSwitcherPopover() {
     setPrimaryChainEnv,
     chainStatus: { isIncorrectChain },
     switchChain,
+    supportedChains,
   } = useEVMContext();
 
   const triggerChainIcon = (

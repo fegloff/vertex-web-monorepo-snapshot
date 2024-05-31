@@ -9,6 +9,7 @@ import brandName from './common/environment/envBrandName';
 const preset = {
   vertex: VERTEX_TAILWIND_CONFIG,
   blitz: BLITZ_TAILWIND_CONFIG,
+  harmony: BLITZ_TAILWIND_CONFIG,
 }[brandName];
 
 console.log(`Initializing TW Config for ${brandName}.`);

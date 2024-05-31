@@ -5,4 +5,5 @@ export const WALLETCONNECT_PROJECT_ID_BY_BRAND_NAME: Record<BrandName, string> =
   {
     vertex: SENSITIVE_DATA.walletConnectProjectId.vertex,
     blitz: SENSITIVE_DATA.walletConnectProjectId.blitz,
+    harmony: SENSITIVE_DATA.walletConnectProjectId.harmony,
   };

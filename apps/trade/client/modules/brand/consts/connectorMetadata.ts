@@ -33,6 +33,17 @@ const CONNECTOR_OPTIONS_METADATA_BY_BRAND_NAME: Record<
       appName: 'Blitz',
     },
   },
+  harmony: {
+    walletConnect: {
+      name: 'Harmony',
+      description: 'Harmony',
+      url: 'https://app.harmony.exchange/',
+      icons: ['https://app.harmony.exchange/harmony-icon.svg'],
+    },
+    coinbase: {
+      appName: 'Harmony',
+    },
+  },
 };
 
 export const CONNECTOR_OPTIONS_METADATA =

@@ -1,1 +1,1 @@
-export type BrandName = 'vertex' | 'blitz';
+export type BrandName = 'vertex' | 'blitz' | 'harmony';

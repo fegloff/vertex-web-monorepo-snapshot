@@ -3,8 +3,9 @@ import {
   PrimaryChainID,
   usePrimaryChainId,
   useVertexClient,
+  createQueryKey,
 } from '@vertex-protocol/web-data';
-import { createQueryKey } from '@vertex-protocol/web-data';
+
 import { useFilteredMarkets } from 'client/hooks/markets/useFilteredMarkets';
 import { QueryDisabledError } from 'client/hooks/query/QueryDisabledError';
 import { MarketFilter } from 'client/types/MarketFilter';

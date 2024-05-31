@@ -6,6 +6,8 @@ import vertexLogo from 'client/assets/brand/vertex-logo.svg';
 import { clientEnv } from 'common/environment/clientEnv';
 import blitzIcon from 'public/blitz-icon.svg';
 import vertexIcon from 'public/vertex-icon.svg';
+import harmonyIcon from 'public/harmony-icon.svg';
+import harmonyLogo from 'client/assets/brand/harmony-logo.svg';
 
 export const IMAGES = {
   vertex: {
@@ -17,6 +19,10 @@ export const IMAGES = {
   blitz: {
     brandIcon: blitzIcon,
     brandLogo: blitzLogo,
+  },
+  harmony: {
+    brandIcon: harmonyIcon,
+    brandLogo: harmonyLogo,
   },
 }[clientEnv.base.brandName];
 
