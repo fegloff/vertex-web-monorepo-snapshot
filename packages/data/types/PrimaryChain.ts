@@ -6,9 +6,9 @@ import {
   hardhat,
   localhost,
   mantleSepoliaTestnet,
-  harmonyOne,
+  harmonyMainnet,
   harmonyTestnet,
-} from '@vertex-protocol/web-data/context/evm/utils';
+} from '../context/evm/utils';
 
 const PRIMARY_CHAINS = [
   localhost,
@@ -18,7 +18,7 @@ const PRIMARY_CHAINS = [
   blastSepolia,
   blast,
   mantleSepoliaTestnet,
-  harmonyOne,
+  harmonyMainnet,
   harmonyTestnet,
 ] as const;
 

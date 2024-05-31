@@ -1,5 +1,5 @@
 import { useEVMContext } from '@vertex-protocol/web-data';
-import { arbitrum, arbitrumSepolia } from '@wagmi/core/chains';
+import { arbitrum, arbitrumSepolia } from '@vertex-protocol/web-data';
 import {
   ARB_ARB_ONE,
   ARB_ARB_SEPOLIA,

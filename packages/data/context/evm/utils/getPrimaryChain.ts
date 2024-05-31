@@ -6,9 +6,10 @@ import {
   blastSepolia,
   localhost,
   mantleSepoliaTestnet,
-  harmonyOne,
+  harmonyMainnet,
   harmonyTestnet,
-} from '@vertex-protocol/web-data';
+} from './chains';
+
 import { PrimaryChain } from '../../../types';
 
 export function getPrimaryChain(chainEnv: ChainEnv): PrimaryChain {
@@ -25,8 +26,8 @@ export function getPrimaryChain(chainEnv: ChainEnv): PrimaryChain {
       return arbitrum;
     case 'blastMainnet':
       return blast;
-    case 'harmonyOne':
-      return harmonyOne;
+    case 'harmonyMainnet':
+      return harmonyMainnet;
     case 'harmonyTestnet':
       return harmonyTestnet;
   }

@@ -1,5 +1,4 @@
 import { PrimaryChainID } from '@vertex-protocol/web-data';
-import { mantleSepoliaTestnet } from '@wagmi/core/chains';
 import {
   VRTX_ARB_ONE,
   VRTX_ARB_SEPOLIA,
@@ -17,8 +16,10 @@ import {
   blast,
   blastSepolia,
   hardhat,
-  harmonyOne,
   localhost,
+  harmonyMainnet,
+  mantleSepoliaTestnet,
+  harmonyTestnet,
 } from '@vertex-protocol/web-data';
 import { USDC_HARMONY } from './harmony/tokens';
 
@@ -32,7 +33,7 @@ export const PROTOCOL_TOKEN_BY_CHAIN: Record<number, Token> = {
   [mantleSepoliaTestnet.id]: USDC_MANTLE_SEPOLIA,
   [hardhat.id]: VRTX_HARDHAT,
   [localhost.id]: VRTX_HARDHAT,
-  [harmonyOne.id]: USDC_HARMONY,
+  [harmonyMainnet.id]: USDC_HARMONY,
 } satisfies Record<PrimaryChainID, Token>;
 
 export const PROTOCOL_TOKEN_PRODUCT_ID_BY_CHAIN: Record<number, number> = {
@@ -46,5 +47,5 @@ export const PROTOCOL_TOKEN_PRODUCT_ID_BY_CHAIN: Record<number, number> = {
   [hardhat.id]: 41,
   [localhost.id]: 41,
   // No protocol token on harmony??
-  [harmonyOne.id]: -1,
+  [harmonyMainnet.id]: -1,
 } satisfies Record<PrimaryChainID, number>;

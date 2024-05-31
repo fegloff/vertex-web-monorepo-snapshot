@@ -1,7 +1,7 @@
 import { EVMContextParams, WagmiConfigParams } from '@vertex-protocol/web-data';
-import { arbitrumSepolia, mantleSepoliaTestnet } from '@wagmi/core/chains';
 import { CONNECTOR_OPTIONS_METADATA } from 'client/modules/brand/consts/connectorMetadata';
 import { clientEnv } from 'common/environment/clientEnv';
+import { ChainEnv } from '@vertex-protocol/client';
 import {
   arbitrum,
   avalanche,
@@ -17,8 +17,10 @@ import {
   optimism,
   polygon,
   sepolia,
-  harmonyOne,
+  harmonyMainnet,
   harmonyTestnet,
+  arbitrumSepolia,
+  mantleSepoliaTestnet,
 } from '@vertex-protocol/web-data';
 
 export function getEVMContextParams(): EVMContextParams {
@@ -80,8 +82,8 @@ export function getEVMContextParams(): EVMContextParams {
       };
     case 'harmonyMainnet':
       return {
-        supportedChainEnvs: ['harmonyOne'],
-        supportedChains: [harmonyOne],
+        supportedChainEnvs: ['harmonyMainnet'],
+        supportedChains: [harmonyMainnet],
         connectorOptions,
       };
     case 'harmonyTestnet':

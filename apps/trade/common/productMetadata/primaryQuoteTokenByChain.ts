@@ -5,10 +5,10 @@ import {
   blast,
   blastSepolia,
   hardhat,
-  harmonyOne,
+  harmonyMainnet,
   localhost,
   mantleSepoliaTestnet,
-} from '@wagmi/core/chains';
+} from '@vertex-protocol/web-data';
 import {
   USDC_ARB_ONE,
   USDC_ARB_SEPOLIA,
@@ -30,5 +30,5 @@ export const PRIMARY_QUOTE_TOKEN_BY_CHAIN: Record<number, Token> = {
   [mantleSepoliaTestnet.id]: USDC_MANTLE_SEPOLIA,
   [hardhat.id]: USDC_HARDHAT,
   [localhost.id]: USDC_HARDHAT,
-  [harmonyOne.id]: USDC_HARMONY,
+  [harmonyMainnet.id]: USDC_HARMONY,
 } satisfies Record<PrimaryChainID, Token>;

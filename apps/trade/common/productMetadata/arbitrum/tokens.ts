@@ -1,4 +1,4 @@
-import { arbitrum, arbitrumSepolia } from '@wagmi/core/chains';
+import { arbitrum, arbitrumSepolia } from '@vertex-protocol/web-data';
 import { PRIMARY_QUOTE_SYMBOL } from 'common/productMetadata/primaryQuoteSymbol';
 import { TOKEN_ICONS } from 'common/productMetadata/tokenIcons';
 import { Token } from 'common/productMetadata/types';

@@ -1,6 +1,5 @@
 import { NextImageSrc } from '@vertex-protocol/web-common';
 import { PrimaryChainID } from '@vertex-protocol/web-data';
-import { mantleSepoliaTestnet } from '@wagmi/core/chains';
 import arbitrumLogo from 'client/assets/chains/arbitrum.svg';
 import blastLogo from 'client/assets/chains/blast.svg';
 import mantleLogo from 'client/assets/chains/mantle.svg';
@@ -12,8 +11,9 @@ import {
   blast,
   blastSepolia,
   hardhat,
-  harmonyOne,
+  harmonyMainnet,
   localhost,
+  mantleSepoliaTestnet,
 } from '@vertex-protocol/web-data';
 
 export const CHAIN_ICON_BY_CHAIN: Record<number, NextImageSrc> = {
@@ -24,5 +24,5 @@ export const CHAIN_ICON_BY_CHAIN: Record<number, NextImageSrc> = {
   [blastSepolia.id]: blastLogo,
   [blast.id]: blastLogo,
   [mantleSepoliaTestnet.id]: mantleLogo,
-  [harmonyOne.id]: harmonyLogo,
+  [harmonyMainnet.id]: harmonyLogo,
 } satisfies Record<PrimaryChainID, NextImageSrc>;
