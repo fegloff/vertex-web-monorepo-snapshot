@@ -3,6 +3,7 @@ import { SubaccountSummaryResponse } from '@vertex-protocol/contracts';
 import { HarmonyContext } from './context/types';
 
 export interface HarmonyClient {
+  isHarmony: boolean;
   subaccount: HarmonySubaccountAPI;
   context: HarmonyContext;
 }

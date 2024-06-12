@@ -16,8 +16,9 @@ export function useIndexerQuotePrice() {
       if (disabled) {
         throw new QueryDisabledError();
       }
-      return harmonyClient.context.indexerClient.getQuotePrice(primaryChainId);
-      // return vertexClient.context.indexerClient.getQuotePrice();
+      return harmonyClient.isHarmony
+        ? harmonyClient.context.indexerClient.getQuotePrice(primaryChainId)
+        : vertexClient.context.indexerClient.getQuotePrice();
     },
     enabled: !disabled,
   });

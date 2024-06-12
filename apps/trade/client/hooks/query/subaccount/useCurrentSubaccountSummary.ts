@@ -15,7 +15,6 @@ import {
   AnnotatedSubaccountSummary,
   annotateSubaccountSummary,
 } from './annotateSubaccountSummary';
-import { createHarmonyClient } from '@vertex-protocol/web-data/context/harmonyClient/client/harmonyClient';
 
 export function currentSubaccountSummaryQueryKey(
   chainId?: PrimaryChainID,
@@ -55,9 +54,9 @@ export function useCurrentSubaccountSummary() {
       subaccountName,
     };
     startProfiling();
-    const baseResponse =
-      await harmonyClient.subaccount.getEngineSubaccountSummary(params);
-    // await vertexClient.subaccount.getEngineSubaccountSummary(params);
+    const baseResponse = harmonyClient.isHarmony
+      ? await harmonyClient.subaccount.getEngineSubaccountSummary(params)
+      : await vertexClient.subaccount.getEngineSubaccountSummary(params);
 
     endProfiling();
     return annotateSubaccountSummary({
