@@ -8,7 +8,7 @@ interface Params {
 }
 
 export function useDepositTokenAllowance({ productId }: Params) {
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const { data: market } = useMarket<AnnotatedSpotMarket>({ productId });
 
   const spenderAddress = vertexClient?.context.contractAddresses.endpoint;

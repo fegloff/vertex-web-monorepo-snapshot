@@ -12,7 +12,7 @@ export interface VrtxPriceChartDataItem {
 
 export function useVrtxPriceChartData() {
   const { protocolTokenProductId } = useVertexMetadataContext();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
 
   const disabled = !vertexClient;
 

@@ -36,7 +36,7 @@ export function useTradingViewData({
     'tvCharts',
     false,
   );
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const { data: staticMarketData } = useAllMarketsStaticData();
 
   const symbolInfoByProductId = useMemo(

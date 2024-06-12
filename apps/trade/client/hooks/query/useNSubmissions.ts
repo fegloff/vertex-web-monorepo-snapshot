@@ -6,7 +6,7 @@ import { QueryDisabledError } from 'client/hooks/query/QueryDisabledError';
 
 export function useNSubmissions() {
   const primaryChainId = usePrimaryChainId();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const disabled = !vertexClient;
 
   return useQuery({

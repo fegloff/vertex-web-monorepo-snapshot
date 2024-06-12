@@ -28,7 +28,7 @@ export function subaccountCreationTimeQueryKey(
  */
 export function useSubaccountCreationTime() {
   const primaryChainId = usePrimaryChainId();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const {
     currentSubaccount: { address: subaccountOwner, name: subaccountName },
   } = useSubaccountContext();

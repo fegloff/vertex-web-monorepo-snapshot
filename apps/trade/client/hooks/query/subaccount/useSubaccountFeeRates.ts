@@ -21,7 +21,7 @@ export function subaccountFeeRatesQueryKey(
 export function useSubaccountFeeRates() {
   const primaryChainId = usePrimaryChainId();
   const { currentSubaccount } = useSubaccountContext();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const enableSubaccountQueries = useEnableSubaccountQueries();
 
   const disabled = !vertexClient || !enableSubaccountQueries;

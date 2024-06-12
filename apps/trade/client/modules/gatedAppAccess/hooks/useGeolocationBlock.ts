@@ -6,7 +6,7 @@ import { useSubaccountContext } from 'client/context/subaccount/SubaccountContex
 import { useDialog } from 'client/modules/app/dialogs/hooks/useDialog';
 
 export function useGeolocationBlock() {
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const { disconnect } = useSubaccountContext();
   const { show } = useDialog();
 

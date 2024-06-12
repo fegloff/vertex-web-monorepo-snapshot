@@ -23,7 +23,7 @@ const PERP_MARKET_FILTER: MarketFilter = {
 };
 
 export function useAllMarkets24HrFundingRates() {
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const primaryChainId = usePrimaryChainId();
   const { filteredProductIds } = useFilteredMarkets(PERP_MARKET_FILTER);
 

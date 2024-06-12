@@ -10,7 +10,7 @@ export function serverTimeQueryKey() {
  * Query for server time that refreshes every 5 seconds.
  */
 export function useServerTime() {
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const disabled = !vertexClient;
 
   return useQuery({

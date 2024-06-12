@@ -26,7 +26,7 @@ export function subaccountLinkedSignerQueryKey(
  */
 export function useSubaccountLinkedSigner() {
   const primaryChainId = usePrimaryChainId();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const {
     currentSubaccount: { address: subaccountOwner, name: subaccountName },
   } = useSubaccountContext();

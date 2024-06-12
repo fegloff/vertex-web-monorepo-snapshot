@@ -15,7 +15,7 @@ function latestEventSubmissionIndexQueryKey(chainId: PrimaryChainID) {
 
 export function useLatestEventSubmissionIndex() {
   const primaryChainId = usePrimaryChainId();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const disabled = !vertexClient;
 
   return useQuery({

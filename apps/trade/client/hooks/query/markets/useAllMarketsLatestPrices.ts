@@ -20,7 +20,7 @@ export function allLatestMarketPricesQueryKey(
 }
 
 export function useAllMarketsLatestPrices() {
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const primaryChainId = usePrimaryChainId();
   const { filteredProductIds: allProductIds } = useFilteredMarkets();
 

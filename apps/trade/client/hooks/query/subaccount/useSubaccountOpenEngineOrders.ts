@@ -33,7 +33,7 @@ export function subaccountOpenEngineOrdersQueryKey(
  */
 export function useSubaccountOpenEngineOrders(): QueryState<SubaccountOpenEngineOrders> {
   const primaryChainId = usePrimaryChainId();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const { filteredProductIds: allProductIds } = useFilteredMarkets();
   const {
     currentSubaccount: { name, address },

@@ -37,7 +37,7 @@ export function useSubaccountPaginatedHistoricalTrades({
   productIds,
 }: Params) {
   const primaryChainId = usePrimaryChainId();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const {
     currentSubaccount: { address: subaccountOwner, name: subaccountName },
   } = useSubaccountContext();

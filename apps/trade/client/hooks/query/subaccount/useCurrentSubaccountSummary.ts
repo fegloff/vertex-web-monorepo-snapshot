@@ -3,7 +3,6 @@ import { GetSubaccountSummaryParams } from '@vertex-protocol/contracts';
 import {
   PrimaryChainID,
   createQueryKey,
-  useHarmonyVertexClient,
   usePrimaryChainId,
   useVertexClient,
 } from '@vertex-protocol/web-data';
@@ -37,7 +36,7 @@ export function useCurrentSubaccountSummary() {
     true,
   );
   const primaryChainId = usePrimaryChainId();
-  const vertexClient = useVertexClient();
+  const { vertexClient, harmonyClient } = useVertexClient();
   const {
     currentSubaccount: { address: subaccountOwner, name: subaccountName },
   } = useSubaccountContext();
@@ -56,7 +55,6 @@ export function useCurrentSubaccountSummary() {
       subaccountName,
     };
     startProfiling();
-    const harmonyClient = createHarmonyClient();
     const baseResponse =
       await harmonyClient.subaccount.getEngineSubaccountSummary(params);
     // await vertexClient.subaccount.getEngineSubaccountSummary(params);

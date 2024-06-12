@@ -30,7 +30,7 @@ export interface AccountLbaState {
  */
 export function useAccountLbaState() {
   const { isArb } = useIsChainType();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const publicClient = usePrimaryChainPublicClient();
   const {
     connectionStatus: { address },

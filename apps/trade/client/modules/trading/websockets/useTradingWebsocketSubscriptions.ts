@@ -12,7 +12,7 @@ import useWebSocket, { ReadyState } from 'react-use-websocket';
 export function useTradingWebsocketSubscriptions(productId?: number) {
   const { primaryChainEnv } = useEVMContext();
   const queryClient = useQueryClient();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
 
   const wsEndpoint = useMemo(() => {
     return ENGINE_WS_SUBSCRIPTION_CLIENT_ENDPOINTS[primaryChainEnv];

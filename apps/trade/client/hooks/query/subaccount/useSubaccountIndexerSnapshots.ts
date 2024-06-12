@@ -55,7 +55,7 @@ export function useSubaccountIndexerSnapshots<TSelectedData = Data>({
   const {
     currentSubaccount: { name: subaccountName, address: subaccountOwner },
   } = useSubaccountContext();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const enableSubaccountQueries = useEnableSubaccountQueries();
 
   // If no current subaccount, query for a subaccount that does not exist to ensure that we have data

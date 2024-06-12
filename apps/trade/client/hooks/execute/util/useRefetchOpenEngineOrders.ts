@@ -10,7 +10,7 @@ import { useCallback } from 'react';
 
 export function useRefetchOpenEngineOrders() {
   const primaryChainId = usePrimaryChainId();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const queryClient = useQueryClient();
   const {
     currentSubaccount: { name: subaccountName, address: subaccountOwner },

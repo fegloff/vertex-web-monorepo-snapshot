@@ -18,7 +18,7 @@ export interface ValidExecuteContext {
 export function useExecuteInValidContext<TParams = unknown, TData = unknown>(
   fn: (params: TParams, context: ValidExecuteContext) => Promise<TData>,
 ): (params: TParams) => Promise<TData> {
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const { connectionStatus, primaryChain } = useEVMContext();
   const {
     currentSubaccount: { name: currentSubaccountName },

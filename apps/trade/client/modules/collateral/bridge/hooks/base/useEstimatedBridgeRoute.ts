@@ -32,7 +32,7 @@ export function useEstimatedBridgeRoute(
   params: BridgeRequestParams | undefined,
 ) {
   const squidSDK = useSquidSDK();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const {
     currentSubaccount: { address: subaccountAddr, name: subaccountName },
   } = useSubaccountContext();

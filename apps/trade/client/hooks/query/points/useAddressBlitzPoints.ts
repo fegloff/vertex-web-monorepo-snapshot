@@ -16,7 +16,7 @@ export function addressBlitzPointsQueryKey(sender?: string) {
 export function useAddressBlitzPoints() {
   const { isBlast } = useIsChainType();
   const { currentSubaccount } = useSubaccountContext();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const enableSubaccountQueries = useEnableSubaccountQueries();
 
   const disabled = !vertexClient || !enableSubaccountQueries || !isBlast;

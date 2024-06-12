@@ -19,7 +19,7 @@ const NOT_CONNECTED_REWARDS_ADDRESS =
 export function useSubaccountTokenRewards() {
   const { isArb } = useIsChainType();
   const { currentSubaccount } = useSubaccountContext();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const enableSubaccountQueries = useEnableSubaccountQueries();
 
   // Rewards on non-arb chains follow a points structure

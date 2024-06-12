@@ -48,7 +48,7 @@ export function useAllMarkets<TSelectedData = AllMarketsData>(
     'allMarkets',
     true,
   );
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const { getPerpMetadata, getSpotMetadata } = useVertexMetadataContext();
   const primaryChainId = usePrimaryChainId();
 

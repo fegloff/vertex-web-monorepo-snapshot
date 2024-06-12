@@ -7,7 +7,7 @@ import { useTokenAllowance } from 'client/hooks/query/useTokenAllowance';
  */
 export function useLbaUsdcAllowance() {
   const { primaryQuoteToken } = useVertexMetadataContext();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
 
   return useTokenAllowance({
     spenderAddress: vertexClient?.context.contractAddresses.vrtxLba,

@@ -33,7 +33,7 @@ export function tokenAllowanceQueryKey(
 
 export function useTokenAllowance({ tokenAddress, spenderAddress }: Params) {
   const primaryChainId = usePrimaryChainId();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const {
     connectionStatus: { address },
   } = useEVMContext();

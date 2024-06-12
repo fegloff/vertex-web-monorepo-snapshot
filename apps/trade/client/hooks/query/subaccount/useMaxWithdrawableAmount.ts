@@ -35,7 +35,7 @@ interface Params {
 export function useMaxWithdrawableAmount(params?: Params) {
   const primaryChainId = usePrimaryChainId();
   const { currentSubaccount } = useSubaccountContext();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
 
   const disabled =
     !currentSubaccount.address ||

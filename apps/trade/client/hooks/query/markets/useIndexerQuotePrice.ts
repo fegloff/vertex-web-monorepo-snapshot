@@ -8,8 +8,7 @@ import { QueryDisabledError } from 'client/hooks/query/QueryDisabledError';
 
 export function useIndexerQuotePrice() {
   const primaryChainId = usePrimaryChainId();
-  const vertexClient = useVertexClient();
-  const harmonyClient = createHarmonyClient();
+  const { vertexClient, harmonyClient } = useVertexClient();
   const disabled = !vertexClient;
   return useQuery({
     queryKey: ['quotePrice', primaryChainId],

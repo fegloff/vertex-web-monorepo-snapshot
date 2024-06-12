@@ -4,10 +4,15 @@ import { createContext, useContext, useMemo } from 'react';
 import { useEVMContext } from '../evm';
 import { getVertexClientOpts } from './getVertexClientOpts';
 import { useBaseVertexClient } from './useBaseVertexClient';
+import { HarmonyClient } from '../harmonyClient/client/types';
+import { createHarmonyClient } from '../harmonyClient/client/harmonyClient';
 
 interface Props extends WithChildren {}
 
-type VertexClientContextData = VertexClient | undefined;
+type VertexClientContextData = {
+  vertexClient: VertexClient | undefined;
+  harmonyClient: HarmonyClient;
+};
 
 const VertexClientContext = createContext<VertexClientContextData>(
   {} as VertexClientContextData,
@@ -33,9 +38,16 @@ export function VertexClientContextProvider({ children }: Props) {
     clientOpts,
   });
 
+  const harmonyClient = useMemo(() => {
+    return createHarmonyClient();
+  }, []);
+
   const data: VertexClientContextData = useMemo(() => {
-    return vertexClient;
-  }, [vertexClient]);
+    return {
+      vertexClient,
+      harmonyClient,
+    };
+  }, [vertexClient, harmonyClient]);
 
   return (
     <VertexClientContext.Provider value={data}>

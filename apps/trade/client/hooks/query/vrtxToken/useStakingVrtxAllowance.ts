@@ -6,7 +6,7 @@ import { useTokenAllowance } from 'client/hooks/query/useTokenAllowance';
  * Queries VRTX allowance for the staking contract
  */
 export function useStakingVrtxAllowance() {
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const { protocolToken } = useVertexMetadataContext();
 
   return useTokenAllowance({

@@ -24,7 +24,7 @@ interface Data {
 
 export function useHealthGroups() {
   const primaryChainId = usePrimaryChainId();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const disabled = !vertexClient;
 
   return useQuery({

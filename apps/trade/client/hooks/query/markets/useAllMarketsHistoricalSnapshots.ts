@@ -31,7 +31,7 @@ export function useAllMarketsHistoricalSnapshots({
     'allMarketHistoricalSnapshots',
     true,
   );
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
 
   const disabled = !vertexClient;
 

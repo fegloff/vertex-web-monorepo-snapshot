@@ -21,7 +21,7 @@ interface Params {
 }
 
 export function useAddressPaginatedRewards({ pageSize = 10 }: Params) {
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const {
     currentSubaccount: { address },
   } = useSubaccountContext();

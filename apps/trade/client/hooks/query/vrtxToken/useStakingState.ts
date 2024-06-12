@@ -34,7 +34,7 @@ interface Data {
  */
 export function useStakingState() {
   const { isArb } = useIsChainType();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const publicClient = usePrimaryChainPublicClient();
   const enableSubaccountQueries = useEnableSubaccountQueries();
 
