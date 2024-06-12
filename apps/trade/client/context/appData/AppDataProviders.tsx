@@ -1,7 +1,6 @@
 import { WithChildren } from '@vertex-protocol/web-common';
 import {
   EVMContextProvider,
-  HarmonyVertexClientContextProvider,
   VertexClientContextProvider,
 } from '@vertex-protocol/web-data';
 import { getEVMContextParams } from 'client/context/appData/getEVMContextParams';
@@ -35,13 +34,11 @@ export function AppDataProviders({ children }: WithChildren) {
       setPrimaryChainEnv={setSavedPrimaryChainEnv}
     >
       <VertexClientContextProvider>
-        {/* <HarmonyVertexClientContextProvider> */}
         <SubaccountContextProvider>
           <VertexMetadataContextProvider>
             {children}
           </VertexMetadataContextProvider>
         </SubaccountContextProvider>
-        {/* </HarmonyVertexClientContextProvider> */}
       </VertexClientContextProvider>
     </EVMContextProvider>
   );
