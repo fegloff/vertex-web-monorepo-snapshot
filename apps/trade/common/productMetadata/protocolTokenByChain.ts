@@ -34,6 +34,7 @@ export const PROTOCOL_TOKEN_BY_CHAIN: Record<number, Token> = {
   [hardhat.id]: VRTX_HARDHAT,
   [localhost.id]: VRTX_HARDHAT,
   [harmonyMainnet.id]: USDC_HARMONY,
+  [harmonyTestnet.id]: USDC_HARMONY,
 } satisfies Record<PrimaryChainID, Token>;
 
 export const PROTOCOL_TOKEN_PRODUCT_ID_BY_CHAIN: Record<number, number> = {
@@ -48,4 +49,5 @@ export const PROTOCOL_TOKEN_PRODUCT_ID_BY_CHAIN: Record<number, number> = {
   [localhost.id]: 41,
   // No protocol token on harmony??
   [harmonyMainnet.id]: -1,
+  [harmonyTestnet.id]: -1,
 } satisfies Record<PrimaryChainID, number>;

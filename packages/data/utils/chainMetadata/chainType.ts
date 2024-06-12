@@ -23,7 +23,6 @@ const ARB_CHAIN_IDS = new Set<number>([
   arbitrumSepolia.id,
   localhost.id,
   hardhat.id,
-  harmonyMainnet.id,
 ]);
 
 const MANTLE_CHAIN_IDS = new Set<number>([mantle.id, mantleSepoliaTestnet.id]);

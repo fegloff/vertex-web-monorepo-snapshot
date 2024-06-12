@@ -51,6 +51,7 @@ export const SPOT_METADATA_BY_CHAIN: Record<
   [hardhat.id]: HARDHAT_SPOT_METADATA_BY_PRODUCT_ID,
   [localhost.id]: HARDHAT_SPOT_METADATA_BY_PRODUCT_ID,
   [harmonyMainnet.id]: HARMONY_SPOT_METADATA_BY_PRODUCT_ID,
+  [harmonyTestnet.id]: HARMONY_SPOT_METADATA_BY_PRODUCT_ID,
 } satisfies Record<PrimaryChainID, Record<number, SpotProductMetadata>>;
 
 export const PERP_METADATA_BY_CHAIN: Record<
@@ -65,4 +66,5 @@ export const PERP_METADATA_BY_CHAIN: Record<
   [hardhat.id]: HARDHAT_PERP_METADATA_BY_PRODUCT_ID,
   [localhost.id]: HARDHAT_PERP_METADATA_BY_PRODUCT_ID,
   [harmonyMainnet.id]: HARMONY_PERP_METADATA_BY_PRODUCT_ID,
+  [harmonyTestnet.id]: HARMONY_PERP_METADATA_BY_PRODUCT_ID,
 } satisfies Record<PrimaryChainID, Record<number, PerpProductMetadata>>;

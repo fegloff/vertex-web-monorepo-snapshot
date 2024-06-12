@@ -80,7 +80,7 @@ const NETWORK_OPTIONS = ((): NetworkOption[] => {
     case 'harmonyTestnet':
       return [
         {
-          icon: CHAIN_ICON_BY_CHAIN[harmonyMainnet.id],
+          icon: CHAIN_ICON_BY_CHAIN[harmonyTestnet.id],
           label: 'Harmony Testnet',
           primaryChainId: harmonyTestnet.id,
           chainEnv: 'harmonyTestnet',

@@ -14,9 +14,9 @@ export const SENSITIVE_DATA = {
     harmony: '',
   },
   walletConnectProjectId: {
-    vertex: '',
+    vertex: process.env.NEXT_PUBLIC_WALLET_CONNECT_KEY ?? '',
     blitz: '',
-    harmony: '',
+    harmony: process.env.NEXT_PUBLIC_WALLET_CONNECT_KEY ?? '',
   },
   notifiCardId: {
     prod: '',

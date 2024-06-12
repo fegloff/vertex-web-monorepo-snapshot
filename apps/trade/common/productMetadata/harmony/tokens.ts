@@ -9,7 +9,9 @@ import { ZeroAddress } from 'ethers';
 const harmonyChainId = harmonyMainnet.id;
 
 export const USDC_HARMONY: Token = {
-  address: localSdkConfig.spotProducts['USDC'].address.toLowerCase(),
+  // contact address taken from here: https://www.coingecko.com/en/coins/harmony-horizen-bridged-usdc-harmony
+  address: '0x985458e523db3d53125813ed68c274899e9dfab4',
+  //   address: localSdkConfig.spotProducts['USDC'].address.toLowerCase(),
   chainId: harmonyChainId,
   tokenDecimals: localSdkConfig.spotProducts['USDC'].decimals,
   name: 'USD Coin',

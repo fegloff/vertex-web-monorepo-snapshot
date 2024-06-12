@@ -87,7 +87,6 @@ function derivedSubaccountOverviewQueryKey(
 export function useDerivedSubaccountOverview(): QueryState<DerivedSubaccountOverviewData> {
   const { data, dataUpdatedAt, ...rest } = useCurrentSubaccountSummary();
   const quotePrice = useQuotePriceUsd();
-
   // Optional queries
   const { data: indexerSnapshot, dataUpdatedAt: indexerSnapshotUpdatedAt } =
     useSubaccountIndexerSnapshot();

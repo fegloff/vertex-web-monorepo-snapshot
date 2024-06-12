@@ -1,5 +1,5 @@
 import { NextImageSrc } from '@vertex-protocol/web-common';
-import { PrimaryChainID } from '@vertex-protocol/web-data';
+import { PrimaryChainID, harmonyTestnet } from '@vertex-protocol/web-data';
 import arbitrumLogo from 'client/assets/chains/arbitrum.svg';
 import blastLogo from 'client/assets/chains/blast.svg';
 import mantleLogo from 'client/assets/chains/mantle.svg';
@@ -25,4 +25,5 @@ export const CHAIN_ICON_BY_CHAIN: Record<number, NextImageSrc> = {
   [blast.id]: blastLogo,
   [mantleSepoliaTestnet.id]: mantleLogo,
   [harmonyMainnet.id]: harmonyLogo,
+  [harmonyTestnet.id]: harmonyLogo,
 } satisfies Record<PrimaryChainID, NextImageSrc>;

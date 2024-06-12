@@ -1,4 +1,4 @@
-import { PrimaryChainID } from '@vertex-protocol/web-data';
+import { PrimaryChainID, harmonyTestnet } from '@vertex-protocol/web-data';
 import {
   arbitrum,
   arbitrumSepolia,
@@ -31,4 +31,5 @@ export const PRIMARY_QUOTE_TOKEN_BY_CHAIN: Record<number, Token> = {
   [hardhat.id]: USDC_HARDHAT,
   [localhost.id]: USDC_HARDHAT,
   [harmonyMainnet.id]: USDC_HARMONY,
+  [harmonyTestnet.id]: USDC_HARMONY,
 } satisfies Record<PrimaryChainID, Token>;

@@ -22,7 +22,6 @@ export function VertexClientContextProvider({ children }: Props) {
     primaryProvider: provider,
     primaryChain: { id: primaryChainId },
   } = useEVMContext();
-
   const clientOpts = useMemo(() => {
     return getVertexClientOpts(primaryChainEnv);
   }, [primaryChainEnv]);

@@ -12,7 +12,6 @@ export function getWagmiConfig(params: WagmiConfigParams): Config {
     walletConnect(params.connectorOptions.walletConnect),
     coinbaseWallet(params.connectorOptions.coinbase),
   ];
-
   return createConfig({
     chains: params.supportedChains as unknown as readonly [Chain, ...Chain[]],
     connectors: connectorFns,
