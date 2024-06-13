@@ -1,7 +1,6 @@
-import { useIsChainType } from '../../../hooks';
 import { context } from './context';
-import subaccount from './subaccount';
-import { HarmonyClient, HarmonySubaccountAPI } from './types';
+import subaccount from './subaccount/subaccount';
+import { HarmonyClient } from './types';
 
 const isHarmony = (): boolean => {
   return !!process.env.NEXT_PUBLIC_DATA_ENV?.includes('harmony');

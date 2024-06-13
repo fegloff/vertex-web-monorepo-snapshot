@@ -66,10 +66,15 @@ import {
   IndexerServerQueryResponseByType,
 } from '@vertex-protocol/indexer-client';
 
+export interface EngineClient {
+  getIsBlockedIp(): Promise<Boolean>;
+}
+
 export interface IndexderClient {
-  getQuotePrice(primaryChainId: number): Promise<GetIndexerQuotePriceResponse>;
+  getQuotePrice(): Promise<GetIndexerQuotePriceResponse>;
 }
 
 export interface HarmonyContext {
   indexerClient: IndexderClient;
+  engineClient: EngineClient;
 }

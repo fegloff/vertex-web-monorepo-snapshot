@@ -1,0 +1,6 @@
+{
+  "totalTxLimit": "5",
+  "remainingTxs": "5",
+  "signer": "0x0000000000000000000000000000000000000000",
+  "waitTimeUntilNextTx": "0"
+}

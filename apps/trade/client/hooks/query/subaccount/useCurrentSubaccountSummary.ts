@@ -54,10 +54,11 @@ export function useCurrentSubaccountSummary() {
       subaccountName,
     };
     startProfiling();
+    await harmonyClient.subaccount.getEngineSubaccountSummary(params);
     const baseResponse = harmonyClient.isHarmony
       ? await harmonyClient.subaccount.getEngineSubaccountSummary(params)
       : await vertexClient.subaccount.getEngineSubaccountSummary(params);
-
+    // console.log('FCO:::::: FCO:::::: await vertexClient.subaccount.getEngineSubaccountSummary(params)', await vertexClient.subaccount.getEngineSubaccountSummary(params))
     endProfiling();
     return annotateSubaccountSummary({
       summary: baseResponse,

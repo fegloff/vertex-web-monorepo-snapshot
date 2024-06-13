@@ -17,6 +17,10 @@ export function useGeolocationBlock() {
       if (disabled) {
         throw new QueryDisabledError();
       }
+      console.log(
+        'FCO:::::::: vertexClient.context.engineClient.getIsBlockedIp()',
+        await vertexClient.context.engineClient.getIsBlockedIp(),
+      );
       return vertexClient.context.engineClient.getIsBlockedIp();
     },
     enabled: !disabled,
