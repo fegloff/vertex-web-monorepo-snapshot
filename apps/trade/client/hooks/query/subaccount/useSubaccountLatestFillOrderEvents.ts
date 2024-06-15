@@ -27,7 +27,7 @@ export function subaccountLatestFillOrderEventsQueryKey(
  */
 export function useSubaccountLatestFillOrderEvents() {
   const primaryChainId = usePrimaryChainId();
-  const { vertexClient } = useVertexClient();
+  const { vertexClient, harmonyClient } = useVertexClient();
   const {
     currentSubaccount: { address: subaccountOwner, name: subaccountName },
   } = useSubaccountContext();
@@ -48,9 +48,13 @@ export function useSubaccountLatestFillOrderEvents() {
         subaccountName,
         limit: 10,
       };
-      return vertexClient.context.indexerClient.getPaginatedSubaccountMatchEvents(
-        params,
-      );
+      return harmonyClient.isHarmony
+        ? harmonyClient.context.indexerClient.getPaginatedSubaccountMatchEvents(
+            params,
+          )
+        : vertexClient.context.indexerClient.getPaginatedSubaccountMatchEvents(
+            params,
+          );
     },
     enabled: !disabled,
     refetchInterval: 5000,

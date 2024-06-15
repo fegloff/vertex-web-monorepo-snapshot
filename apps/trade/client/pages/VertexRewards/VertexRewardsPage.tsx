@@ -1,4 +1,4 @@
-import { ChainEnv } from '@vertex-protocol/client';
+import { ChainEnv } from '@vertex-protocol/web-data';
 import { joinClassNames } from '@vertex-protocol/web-common';
 import { PrimaryChain, useEVMContext } from '@vertex-protocol/web-data';
 import { Card, PrimaryButton } from '@vertex-protocol/web-ui';

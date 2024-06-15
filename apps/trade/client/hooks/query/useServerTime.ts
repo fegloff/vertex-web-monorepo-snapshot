@@ -10,7 +10,7 @@ export function serverTimeQueryKey() {
  * Query for server time that refreshes every 5 seconds.
  */
 export function useServerTime() {
-  const { vertexClient } = useVertexClient();
+  const { vertexClient, harmonyClient } = useVertexClient();
   const disabled = !vertexClient;
 
   return useQuery({
@@ -19,7 +19,9 @@ export function useServerTime() {
       if (disabled) {
         throw new QueryDisabledError();
       }
-      return vertexClient.context.engineClient.getTime();
+      return harmonyClient.isHarmony
+        ? harmonyClient.context.engineClient.getTime()
+        : vertexClient.context.engineClient.getTime();
     },
     enabled: !disabled,
     refetchInterval: 5000,

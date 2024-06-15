@@ -64,7 +64,7 @@ export function useSubaccountPaginatedRealizedPnlEvents({
   productIds,
 }: Params) {
   const primaryChainId = usePrimaryChainId();
-  const { vertexClient } = useVertexClient();
+  const { vertexClient, harmonyClient } = useVertexClient();
   const {
     currentSubaccount: { address: subaccountOwner, name: subaccountName },
   } = useSubaccountContext();
@@ -101,10 +101,13 @@ export function useSubaccountPaginatedRealizedPnlEvents({
           productIds,
         };
 
-        const matchEventsResponse =
-          await vertexClient.context.indexerClient.getPaginatedSubaccountMatchEvents(
-            params,
-          );
+        const matchEventsResponse = harmonyClient.isHarmony
+          ? await harmonyClient.context.indexerClient.getPaginatedSubaccountMatchEvents(
+              params,
+            )
+          : await vertexClient.context.indexerClient.getPaginatedSubaccountMatchEvents(
+              params,
+            );
 
         matchEventsResponse.events.forEach((event) => {
           // Realized PnL = -1 * amount delta * (fill price inc. fees - pre-entry price) = amount delta * (pre-entry price - fill price inc. fees)

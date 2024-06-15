@@ -1,5 +1,6 @@
 import { context } from './context';
 import subaccount from './subaccount/subaccount';
+import { market } from './market';
 import { HarmonyClient } from './types';
 
 const isHarmony = (): boolean => {
@@ -11,5 +12,6 @@ export function createHarmonyClient(): HarmonyClient {
     isHarmony: isHarmony(),
     subaccount,
     context,
+    market,
   };
 }

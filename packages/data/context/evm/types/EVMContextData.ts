@@ -1,4 +1,4 @@
-import { ChainEnv } from '@vertex-protocol/client';
+import { ChainEnv } from '@vertex-protocol/web-data';
 import { Provider } from 'ethers';
 import { Chain } from 'viem';
 import { Connector } from 'wagmi';

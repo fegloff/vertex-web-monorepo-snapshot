@@ -12,7 +12,7 @@ function engineStatusQueryKey(chainId?: PrimaryChainID) {
 
 export function useEngineStatus() {
   const primaryChainId = usePrimaryChainId();
-  const { vertexClient } = useVertexClient();
+  const { vertexClient, harmonyClient } = useVertexClient();
   const disabled = !vertexClient;
 
   return useQuery({
@@ -21,7 +21,9 @@ export function useEngineStatus() {
       if (disabled) {
         throw new QueryDisabledError();
       }
-      return vertexClient.context.engineClient.getStatus();
+      return harmonyClient.isHarmony
+        ? harmonyClient.context.engineClient.getStatus()
+        : vertexClient.context.engineClient.getStatus();
     },
     enabled: !disabled,
     // 1 min refresh

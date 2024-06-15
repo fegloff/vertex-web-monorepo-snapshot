@@ -65,13 +65,25 @@ import {
   IndexerServerQueryRequestByType,
   IndexerServerQueryResponseByType,
 } from '@vertex-protocol/indexer-client';
+import {
+  EngineServerStatusResponse,
+  GetEngineTimeResponse,
+} from '@vertex-protocol/engine-client';
 
 export interface EngineClient {
   getIsBlockedIp(): Promise<Boolean>;
+  getStatus(): Promise<EngineServerStatusResponse>;
+  getTime(): Promise<GetEngineTimeResponse>;
 }
 
 export interface IndexderClient {
   getQuotePrice(): Promise<GetIndexerQuotePriceResponse>;
+  getMultiSubaccountSnapshots(
+    params: GetIndexerMultiSubaccountSnapshotsParams,
+  ): Promise<GetIndexerMultiSubaccountSnapshotsResponse>;
+  getPaginatedSubaccountMatchEvents(
+    params: GetIndexerSubaccountMatchEventParams,
+  ): Promise<GetIndexerSubaccountMatchEventsResponse>;
 }
 
 export interface HarmonyContext {

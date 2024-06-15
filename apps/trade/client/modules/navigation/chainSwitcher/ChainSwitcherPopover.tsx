@@ -1,5 +1,5 @@
 import * as Popover from '@radix-ui/react-popover';
-import { ChainEnv } from '@vertex-protocol/client';
+import { ChainEnv } from '@vertex-protocol/web-data';
 import {
   joinClassNames,
   NextImageSrc,

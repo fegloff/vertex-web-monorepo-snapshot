@@ -6,7 +6,7 @@ import { useSubaccountContext } from 'client/context/subaccount/SubaccountContex
 import { useDialog } from 'client/modules/app/dialogs/hooks/useDialog';
 
 export function useGeolocationBlock() {
-  const { vertexClient } = useVertexClient();
+  const { vertexClient, harmonyClient } = useVertexClient();
   const { disconnect } = useSubaccountContext();
   const { show } = useDialog();
 
@@ -17,11 +17,9 @@ export function useGeolocationBlock() {
       if (disabled) {
         throw new QueryDisabledError();
       }
-      console.log(
-        'FCO:::::::: vertexClient.context.engineClient.getIsBlockedIp()',
-        await vertexClient.context.engineClient.getIsBlockedIp(),
-      );
-      return vertexClient.context.engineClient.getIsBlockedIp();
+      return harmonyClient.isHarmony
+        ? harmonyClient.context.engineClient.getIsBlockedIp()
+        : vertexClient.context.engineClient.getIsBlockedIp();
     },
     enabled: !disabled,
   });

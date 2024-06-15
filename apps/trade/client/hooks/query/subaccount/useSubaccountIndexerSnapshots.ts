@@ -55,7 +55,7 @@ export function useSubaccountIndexerSnapshots<TSelectedData = Data>({
   const {
     currentSubaccount: { name: subaccountName, address: subaccountOwner },
   } = useSubaccountContext();
-  const { vertexClient } = useVertexClient();
+  const { vertexClient, harmonyClient } = useVertexClient();
   const enableSubaccountQueries = useEnableSubaccountQueries();
 
   // If no current subaccount, query for a subaccount that does not exist to ensure that we have data
@@ -81,10 +81,13 @@ export function useSubaccountIndexerSnapshots<TSelectedData = Data>({
     };
 
     startProfiling();
-    const response =
-      await vertexClient.context.indexerClient.getMultiSubaccountSnapshots(
-        params,
-      );
+    const response = harmonyClient.isHarmony
+      ? await harmonyClient.context.indexerClient.getMultiSubaccountSnapshots(
+          params,
+        )
+      : await vertexClient.context.indexerClient.getMultiSubaccountSnapshots(
+          params,
+        );
     endProfiling();
 
     // We have the invariant that we always query for 1 subaccount, so this is safe

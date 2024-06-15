@@ -48,7 +48,7 @@ export function useAllMarkets<TSelectedData = AllMarketsData>(
     'allMarkets',
     true,
   );
-  const { vertexClient } = useVertexClient();
+  const { vertexClient, harmonyClient } = useVertexClient();
   const { getPerpMetadata, getSpotMetadata } = useVertexMetadataContext();
   const primaryChainId = usePrimaryChainId();
 
@@ -60,7 +60,9 @@ export function useAllMarkets<TSelectedData = AllMarketsData>(
     }
 
     startProfiling();
-    const baseResponse = await vertexClient.market.getAllEngineMarkets();
+    const baseResponse = harmonyClient.isHarmony
+      ? await harmonyClient.market.getAllEngineMarkets()
+      : await vertexClient.market.getAllEngineMarkets();
     endProfiling();
 
     // Construct money-markets from base data

@@ -1,14 +1,6 @@
 import { BrandName } from '@vertex-protocol/web-ui';
 import envBrandName from 'common/environment/envBrandName';
-
-export type DataEnv =
-  | 'local'
-  | 'vertexTestnet'
-  | 'vertexMainnet'
-  | 'blitzTestnet'
-  | 'blitzMainnet'
-  | 'harmonyMainnet'
-  | 'harmonyTestnet';
+import { DataEnv } from './types';
 
 export interface BaseClientEnv {
   // Determines supported chains to interact with

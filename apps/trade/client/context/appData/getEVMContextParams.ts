@@ -1,7 +1,6 @@
 import { EVMContextParams, WagmiConfigParams } from '@vertex-protocol/web-data';
 import { CONNECTOR_OPTIONS_METADATA } from 'client/modules/brand/consts/connectorMetadata';
 import { clientEnv } from 'common/environment/clientEnv';
-import { ChainEnv } from '@vertex-protocol/client';
 import {
   arbitrum,
   avalanche,
