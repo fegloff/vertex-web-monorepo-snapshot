@@ -3,7 +3,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { joinClassNames } from '@vertex-protocol/web-common';
 import { TooltipPortalRoot } from '@vertex-protocol/web-ui';
 import { AppDataProviders } from 'client/context/appData/AppDataProviders';
-import { AnalyticsContextProvider } from 'client/modules/analytics/AnalyticsContext';
+// import { AnalyticsContextProvider } from 'client/modules/analytics/AnalyticsContext';
 import { AppDialogs } from 'client/modules/app/AppDialogs';
 import { GatedAppAccessContextProvider } from 'client/modules/gatedAppAccess/GatedAppAccessContext';
 import { NotificationManagerContextProvider } from 'client/modules/notifications/NotificationManagerContext';
@@ -51,24 +51,24 @@ function App({ Component, pageProps }: AppProps) {
             <AppDataProviders>
               <GatedAppAccessContextProvider>
                 <NotificationManagerContextProvider>
-                  <AnalyticsContextProvider>
-                    <Head>
-                      <title>{clientEnv.brandMetadata.displayName}</title>
-                      {/*This prevents mobile from auto-zooming on input focus*/}
-                      <meta
-                        name="viewport"
-                        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-                      />
-                    </Head>
-                    <GoogleAnalytics />
-                    <Component {...pageProps} />
-                    <AppDialogs />
-                    <OrderFillQueryRefetchListener />
-                    <SentryConfigManager />
-                    <ReferralCodeListener />
-                    <TooltipPortalRoot />
-                    <CookieNoticeBanner />
-                  </AnalyticsContextProvider>
+                  {/* <AnalyticsContextProvider> */}
+                  <Head>
+                    <title>{clientEnv.brandMetadata.displayName}</title>
+                    {/*This prevents mobile from auto-zooming on input focus*/}
+                    <meta
+                      name="viewport"
+                      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+                    />
+                  </Head>
+                  <GoogleAnalytics />
+                  <Component {...pageProps} />
+                  <AppDialogs />
+                  <OrderFillQueryRefetchListener />
+                  <SentryConfigManager />
+                  <ReferralCodeListener />
+                  <TooltipPortalRoot />
+                  <CookieNoticeBanner />
+                  {/* </AnalyticsContextProvider> */}
                 </NotificationManagerContextProvider>
               </GatedAppAccessContextProvider>
             </AppDataProviders>

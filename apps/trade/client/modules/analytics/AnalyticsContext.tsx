@@ -29,7 +29,7 @@ spindl.configure({
   debugMode: DEBUG_LOGGING,
 });
 
-spindl.enableAutoPageViews();
+// spindl.enableAutoPageViews();
 
 export function AnalyticsContextProvider({ children }: WithChildren) {
   const {
@@ -38,7 +38,7 @@ export function AnalyticsContextProvider({ children }: WithChildren) {
   const { areCookiesAccepted } = useCookiePreference();
 
   // Supported on all mainnet and when cookies are enabled
-  const disabled = isTestnet || !areCookiesAccepted;
+  const disabled = true; // isTestnet || !areCookiesAccepted;
 
   const updateUserAddress = useCallback<
     AnalyticsContextData['updateUserAddress']
