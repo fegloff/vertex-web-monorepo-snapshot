@@ -64,6 +64,7 @@ import {
   GetIndexerMakerStatisticsResponse,
   IndexerServerQueryRequestByType,
   IndexerServerQueryResponseByType,
+  GetIndexerSubaccountLiquidationEventsParams,
 } from '@vertex-protocol/indexer-client';
 import {
   EngineServerStatusResponse,
@@ -84,6 +85,10 @@ export interface IndexderClient {
   getPaginatedSubaccountMatchEvents(
     params: GetIndexerSubaccountMatchEventParams,
   ): Promise<GetIndexerSubaccountMatchEventsResponse>;
+  getPaginatedSubaccountLiquidationEvents(
+    params: GetIndexerSubaccountLiquidationEventsParams,
+  ): Promise<GetIndexerSubaccountLiquidationEventsResponse>;
+  getEvents(params: GetIndexerEventsParams): Promise<GetIndexerEventsResponse>;
 }
 
 export interface HarmonyContext {

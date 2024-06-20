@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { toBigDecimal } from '@vertex-protocol/client';
+import { GetIndexerEventsParams, toBigDecimal } from '@vertex-protocol/client';
 import {
   PrimaryChainID,
   usePrimaryChainId,
@@ -15,7 +15,7 @@ function latestEventSubmissionIndexQueryKey(chainId: PrimaryChainID) {
 
 export function useLatestEventSubmissionIndex() {
   const primaryChainId = usePrimaryChainId();
-  const { vertexClient } = useVertexClient();
+  const { vertexClient, harmonyClient } = useVertexClient();
   const disabled = !vertexClient;
 
   return useQuery({
@@ -24,13 +24,16 @@ export function useLatestEventSubmissionIndex() {
       if (disabled) {
         throw new QueryDisabledError();
       }
-      const events = await vertexClient.context.indexerClient.getEvents({
+      const params: GetIndexerEventsParams = {
         limit: {
           type: 'txs',
           value: 1,
         },
         desc: true,
-      });
+      };
+      const events = harmonyClient.isHarmony
+        ? await harmonyClient.context.indexerClient.getEvents(params)
+        : await vertexClient.context.indexerClient.getEvents(params);
 
       const latestEvent = first(events);
 

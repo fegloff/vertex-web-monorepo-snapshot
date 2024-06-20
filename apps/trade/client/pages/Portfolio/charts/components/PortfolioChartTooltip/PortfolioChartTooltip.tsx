@@ -28,7 +28,7 @@ export function PortfolioChartTooltip({ active, payload, renderBody }: Props) {
   if (!active || !originalDataPayload) {
     return null;
   }
-
+  // console.log('FLAG::::::::: originalDataPayload', originalDataPayload)
   return (
     <div className="bg-surface-card border-stroke flex w-40 min-w-max flex-col gap-y-2.5 rounded border p-2.5">
       <p className="text-text-secondary text-xs leading-3">

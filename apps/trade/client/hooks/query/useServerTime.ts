@@ -19,6 +19,7 @@ export function useServerTime() {
       if (disabled) {
         throw new QueryDisabledError();
       }
+      // return vertexClient.context.engineClient.getTime();
       return harmonyClient.isHarmony
         ? harmonyClient.context.engineClient.getTime()
         : vertexClient.context.engineClient.getTime();

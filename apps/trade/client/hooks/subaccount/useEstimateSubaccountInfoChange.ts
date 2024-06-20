@@ -4,6 +4,11 @@ import {
 } from '@vertex-protocol/contracts';
 import { SubaccountTx } from '@vertex-protocol/engine-client';
 import { BigDecimal } from '@vertex-protocol/utils';
+import {
+  createHarmonyContracts,
+  useVertexClient,
+} from '@vertex-protocol/web-data';
+import { HarmonyClient } from '@vertex-protocol/web-data/context/harmonyClient/client/types';
 import { useQuotePriceUsd } from 'client/hooks/markets/useQuotePriceUsd';
 import { AnnotatedSubaccountSummary } from 'client/hooks/query/subaccount/annotateSubaccountSummary';
 import { useCurrentSubaccountEstimatedSummary } from 'client/hooks/query/subaccount/useCurrentSubaccountEstimatedSummary';
@@ -57,6 +62,7 @@ export function useEstimateSubaccountInfoChange<TAdditionalInfo = EmptyObject>({
   const { data: estimated } = useCurrentSubaccountEstimatedSummary({
     estimateStateTxs,
   });
+  const harmonyContracts = createHarmonyContracts();
 
   const quotePriceUsd = useQuotePriceUsd();
 
@@ -110,10 +116,12 @@ function calcSubaccountInfo<TAdditionalInfo>(
   if (!subaccountSummary) {
     return;
   }
-
-  const marginUsageFractions =
-    calcSubaccountMarginUsageFractions(subaccountSummary);
-
+  const harmonyContracts = createHarmonyContracts();
+  const marginUsageFractions = harmonyContracts.isHarmony
+    ? harmonyContracts.utils.subaccount.calcSubaccountMarginUsageFractions(
+        subaccountSummary,
+      )
+    : calcSubaccountMarginUsageFractions(subaccountSummary);
   return {
     accountValueUsd: removeDecimals(
       subaccountSummary.health.unweighted.health,
@@ -124,7 +132,11 @@ function calcSubaccountInfo<TAdditionalInfo>(
     fundsUntilLiquidationUsdBounded: removeDecimals(
       BigDecimal.max(0, subaccountSummary.health.maintenance.health),
     ).multipliedBy(quotePriceUsd),
-    leverage: calcSubaccountLeverage(subaccountSummary),
+    leverage: harmonyContracts.isHarmony
+      ? harmonyContracts.utils.subaccount.calcSubaccountLeverage(
+          subaccountSummary,
+        )
+      : calcSubaccountLeverage(subaccountSummary),
     marginUsageBounded: marginUsageFractions.initial,
     liquidationRiskBounded: marginUsageFractions.maintenance,
     // Force typecast here :(

@@ -26,7 +26,7 @@ export function subaccountLinkedSignerQueryKey(
  */
 export function useSubaccountLinkedSigner() {
   const primaryChainId = usePrimaryChainId();
-  const { vertexClient } = useVertexClient();
+  const { vertexClient, harmonyClient } = useVertexClient();
   const {
     currentSubaccount: { address: subaccountOwner, name: subaccountName },
   } = useSubaccountContext();
@@ -43,12 +43,19 @@ export function useSubaccountLinkedSigner() {
       if (disabled) {
         throw new QueryDisabledError();
       }
-      return vertexClient.subaccount.getSubaccountLinkedSignerWithRateLimit({
+      const params = {
         subaccount: {
           subaccountOwner,
           subaccountName,
         },
-      });
+      };
+      return harmonyClient.isHarmony
+        ? harmonyClient.subaccount.getSubaccountLinkedSignerWithRateLimit(
+            params,
+          )
+        : vertexClient.subaccount.getSubaccountLinkedSignerWithRateLimit(
+            params,
+          );
     },
     enabled: !disabled,
     // Long refreshes as linked signers don't change that often

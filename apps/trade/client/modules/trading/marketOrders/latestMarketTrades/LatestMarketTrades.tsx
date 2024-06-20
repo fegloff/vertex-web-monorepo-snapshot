@@ -52,7 +52,7 @@ export function LatestMarketTrades({
       const flashOnMount =
         row.timestampMillis >
         (prevLatestTradeTime.current ?? row.timestampMillis);
-
+      console.log('FLAG:::::::: renderRow', row.timestampMillis);
       return (
         <MarketOrderRow.Container
           isSell={row.isSell}

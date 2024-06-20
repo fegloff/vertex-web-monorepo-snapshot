@@ -39,7 +39,7 @@ export function useSubaccountPaginatedLiquidationEvents({
   pageSize = 10,
 }: Params) {
   const primaryChainId = usePrimaryChainId();
-  const { vertexClient } = useVertexClient();
+  const { vertexClient, harmonyClient } = useVertexClient();
   const {
     currentSubaccount: { address: subaccountOwner, name: subaccountName },
   } = useSubaccountContext();
@@ -73,11 +73,13 @@ export function useSubaccountPaginatedLiquidationEvents({
           startCursor,
         };
 
-        const liquidationEventsResponse =
-          await vertexClient.context.indexerClient.getPaginatedSubaccountLiquidationEvents(
-            params,
-          );
-
+        const liquidationEventsResponse = harmonyClient.isHarmony
+          ? await harmonyClient.context.indexerClient.getPaginatedSubaccountLiquidationEvents(
+              params,
+            )
+          : await vertexClient.context.indexerClient.getPaginatedSubaccountLiquidationEvents(
+              params,
+            );
         liquidationEventsResponse.events.forEach((event) => {
           if (isLiquidationFinalizationTx(event.quote.indexerEvent.tx)) {
             return;

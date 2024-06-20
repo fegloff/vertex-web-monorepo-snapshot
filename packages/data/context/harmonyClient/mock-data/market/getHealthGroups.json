@@ -1,0 +1,16 @@
+{
+  "healthGroups": [
+    {
+      "spotProductId": 1,
+      "perpProductId": 2
+    },
+    {
+      "spotProductId": 3,
+      "perpProductId": 4
+    },
+    {
+      "spotProductId": 5,
+      "perpProductId": 6
+    }
+  ]
+}

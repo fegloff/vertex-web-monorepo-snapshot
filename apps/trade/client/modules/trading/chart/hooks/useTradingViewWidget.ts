@@ -28,7 +28,7 @@ async function getImportedWidgetConstructor() {
     return _widgetConstructor;
   }
   const constructor = (await import('public/charting_library')).widget; //  public/charting_library
-  // console.log('FCO::::::::::::::::: CONSTRUCTOR', constructor)
+  // console.log('FLAG::::::::::::::::: CONSTRUCTOR', constructor)
   _widgetConstructor = constructor;
   return constructor;
 }
@@ -62,7 +62,7 @@ export function useTradingViewWidget({
     // Create an async fn to call for better readability
     const createWidget = async () => {
       const ChartWidget = await getImportedWidgetConstructor();
-      // console.log('CHART WIDGET FCO:::::::', ChartWidget)
+      // console.log('CHART WIDGET FLAG:::::::', ChartWidget)
       const widget = new ChartWidget({
         ...WIDGET_CONFIG.options,
         symbol: selectedSymbolRef.current?.ticker ?? initialTicker,
