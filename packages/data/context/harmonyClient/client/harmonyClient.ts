@@ -1,5 +1,5 @@
 import { context } from './context';
-import subaccount from './subaccount/subaccount';
+import { subaccount } from './subaccount/subaccount';
 import { market } from './market';
 import { HarmonyClient } from './types';
 

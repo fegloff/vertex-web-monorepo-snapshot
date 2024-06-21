@@ -18,6 +18,7 @@ export function useDepositFormData({ productIdInput }: Params) {
   const { data: tokenAllowance } = useDepositTokenAllowance({
     productId: productIdInput,
   });
+
   const { data: minDepositAmounts } = useMinimumDepositAmounts();
 
   // If we are either still loading, or fail to load balances, we should keep the form in an enabled state

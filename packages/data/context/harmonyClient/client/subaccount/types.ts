@@ -4,6 +4,10 @@ import {
   GetIndexerLinkedSignerParams,
   GetIndexerLinkedSignerResponse,
 } from '@vertex-protocol/indexer-client';
+import {
+  GetEngineSubaccountFeeRatesResponse,
+  GetEngineSubaccountFeeRatesParams,
+} from '@vertex-protocol/engine-client';
 
 export interface HarmonySubaccountAPI {
   getEngineSubaccountSummary(
@@ -12,4 +16,10 @@ export interface HarmonySubaccountAPI {
   getSubaccountLinkedSignerWithRateLimit(
     params: GetIndexerLinkedSignerParams,
   ): Promise<GetIndexerLinkedSignerResponse>;
+  getSubaccountFeeRates(
+    params: GetEngineSubaccountFeeRatesParams,
+  ): Promise<GetEngineSubaccountFeeRatesResponse>;
+  getSubaccountFeeRates(
+    params: GetEngineSubaccountFeeRatesParams,
+  ): Promise<GetEngineSubaccountFeeRatesResponse | undefined>;
 }

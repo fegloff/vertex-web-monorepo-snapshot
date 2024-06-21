@@ -25,6 +25,24 @@ export const indexerClient = {
   ): Promise<GetIndexerMultiSubaccountSnapshotsResponse> => {
     const snapshots = JSON.parse(
       JSON.stringify(contextJson.getMultiSubaccountSnapshots),
+      (key, value) => {
+        if (
+          [
+            'timestamp',
+            'netInterestUnrealized',
+            'netInterestCumulative',
+            'netFundingUnrealized',
+            'netFundingCumulative',
+            'netEntryUnrealized',
+            'netEntryCumulative',
+            'netEntryLpUnrealized',
+            'netEntryLpCumulative',
+          ].includes(key)
+        ) {
+          return parseBigNumber(value);
+        }
+        return value;
+      },
     ) as GetIndexerMultiSubaccountSnapshotsResponse;
     return snapshots;
   },
@@ -33,6 +51,23 @@ export const indexerClient = {
   ): Promise<GetIndexerSubaccountMatchEventsResponse> => {
     const matchEvents = JSON.parse(
       JSON.stringify(contextJson.getPaginatedSubaccountMatchEvents),
+      (key, value) => {
+        if (
+          [
+            'baseFilled',
+            'quoteFilled',
+            'totalFee',
+            'sequencerFee',
+            'cumulativeBaseFilled',
+            'cumulativeQuoteFilled',
+            'cumulativeFee',
+            'timestamp',
+          ].includes(key)
+        ) {
+          return parseBigNumber(value);
+        }
+        return value;
+      },
     ) as GetIndexerSubaccountMatchEventsResponse;
     return matchEvents;
   },
@@ -41,6 +76,26 @@ export const indexerClient = {
   ): Promise<GetIndexerSubaccountLiquidationEventsResponse> => {
     const liquidationEvents = JSON.parse(
       JSON.stringify(contextJson.getPaginatedSubaccountLiquidationEvents),
+      (key, value) => {
+        if (
+          [
+            'interestFloor',
+            'interestInflectionUtil',
+            'interestSmallCap',
+            'interestLargeCap',
+            'totalDeposited',
+            'totalBorrowed',
+            'amountLpDecomposed',
+            'underlyingBalanceDelta',
+            'amountLiquidated',
+            'amountLiquidated',
+            'balanceDelta',
+          ].includes(key)
+        ) {
+          return parseBigNumber(value);
+        }
+        return value;
+      },
     );
     return liquidationEvents;
   },

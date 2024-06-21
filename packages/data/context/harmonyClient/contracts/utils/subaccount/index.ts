@@ -13,6 +13,12 @@ export const subaccount = {
   ): MarginUsageFractions => {
     const csmuf = JSON.parse(
       JSON.stringify(contractsJson.calcSubaccountMarginUsageFractions),
+      (key, value) => {
+        if (['initial', 'maintenance'].includes(key)) {
+          return parseBigNumber(value);
+        }
+        return value;
+      },
     ) as MarginUsageFractions;
     return csmuf;
   },
