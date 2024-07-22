@@ -65,7 +65,7 @@ export function useDepositForm(): UseDepositForm {
   const { protocolTokenProductId } = useVertexMetadataContext();
   const { hide } = useDialog();
   const isInitialDeposit = useRequiresInitialDeposit();
-  const { isArb, isBlast } = useIsChainType();
+  const { isArb, isBlast, isHarmony } = useIsChainType();
 
   const useDepositForm = useForm<DepositFormValues>({
     defaultValues: {
@@ -281,8 +281,16 @@ export function useDepositForm(): UseDepositForm {
       return 'vrtx';
     }
 
+    if (isHarmony && selectedProduct?.productId === protocolTokenProductId) {
+      return 'usdc';
+    }
+
     if (isBlast && selectedProduct?.productId === QUOTE_PRODUCT_ID) {
       return 'usdb';
+    }
+
+    if (isHarmony && selectedProduct?.productId === QUOTE_PRODUCT_ID) {
+      return 'usdc';
     }
   }, [
     isArb,
@@ -290,6 +298,7 @@ export function useDepositForm(): UseDepositForm {
     isNegligibleWalletBalance,
     protocolTokenProductId,
     isBlast,
+    isHarmony,
   ]);
 
   return {

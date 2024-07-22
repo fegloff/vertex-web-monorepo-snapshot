@@ -8,6 +8,7 @@ import {
 import {
   GetEngineSubaccountFeeRatesResponse,
   GetEngineSubaccountFeeRatesParams,
+  GetEngineEstimatedSubaccountSummaryParams,
 } from '@vertex-protocol/engine-client';
 import { BigDecimal } from '@vertex-protocol/utils';
 import { hasBigDecimalType, parseBigNumber } from '../helper';
@@ -81,5 +82,19 @@ export const subaccount: HarmonySubaccountAPI = {
       },
     ) as GetEngineSubaccountFeeRatesResponse; // ,;
     return rates;
+  },
+  getEngineEstimatedSubaccountSummary: async (
+    params: GetEngineEstimatedSubaccountSummaryParams,
+  ): Promise<SubaccountSummaryResponse> => {
+    const subaccountSummary = JSON.parse(
+      JSON.stringify(subaccountJson.getEngineEstimatedSubaccountSummary),
+      (key, value) => {
+        if (hasBigDecimalType(key)) {
+          return parseBigNumber(value);
+        }
+        return value;
+      },
+    ) as SubaccountSummaryResponse;
+    return subaccountSummary;
   },
 };

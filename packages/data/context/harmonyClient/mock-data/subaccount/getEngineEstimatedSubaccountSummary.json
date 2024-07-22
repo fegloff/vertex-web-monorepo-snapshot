@@ -1,17 +1,17 @@
 {
   "balances": [
     {
-      "amount": "33",
+      "amount": "0",
       "lpAmount": "0",
       "healthContributions": {
         "initial": "0",
         "maintenance": "0",
         "unweighted": "0"
       },
-      "productId": 23,
+      "productId": 0,
       "type": 0,
-      "totalBorrowed": "3.192987745975195622644564891998689558912228e+25",
-      "totalDeposited": "4.008647648540114864754346421926250154218232e+25",
+      "totalBorrowed": "3.0931298424728758289068756061963811193079859e+25",
+      "totalDeposited": "3.7065055215876357954574619365032743137785415e+25",
       "oraclePrice": "1",
       "interestFloor": "0.01",
       "interestInflectionUtil": "0.8",
@@ -21,7 +21,7 @@
       "longWeightMaintenance": "1",
       "shortWeightInitial": "1",
       "shortWeightMaintenance": "1",
-      "tokenAddr": "0xe66F65bA2E902ED592c967DcD3C3dAf82B4cBF94",
+      "tokenAddr": "0x8d7937520492E5eDAca6CD89Be5a0cDd26693C85",
       "totalLpBaseAmount": "0",
       "totalLpQuoteAmount": "0",
       "totalLpSupply": "0"
@@ -34,11 +34,11 @@
         "maintenance": "0",
         "unweighted": "0"
       },
-      "productId": 0,
+      "productId": 23,
       "type": 0,
-      "totalBorrowed": "5930765798251134036.112543637774575641",
-      "totalDeposited": "484881198378241485918.37936713824864685",
-      "oraclePrice": "69546.586462830564114565",
+      "totalBorrowed": "1815493025120762958.266846688545039618",
+      "totalDeposited": "551716670675110422965.409119656535878768",
+      "oraclePrice": "60172.516359673746378828",
       "interestFloor": "0.01",
       "interestInflectionUtil": "0.8",
       "interestLargeCap": "1",
@@ -47,13 +47,12 @@
       "longWeightMaintenance": "0.95",
       "shortWeightInitial": "1.1",
       "shortWeightMaintenance": "1.05",
-      "tokenAddr": "0x8d7937520492E5eDAca6CD89Be5a0cDd26693C85",
-      "totalLpBaseAmount": "1324725600684732786",
-      "totalLpQuoteAmount": "9.1345927723732638792808e+22",
-      "totalLpSupply": "5.4494760859388086337743e+22"
+      "tokenAddr": "0xe66F65bA2E902ED592c967DcD3C3dAf82B4cBF94",
+      "totalLpBaseAmount": "1425631594842481370",
+      "totalLpQuoteAmount": "8.5360557275431357412275e+22",
+      "totalLpSupply": "5.4534986502295739987151e+22"
     }
   ],
-  "exists": false,
   "health": {
     "initial": {
       "health": "0",
@@ -70,5 +69,6 @@
       "assets": "0",
       "liabilities": "0"
     }
-  }
+  },
+  "exists": "false"
 }

@@ -45,7 +45,7 @@ export function useCurrentSubaccountEstimatedSummary({
   estimateStateTxs,
 }: EstimateSubaccountStateChangeParams) {
   const primaryChainId = usePrimaryChainId();
-  const { vertexClient } = useVertexClient();
+  const { vertexClient, harmonyClient } = useVertexClient();
   const {
     currentSubaccount: { address: subaccountOwner, name: subaccountName },
   } = useSubaccountContext();
@@ -72,10 +72,13 @@ export function useCurrentSubaccountEstimatedSummary({
         txs: debouncedTxs,
       };
       return annotateSubaccountSummary({
-        summary:
-          await vertexClient.subaccount.getEngineEstimatedSubaccountSummary(
-            params,
-          ),
+        summary: harmonyClient.isHarmony
+          ? await harmonyClient.subaccount.getEngineEstimatedSubaccountSummary(
+              params,
+            )
+          : await vertexClient.subaccount.getEngineEstimatedSubaccountSummary(
+              params,
+            ),
         getSpotMetadata,
         getPerpMetadata,
       });

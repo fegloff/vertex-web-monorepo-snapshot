@@ -7,6 +7,7 @@ import {
 import {
   GetEngineSubaccountFeeRatesResponse,
   GetEngineSubaccountFeeRatesParams,
+  GetEngineEstimatedSubaccountSummaryParams,
 } from '@vertex-protocol/engine-client';
 
 export interface HarmonySubaccountAPI {
@@ -22,4 +23,7 @@ export interface HarmonySubaccountAPI {
   getSubaccountFeeRates(
     params: GetEngineSubaccountFeeRatesParams,
   ): Promise<GetEngineSubaccountFeeRatesResponse | undefined>;
+  getEngineEstimatedSubaccountSummary(
+    params: GetEngineEstimatedSubaccountSummaryParams,
+  ): Promise<SubaccountSummaryResponse>;
 }

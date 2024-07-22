@@ -8,6 +8,13 @@ import { ZeroAddress } from 'ethers';
 
 const hardhatChainId = hardhat.id;
 
+export const VRTX_HARDHAT: Token = {
+  address: localSdkConfig.spotProducts['QUOTE'].address.toLowerCase(),
+  chainId: hardhatChainId,
+  tokenDecimals: 6, // 18
+  ...VRTX_TOKEN_INFO,
+};
+
 export const USDC_HARDHAT: Token = {
   address: localSdkConfig.spotProducts['USDC'].address.toLowerCase(),
   chainId: hardhatChainId,
@@ -17,27 +24,27 @@ export const USDC_HARDHAT: Token = {
   icon: TOKEN_ICONS.usdc,
 };
 
-export const WBTC_HARDHAT: Token = {
-  address: localSdkConfig.spotProducts['WBTC'].address.toLowerCase(),
-  chainId: hardhatChainId,
-  tokenDecimals: localSdkConfig.spotProducts['WBTC'].decimals,
-  name: 'Wrapped Bitcoin',
-  symbol: 'wBTC',
-  icon: TOKEN_ICONS.wbtc,
-};
+// export const WBTC_HARDHAT: Token = {
+//   address: localSdkConfig.spotProducts['WBTC'].address.toLowerCase(),
+//   chainId: hardhatChainId,
+//   tokenDecimals: localSdkConfig.spotProducts['WBTC'].decimals,
+//   name: 'Wrapped Bitcoin',
+//   symbol: 'wBTC',
+//   icon: TOKEN_ICONS.wbtc,
+// };
 
-export const WETH_HARDHAT: Token = {
-  address: localSdkConfig.spotProducts['WETH'].address.toLowerCase(),
-  chainId: hardhatChainId,
-  tokenDecimals: localSdkConfig.spotProducts['WETH'].decimals,
-  name: 'Wrapped Ethereum',
-  symbol: 'wETH',
-  icon: TOKEN_ICONS.weth,
-};
+// export const WETH_HARDHAT: Token = {
+//   address: localSdkConfig.spotProducts['WETH'].address.toLowerCase(),
+//   chainId: hardhatChainId,
+//   tokenDecimals: localSdkConfig.spotProducts['WETH'].decimals,
+//   name: 'Wrapped Ethereum',
+//   symbol: 'wETH',
+//   icon: TOKEN_ICONS.weth,
+// };
 
-export const VRTX_HARDHAT: Token = {
-  address: ZeroAddress,
-  chainId: hardhatChainId,
-  tokenDecimals: 18,
-  ...VRTX_TOKEN_INFO,
-};
+// export const VRTX_HARDHAT: Token = {
+//   address: ZeroAddress,
+//   chainId: hardhatChainId,
+//   tokenDecimals: 18,
+//   ...VRTX_TOKEN_INFO,
+// };

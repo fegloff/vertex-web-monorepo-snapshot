@@ -11,6 +11,9 @@ const CONNECTOR_OPTIONS_METADATA_BY_BRAND_NAME: Record<
   BrandName,
   ConnectorOptionsMetadata
 > = {
+  // local: {
+
+  // },
   vertex: {
     walletConnect: {
       name: 'Vertex',

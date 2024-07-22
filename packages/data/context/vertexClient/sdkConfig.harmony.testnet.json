@@ -2,16 +2,16 @@
   "clientContext": {
     "contractAddresses": {
       "querier": "0x59b670e9fa9d0a427751af201d676719a970857b",
-      "clearinghouse": "0x53D1413dfB1D8cdA269245751A895D726779c543",
-      "spotEngine": "0xE2CC80379C714c9833aA626b9609999FA862d7bE",
-      "perpEngine": "0xab580BdE8Ea0e3058deD895aa9E21084D6147f24",
-      "endpoint": "0x35AB09652662a248a017B963Da94d507397615b4",
-      "arbAirdrop": "0x0456ADC2aE5A5D83140cbd2830bfB22768979B53",
-      "vrtxToken": "0x0456ADC2aE5A5D83140cbd2830bfB22768979B53",
-      "vrtxAirdrop": "0x0456ADC2aE5A5D83140cbd2830bfB22768979B53",
-      "vrtxLba": "0x0456ADC2aE5A5D83140cbd2830bfB22768979B53",
-      "vrtxVesting": "0x0456ADC2aE5A5D83140cbd2830bfB22768979B53",
-      "vrtxStaking": "0x0456ADC2aE5A5D83140cbd2830bfB22768979B53"
+      "clearinghouse": "0x0486C544D6B7A846536A302102EE737f1183fFb8",
+      "spotEngine": "0x954D13Bf7f73C6967Ee07EF90C1532A074d17343",
+      "perpEngine": "0x83002DC5e14892AD0c32F1589C30F38bB558F9a9",
+      "endpoint": "0xA9c0b389AF35985b7CFB7eEa09772f96e4D9EcAf",
+      "arbAirdrop": "0x98A4aF6AE3B7C1B81587350aDbe295C1634B7Dd3",
+      "vrtxToken": "0x98A4aF6AE3B7C1B81587350aDbe295C1634B7Dd3",
+      "vrtxAirdrop": "0x98A4aF6AE3B7C1B81587350aDbe295C1634B7Dd3",
+      "vrtxLba": "0x98A4aF6AE3B7C1B81587350aDbe295C1634B7Dd3",
+      "vrtxVesting": "0x98A4aF6AE3B7C1B81587350aDbe295C1634B7Dd3",
+      "vrtxStaking": "0x98A4aF6AE3B7C1B81587350aDbe295C1634B7Dd3"
     },
     "graph": {
       "candlesticksEndpoint": "http://localhost:8000/subgraphs/name/vertex-subgraphs-candlesticks",
@@ -28,7 +28,7 @@
       "decimals": 6
     },
     "USDC": {
-      "address": "0x68B1D87F95878fE05B998F19b66F4baba5De1aed",
+      "address": "0xe66F65bA2E902ED592c967DcD3C3dAf82B4cBF94",
       "decimals": 6
     },
     "WBTC": {

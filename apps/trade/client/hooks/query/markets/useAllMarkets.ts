@@ -73,6 +73,7 @@ export function useAllMarkets<TSelectedData = AllMarketsData>(
     baseResponse.forEach((market) => {
       if (market.type === ProductEngineType.SPOT) {
         const metadata = getSpotMetadata(market.product.productId);
+
         if (!metadata) {
           return;
         }

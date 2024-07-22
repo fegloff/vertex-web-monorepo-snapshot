@@ -7,7 +7,6 @@ import {
   USDB_BLAST,
   USDB_BLAST_SEPOLIA,
 } from 'common/productMetadata/blast/tokens';
-import { VRTX_HARDHAT } from 'common/productMetadata/local/tokens';
 import { USDC_MANTLE_SEPOLIA } from 'common/productMetadata/mantle/tokens';
 import { Token } from 'common/productMetadata/types';
 import {
@@ -21,7 +20,8 @@ import {
   mantleSepoliaTestnet,
   harmonyTestnet,
 } from '@vertex-protocol/web-data';
-import { USDC_HARMONY } from './harmony/tokens';
+import { USDC_HARMONY, VRTX_HARMONY } from './harmony/tokens';
+import { USDC_HARDHAT } from './local/tokens';
 
 export const PROTOCOL_TOKEN_BY_CHAIN: Record<number, Token> = {
   [arbitrum.id]: VRTX_ARB_ONE,
@@ -31,10 +31,10 @@ export const PROTOCOL_TOKEN_BY_CHAIN: Record<number, Token> = {
   [blast.id]: USDB_BLAST,
   // No protocol token on mantle
   [mantleSepoliaTestnet.id]: USDC_MANTLE_SEPOLIA,
-  [hardhat.id]: VRTX_HARDHAT,
-  [localhost.id]: VRTX_HARDHAT,
-  [harmonyMainnet.id]: USDC_HARMONY,
-  [harmonyTestnet.id]: USDC_HARMONY,
+  [hardhat.id]: USDC_HARMONY,
+  [localhost.id]: USDC_HARMONY,
+  [harmonyMainnet.id]: VRTX_HARMONY, // change to VRTX_HARMONY
+  [harmonyTestnet.id]: VRTX_HARMONY, // change to VRTX_HARMONY
 } satisfies Record<PrimaryChainID, Token>;
 
 export const PROTOCOL_TOKEN_PRODUCT_ID_BY_CHAIN: Record<number, number> = {
@@ -45,9 +45,9 @@ export const PROTOCOL_TOKEN_PRODUCT_ID_BY_CHAIN: Record<number, number> = {
   [blast.id]: -1,
   // No protocol token on mantle
   [mantleSepoliaTestnet.id]: -1,
-  [hardhat.id]: 41,
-  [localhost.id]: 41,
+  [hardhat.id]: 23,
+  [localhost.id]: 23,
   // No protocol token on harmony??
-  [harmonyMainnet.id]: -1,
-  [harmonyTestnet.id]: -1,
+  [harmonyMainnet.id]: 23,
+  [harmonyTestnet.id]: 23,
 } satisfies Record<PrimaryChainID, number>;
