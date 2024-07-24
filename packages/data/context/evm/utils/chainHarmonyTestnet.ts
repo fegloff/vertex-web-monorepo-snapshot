@@ -3,6 +3,7 @@ import { Chain } from 'viem';
 export const harmonyTestnet: Chain = {
   id: 1666700000,
   name: 'Harmony Testnet',
+  testnet: true,
   nativeCurrency: {
     name: 'ONE',
     symbol: 'ONE',
