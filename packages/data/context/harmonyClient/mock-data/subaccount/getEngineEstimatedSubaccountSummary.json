@@ -1,7 +1,7 @@
 {
   "balances": [
     {
-      "amount": "0",
+      "amount": "100000000000000000000",
       "lpAmount": "0",
       "healthContributions": {
         "initial": "0",
@@ -22,12 +22,12 @@
       "shortWeightInitial": "1",
       "shortWeightMaintenance": "1",
       "tokenAddr": "0x8d7937520492E5eDAca6CD89Be5a0cDd26693C85",
-      "totalLpBaseAmount": "0",
-      "totalLpQuoteAmount": "0",
-      "totalLpSupply": "0"
+      "totalLpBaseAmount": "100000000000000000000",
+      "totalLpQuoteAmount": "100000000000000000000",
+      "totalLpSupply": "100000000000000000000"
     },
     {
-      "amount": "0",
+      "amount": "200000000000000000000",
       "lpAmount": "0",
       "healthContributions": {
         "initial": "0",
@@ -38,7 +38,7 @@
       "type": 0,
       "totalBorrowed": "1815493025120762958.266846688545039618",
       "totalDeposited": "551716670675110422965.409119656535878768",
-      "oraclePrice": "60172.516359673746378828",
+      "oraclePrice": "1",
       "interestFloor": "0.01",
       "interestInflectionUtil": "0.8",
       "interestLargeCap": "1",
@@ -48,9 +48,9 @@
       "shortWeightInitial": "1.1",
       "shortWeightMaintenance": "1.05",
       "tokenAddr": "0xe66F65bA2E902ED592c967DcD3C3dAf82B4cBF94",
-      "totalLpBaseAmount": "1425631594842481370",
-      "totalLpQuoteAmount": "8.5360557275431357412275e+22",
-      "totalLpSupply": "5.4534986502295739987151e+22"
+      "totalLpBaseAmount": "200",
+      "totalLpQuoteAmount": "200",
+      "totalLpSupply": "200"
     }
   ],
   "health": {

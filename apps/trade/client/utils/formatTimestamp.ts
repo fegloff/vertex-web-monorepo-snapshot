@@ -19,23 +19,11 @@ export interface FormatOptions {
   defaultFallback?: string;
 }
 
-// export function formatTimestamp(
-//   val: number | Date | undefined,
-//   options?: FormatOptions,
-// ) {
-//   if (val == null) {
-//     return options?.defaultFallback ?? '-';
-//   }
-//   return format(val, options?.formatSpecifier ?? TimeFormatSpecifier.HH_MM_SS);
-// }
-
 export function formatTimestamp(val: any, options?: FormatOptions) {
   try {
-    // If val is an object with a 'val' property, use that
     const actualVal =
       val && typeof val === 'object' && 'val' in val ? val.val : val;
 
-    // If actualVal is null, undefined, or an empty object, throw an error
     if (
       actualVal == null ||
       (typeof actualVal === 'object' && Object.keys(actualVal).length === 0)
@@ -48,7 +36,17 @@ export function formatTimestamp(val: any, options?: FormatOptions) {
       options?.formatSpecifier ?? TimeFormatSpecifier.HH_MM_SS,
     );
   } catch (error) {
-    console.error('Error formatting timestamp:', error);
+    // console.error('Error formatting timestamp:', error);
     return options?.defaultFallback ?? '-';
   }
 }
+
+// export function formatTimestamp(
+//   val: number | Date | undefined,
+//   options?: FormatOptions,
+// ) {
+//   if (val == null) {
+//     return options?.defaultFallback ?? '-';
+//   }
+//   return format(val, options?.formatSpecifier ?? TimeFormatSpecifier.HH_MM_SS);
+// }

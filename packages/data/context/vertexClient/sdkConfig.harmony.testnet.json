@@ -25,11 +25,11 @@
   "spotProducts": {
     "QUOTE": {
       "address": "0x8d7937520492E5eDAca6CD89Be5a0cDd26693C85",
-      "decimals": 6
+      "decimals": 18
     },
     "USDC": {
       "address": "0xe66F65bA2E902ED592c967DcD3C3dAf82B4cBF94",
-      "decimals": 6
+      "decimals": 18
     },
     "WBTC": {
       "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",

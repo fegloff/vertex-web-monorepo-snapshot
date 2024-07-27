@@ -23,7 +23,7 @@ export function useWithdrawFormData({ productIdInput }: Params) {
     if (!balances?.length) {
       return [];
     }
-    return balances
+    const productBalances = balances
       .map((balance) => {
         const token = balance.metadata.token;
         const vertexAmount = balance.amount;
@@ -61,6 +61,7 @@ export function useWithdrawFormData({ productIdInput }: Params) {
         };
       })
       .sort(sortByDisplayedAssetValue);
+    return productBalances;
   }, [balances, depositableTokenBalances, feeRates?.withdrawal]);
 
   // Selected product based on productId
