@@ -8,18 +8,7 @@ import { COLORS } from 'common/theme/colors';
 import { SaveLoadAdapter } from '../SaveLoadAdapter';
 import { WidgetConfig } from './types';
 
-// import { ResolutionString } from 'public/charting_library/charting_library';
-// Mock ResolutionString type
-type ResolutionString =
-  | '1'
-  | '5'
-  | '15'
-  | '30'
-  | '60'
-  | '1D'
-  | '1W'
-  | '1M'
-  | string; // Include string to allow for custom resolutions
+import { ResolutionString } from 'public/charting_library/charting_library';
 
 export const WIDGET_CONTAINER_ID: string = 'default-chart-container';
 

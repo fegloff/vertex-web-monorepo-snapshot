@@ -10,16 +10,11 @@ import { CandlestickPeriod } from '@vertex-protocol/indexer-client';
 import { StaticMarketData } from 'client/hooks/markets/useAllMarketsStaticData';
 import { clientEnv } from 'common/environment/clientEnv';
 import { precisionFixed } from 'd3-format';
-// import {
-//   DatafeedConfiguration,
-//   LibrarySymbolInfo,
-//   ResolutionString,
-// } from 'public/charting_library';
-
 import {
-  ResolutionString,
+  // DatafeedConfiguration,
   LibrarySymbolInfo,
-} from 'public/charting_library/mock_interfaces';
+  ResolutionString,
+} from 'public/charting_library';
 
 export const RESOLUTIONS_TO_INTERVALS = {
   '1': CandlestickPeriod.MIN,

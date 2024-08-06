@@ -19,17 +19,15 @@ import { first, mapValues, last } from 'lodash';
 import type {
   Bar,
   HistoryCallback,
-  IBasicDataFeed,
+  // IBasicDataFeed,
   LibrarySymbolInfo,
   ResolutionString,
   ResolveCallback,
   SubscribeBarsCallback,
   SymbolResolveExtension,
-} from 'public/charting_library/mock_interfaces'; // charting_library';
+} from 'public/charting_library/charting_library';
 
-// import {
-//   Bar, IBasicDataFeed
-// } from 'public/charting_library/mock_interfaces'
+import { IBasicDataFeed } from 'public/charting_library/mock_interfaces';
 
 import { useMemo, useRef } from 'react';
 import { BarSubscriber } from './types';
@@ -74,6 +72,7 @@ export function useTradingViewData({
           minmov: 1,
           pricescale: 100,
           has_intraday: true,
+          format: 'price',
           supported_resolutions: [
             '1',
             '5',
@@ -115,33 +114,29 @@ export function useTradingViewData({
           0,
         );
       },
-      searchSymbols: (
-        userInput,
-        exchange,
-        symbolType,
-        onResultReadyCallback,
+      searchSymbols: async () => {},
+      resolveSymbol: async (
+        ticker,
+        onSymbolResolvedCallback,
+        onResolveErrorCallback,
       ) => {
-        setTimeout(() => onResultReadyCallback([]), 0);
-      },
-      resolveSymbol: (
-        symbolName: string,
-        onResolve: ResolveCallback,
-        onError: ErrorCallback,
-        extension?: SymbolResolveExtension,
-      ) => {
-        const symbolInfo = mockSymbolInfoByProductId[Number(symbolName)];
-        if (symbolInfo) {
-          setTimeout(() => onResolve(symbolInfo as LibrarySymbolInfo), 0);
+        // Symbol name is the ticker, which is the stringified product ID
+        const marketInfo = mockSymbolInfoByProductId[Number(ticker)];
+        if (marketInfo) {
+          setTimeout(() => onSymbolResolvedCallback(marketInfo), 0);
         } else {
-          setTimeout(() => onError(new DOMException('Symbol not found')), 0);
+          setTimeout(
+            () => onResolveErrorCallback(new DOMException('Symbol not found')),
+            0,
+          );
         }
       },
-      getBars: (
-        symbolInfo: LibrarySymbolInfo,
-        resolution: ResolutionString,
-        periodParams: PeriodParams,
-        onHistoryCallback: HistoryCallback,
-        onErrorCallback: ErrorCallback,
+      getBars: async (
+        symbolInfo,
+        resolution,
+        periodParams,
+        onHistoryCallback,
+        onErrorCallback,
       ) => {
         const mockBars: Bar[] = [
           {
@@ -202,6 +197,13 @@ export function useTradingViewData({
   };
 }
 
+function onSymbolResolvedCallback(marketInfo: any): void {
+  throw new Error('Function not implemented.');
+}
+
+function onResolveErrorCallback(arg0: string): void {
+  throw new Error('Function not implemented.');
+}
 // export function useTradingViewData({
 //   currentProductId,
 // }: UseTradingViewDataParams): UseTradingViewData {

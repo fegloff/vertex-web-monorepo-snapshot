@@ -5,18 +5,17 @@
  */
 
 import { TradingViewSymbolInfo } from 'client/modules/trading/chart/config/datafeedConfig';
-// import {
-//   ChartingLibraryWidgetConstructor,
-//   IBasicDataFeed,
-//   IChartingLibraryWidget,
-//   Timezone,
-// } from 'public/charting_library';
+import {
+  // ChartingLibraryWidgetConstructor,
+  // IBasicDataFeed,
+  // IChartingLibraryWidget,
+  Timezone,
+} from 'public/charting_library';
 
 import {
   ChartingLibraryWidgetConstructor,
   IBasicDataFeed,
   IChartingLibraryWidget,
-  Timezone,
   ChartingLibraryWidgetOptions,
 } from 'public/charting_library/mock_interfaces';
 

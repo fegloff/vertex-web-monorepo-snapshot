@@ -3,18 +3,26 @@
  * These are defined to allow compilation without TradingView Advanced.
  * No actual implementation is provided.
  */
-import { DOMCallback, GetMarksCallback, HistoryCallback, Mark, PeriodParams, ResolveCallback, SearchSymbolsCallback, ServerTimeCallback, SubscribeBarsCallback, SymbolResolveExtension, TimescaleMark } from "./charting_library";
+import { 
+  CrossHairMovedEventParams, 
+  DOMCallback, 
+  GetMarksCallback, 
+  HistoryCallback, 
+  ISubscription, 
+  LibrarySymbolInfo, 
+  Mark, 
+  PeriodParams, 
+  ResolutionString, 
+  ResolveCallback, 
+  SearchSymbolsCallback, 
+  ServerTimeCallback, 
+  SubscribeBarsCallback, 
+  SymbolResolveExtension, 
+  TimescaleMark, 
+  Timezone 
+} from "./charting_library";
+
 export type ChartingLibraryWidgetConstructor = new (config: ChartingLibraryWidgetOptions) => IChartingLibraryWidget;
-export type ResolutionString = Nominal<string, "ResolutionString">;
-export type LibrarySymbolInfo = any; 
-export interface Bar {
-  time: number;
-  open: number;
-  high: number;
-  low: number;
-  close: number;
-  volume?: number;
-}
 
 interface DatafeedConfiguration {
   supported_resolutions?: string[];
@@ -44,42 +52,6 @@ export interface IDatafeedChartApi {
 	unsubscribeDepth?(subscriberUID: string): void;
 	getVolumeProfileResolutionForPeriod?(currentResolution: ResolutionString, from: number, to: number, symbolInfo: LibrarySymbolInfo): ResolutionString;
 }
-
-// export interface IBasicDataFeed {
-//   onReady: (callback: (configuration: DatafeedConfiguration) => void) => void;
-//   searchSymbols: (
-//     userInput: string,
-//     exchange: string,
-//     symbolType: string,
-//     onResult: (result: any[]) => void
-//   ) => void;
-//   resolveSymbol: (
-//     symbolName: string,
-//     onSymbolResolvedCallback: (symbolInfo: any) => void,
-//     onResolveErrorCallback: (reason: string) => void
-//   ) => void;
-//   getBars: (
-//     symbolInfo: any,
-//     resolution: string,
-//     periodParams: {
-//       from: number;
-//       to: number;
-//       countBack: number;
-//       firstDataRequest: boolean;
-//     },
-//     onHistoryCallback: (bars: any[]) => void,
-//     onErrorCallback: (reason: string) => void
-//   ) => void;
-//   subscribeBars: (
-//     symbolInfo: any,
-//     resolution: string,
-//     onRealtimeCallback: (bar: any) => void,
-//     subscriberUID: string,
-//     onResetCacheNeededCallback: () => void
-//   ) => void;
-//   unsubscribeBars: (subscriberUID: string) => void;
-// }
-
 export interface ChartingLibraryWidgetOptions {
   symbol?: string;
   interval?: string;
@@ -89,8 +61,6 @@ export interface ChartingLibraryWidgetOptions {
   locale?: string;
   timezone?: Timezone;
 }
-
-export type Timezone = string;
 
 export interface IPositionLineAdapter {
   remove: () => void;
@@ -149,36 +119,6 @@ export type IChartingLibraryWidget = {
   // applyOverrides, setCSSCustomProperty, activeChart, setSymbol, remove
 };
 
-export interface ISubscription<TFunc extends Function> {
-  subscribe(obj: object | null, member: TFunc, singleshot?: boolean): void;
-  unsubscribe(obj: object | null, member: TFunc): void;
-  unsubscribeAll(obj: object | null): void;
-}
-
-export declare type Nominal<T, Name extends string> = T & {
-	[Symbol.species]: Name;
-};
-
-export type EntityId = Nominal<string, "EntityId">;
-
-export interface CrossHairMovedEventSource {
-	isHovered: boolean;
-	title: string;
-	values: CrossHairMovedEventSourceValue[];
-}
-export interface CrossHairMovedEventSourceValue {
-	title: string;
-	value: string;
-}
-
-export interface CrossHairMovedEventParams {
-	time: number;
-	price: number;
-	entityValues?: Record<EntityId, CrossHairMovedEventSource>;
-	offsetX?: number;
-	offsetY?: number;
-}
-
 export interface IChartWidgetApi {
   crossHairMoved: () => ISubscription<(params: CrossHairMovedEventParams) => void>
   remove: () => void;
@@ -214,5 +154,3 @@ export interface IChartWidgetApi {
   onClose: (callback: () => void) => IChartWidgetApi;
 
 }
-
-export type { HistoryCallback, ResolveCallback, SubscribeBarsCallback, SymbolResolveExtension };
