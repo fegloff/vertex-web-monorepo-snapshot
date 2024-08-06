@@ -3,8 +3,17 @@ These base styles are from https://github.com/mohsinulhaq/react-popper-tooltip/b
 and adapted to fit Tailwind
  */
  
- .tooltip-container {
+ .shadow-elevation {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+ }
+
+/* :HARMONY:
+.tooltip-container {
     --tooltip-bg: theme('colors.surface.3');
+    @apply shadow-elevation bg-[var(--tooltip-bg)];
+} */
+.tooltip-container {
+    --tooltip-bg: #0d0d0d;
     @apply shadow-elevation bg-[var(--tooltip-bg)];
 }
 

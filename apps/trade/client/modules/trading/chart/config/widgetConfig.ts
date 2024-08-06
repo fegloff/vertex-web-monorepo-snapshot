@@ -1,7 +1,14 @@
+/**
+ * TESTING: Mock ResolutionString type
+ * This is a simplified version of the TradingView ResolutionString type for testing purposes.
+ * Remove this and uncomment the original import when re-enabling TradingView functionality.
+ */
+
 import { COLORS } from 'common/theme/colors';
-import { ResolutionString } from 'public/charting_library/charting_library';
 import { SaveLoadAdapter } from '../SaveLoadAdapter';
 import { WidgetConfig } from './types';
+
+import { ResolutionString } from 'public/charting_library/charting_library';
 
 export const WIDGET_CONTAINER_ID: string = 'default-chart-container';
 

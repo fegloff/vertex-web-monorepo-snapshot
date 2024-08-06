@@ -75,6 +75,7 @@ export function hasBigDecimalType(key: string): boolean {
     'maintenance',
     'initial',
     'unweighted',
+    'health',
   ];
   return keys.includes(key);
 }

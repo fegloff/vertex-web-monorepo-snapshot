@@ -1,11 +1,17 @@
+/**
+ * TESTING: Mock implementation of useUpdateLimitPriceOnCrosshairClick
+ * This version logs the overrides instead of applying them to a TradingView widget.
+ * Remove this mock and uncomment the original implementation to re-enable TradingView functionality.
+ */
+
 import { toBigDecimal } from '@vertex-protocol/client';
 import { debounce } from 'lodash';
-import {
-  CrossHairMovedEventParams,
-  IChartingLibraryWidget,
-} from 'public/charting_library/charting_library';
+
+import { IChartingLibraryWidget } from 'public/charting_library/mock_interfaces';
+
 import { useEffect, useRef } from 'react';
 import { useSetPriceInput } from '../../hooks/useSetPriceInput';
+import { CrossHairMovedEventParams } from 'public/charting_library/charting_library';
 
 interface Params {
   tvWidget: IChartingLibraryWidget | undefined;

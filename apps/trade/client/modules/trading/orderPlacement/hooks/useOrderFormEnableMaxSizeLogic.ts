@@ -7,6 +7,7 @@ interface Params {
 
 export function useOrderFormEnableMaxSizeLogic({ priceType }: Params) {
   const { data: subaccountSummary } = useCurrentSubaccountSummary();
+
   const isNegativeInitialHealth =
     subaccountSummary?.health.initial.health.lt(0) ?? false;
 
