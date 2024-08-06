@@ -1,7 +1,14 @@
+/**
+ * TESTING: Mock implementation of useUpdateLatestBar
+ * This version logs the overrides instead of applying them to a TradingView widget.
+ * Remove this mock and uncomment the original implementation to re-enable TradingView functionality.
+ */
+
 import { nowInSeconds } from '@vertex-protocol/client';
 import { useLatestOrderFill } from 'client/hooks/markets/useLatestOrderFill';
 import { removeDecimals } from 'client/utils/decimalAdjustment';
-import type { Bar } from 'public/charting_library';
+// import type { Bar } from 'public/charting_library';
+import { Bar } from 'public/charting_library/mock_interfaces';
 import { MutableRefObject, useEffect } from 'react';
 import { BarSubscriber } from './types';
 import { getLastBarMapKey, syncBarOpenWithValue } from './utils';

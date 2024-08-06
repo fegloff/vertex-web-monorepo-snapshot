@@ -1,10 +1,25 @@
+/**
+ * TESTING: Mock implementation of useTradingViewWidget
+ * This version logs the overrides instead of applying them to a TradingView widget.
+ * Remove this mock and uncomment the original implementation to re-enable TradingView functionality.
+ */
+
 import { TradingViewSymbolInfo } from 'client/modules/trading/chart/config/datafeedConfig';
+// import {
+//   ChartingLibraryWidgetConstructor,
+//   IBasicDataFeed,
+//   IChartingLibraryWidget,
+//   Timezone,
+// } from 'public/charting_library';
+
 import {
   ChartingLibraryWidgetConstructor,
   IBasicDataFeed,
   IChartingLibraryWidget,
   Timezone,
-} from 'public/charting_library';
+  ChartingLibraryWidgetOptions,
+} from 'public/charting_library/mock_interfaces';
+
 import { MutableRefObject, useEffect, useRef, useState } from 'react';
 import { WIDGET_CONFIG } from '../config/widgetConfig';
 import { useSyncedRef } from 'client/hooks/util/useSyncedRef';
@@ -23,13 +38,71 @@ interface Params {
 // Cached import for the TV charting library widget
 let _widgetConstructor: ChartingLibraryWidgetConstructor | undefined;
 
-async function getImportedWidgetConstructor() {
+// async function getImportedWidgetConstructor() {
+//   if (_widgetConstructor) {
+//     return _widgetConstructor;
+//   }
+//   const constructor = (await import('public/charting_library')).widget; //  public/charting_library
+//   _widgetConstructor = constructor;
+//   return constructor;
+// }
+
+// Mock function for testing purposes
+async function getImportedWidgetConstructor(): Promise<ChartingLibraryWidgetConstructor> {
   if (_widgetConstructor) {
     return _widgetConstructor;
   }
-  const constructor = (await import('public/charting_library')).widget; //  public/charting_library
-  _widgetConstructor = constructor;
-  return constructor;
+
+  const MockConstructor: ChartingLibraryWidgetConstructor = class
+    implements IChartingLibraryWidget
+  {
+    constructor(config: ChartingLibraryWidgetOptions) {
+      console.log('Mock TradingView widget constructed with config:', config);
+    }
+
+    onChartReady(callback: () => void): void {
+      setTimeout(callback, 0);
+    }
+
+    setSymbol(symbol: string, interval: string, callback: () => void): void {
+      setTimeout(callback, 0);
+    }
+
+    remove(): void {}
+
+    applyOverrides(overrides: Record<string, any>): void {}
+
+    setCSSCustomProperty(key: string, value: string): void {}
+
+    activeChart(): any {
+      return {};
+    }
+
+    symbol(): string {
+      return 'MOCK_SYMBOL';
+    }
+
+    resolution(): string {
+      return '1D';
+    }
+
+    subscribe(event: string, callback: () => void): void {}
+
+    unsubscribe(event: string, callback: () => void): void {}
+
+    saveChartToServer(
+      undefined: undefined,
+      undefined1: undefined,
+      arg2: { defaultChartName: string },
+    ): void {} // unknown;
+
+    // saveChartToServer(onComplete: () => void, onFail: (error: string) => void, options: any): void {
+    //   onComplete();
+    // }
+  };
+
+  _widgetConstructor = MockConstructor;
+  return MockConstructor;
 }
 
 export function useTradingViewWidget({
