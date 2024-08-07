@@ -9,7 +9,8 @@
         "NEXT_PUBLIC_BRAND_NAME",
         "NEXT_PUBLIC_ENABLE_EXPERIMENTAL_FEATURES",
         "NEXT_PUBLIC_SENTRY_ENV_NAME",
-        "NODE_ENV"
+        "NODE_ENV",
+        "NEXT_PUBLIC_WALLET_CONNECT_KEY"
       ],
       "outputs": ["dist/**", ".next/**"]
     },
