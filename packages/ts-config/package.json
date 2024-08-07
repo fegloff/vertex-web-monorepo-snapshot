@@ -2,6 +2,9 @@
   "name": "ts-config",
   "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "build": "echo 'No build required for web-data'"
+  },
   "files": [
     "base.json",
     "nextjs.json",

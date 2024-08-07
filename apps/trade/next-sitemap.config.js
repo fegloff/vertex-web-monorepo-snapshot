@@ -3,6 +3,7 @@ const brandName = require('./common/environment/envBrandName');
 const siteUrl = {
   vertex: 'https://app.vertexprotocol.com',
   blitz: 'https://app.blitz.exchange',
+  harmony: 'https://app.vertexprotocol.com',
 }[brandName];
 
 /** @type {import('next-sitemap').IConfig} */
