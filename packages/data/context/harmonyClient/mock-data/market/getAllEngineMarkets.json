@@ -19,7 +19,7 @@
       "longWeightMaintenance": "1",
       "shortWeightInitial": "1",
       "shortWeightMaintenance": "1",
-      "tokenAddr": "0x8d7937520492E5eDAca6CD89Be5a0cDd26693C85",
+      "tokenAddr": "0xe66F65bA2E902ED592c967DcD3C3dAf82B4cBF94",
       "totalLpBaseAmount": "0",
       "totalLpQuoteAmount": "0",
       "totalLpSupply": "0"
@@ -45,7 +45,7 @@
       "longWeightMaintenance": "0.95",
       "shortWeightInitial": "1.1",
       "shortWeightMaintenance": "1.05",
-      "tokenAddr": "0xe66F65bA2E902ED592c967DcD3C3dAf82B4cBF94",
+      "tokenAddr": "0x8d7937520492E5eDAca6CD89Be5a0cDd26693C85",
       "totalLpBaseAmount": "1354726755778667890",
       "totalLpQuoteAmount": "8.9435242961248731687018e+22",
       "totalLpSupply": "5.4494760859388086337743e+22"

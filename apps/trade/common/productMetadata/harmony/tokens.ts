@@ -21,16 +21,16 @@ const sdkConfig =
     : harmonyTestnetSdkConfig;
 
 export const VRTX_HARMONY: Token = {
-  address: sdkConfig.spotProducts['QUOTE'].address.toLowerCase(),
+  address: sdkConfig.spotProducts['USDC'].address.toLowerCase(),
   chainId: harmonyChainId,
-  tokenDecimals: 6, // 18
+  tokenDecimals: 18,
   ...VRTX_TOKEN_INFO,
 };
 
 export const USDC_HARMONY: Token = {
-  address: sdkConfig.spotProducts['USDC'].address.toLowerCase(),
+  address: sdkConfig.spotProducts['QUOTE'].address.toLowerCase(),
   chainId: harmonyChainId,
-  tokenDecimals: sdkConfig.spotProducts['USDC'].decimals,
+  tokenDecimals: sdkConfig.spotProducts['QUOTE'].decimals,
   name: 'USD Coin',
   symbol: PRIMARY_QUOTE_SYMBOL,
   icon: TOKEN_ICONS.usdc,

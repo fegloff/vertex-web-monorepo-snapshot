@@ -4,47 +4,37 @@ FROM node:18-alpine AS base
 # Set the working directory
 WORKDIR /app
 
-# Copy root package.json and yarn.lock
-COPY package.json yarn.lock ./
+# Install build dependencies
+RUN apk add --no-cache libc6-compat
 
-# Copy the trade app package.json
-COPY apps/trade/package.json ./apps/trade/
-
-# Copy the packages directory
-COPY packages ./packages
+# Copy package.json files and other necessary files
+# The .dockerignore file will prevent copying of unnecessary files
+COPY . .
 
 # Install dependencies
 RUN yarn install --frozen-lockfile
 
-# Copy the entire trade app directory
-COPY apps/trade ./apps/trade
-
-# Build shared packages
-RUN yarn workspaces run build
-
 # Build the trade application
 RUN yarn workspace trade build
 
-# Create a production-ready image
+# Production stage
 FROM node:18-alpine AS production
 
 WORKDIR /app
 
-# Copy built assets and necessary files from the base stage
+# Set environment variables
+ENV NODE_ENV staging
+ENV NEXT_TELEMETRY_DISABLED 1
+
+# Copy necessary files from the base stage
+COPY --from=base /app/package.json /app/yarn.lock ./
+COPY --from=base /app/apps/trade/package.json ./apps/trade/
 COPY --from=base /app/apps/trade/.next ./apps/trade/.next
 COPY --from=base /app/apps/trade/public ./apps/trade/public
-COPY --from=base /app/apps/trade/package.json ./apps/trade/
 COPY --from=base /app/packages ./packages
-COPY --from=base /app/package.json ./
-COPY --from=base /app/yarn.lock ./
 
 # Install production dependencies
 RUN yarn install --frozen-lockfile --production
-
-# Set environment variables
-ENV NODE_ENV staging
-# ENV NODE_ENV production
-ENV NEXT_TELEMETRY_DISABLED 1
 
 # Expose the port the app runs on
 EXPOSE 3002
