@@ -52,7 +52,6 @@ function allStaticMarketsDataQueryKey(chainId: PrimaryChainID) {
 export function useAllMarketsStaticData() {
   const primaryChainId = usePrimaryChainId();
   const { data } = useAllMarkets();
-
   const enabled = !!data;
 
   const queryFn = (): AllMarketsStaticData => {
@@ -121,7 +120,6 @@ export function useAllMarketsStaticData() {
 
     return staticMarketDataByProductId;
   };
-
   return useQuery({
     queryKey: allStaticMarketsDataQueryKey(primaryChainId),
     queryFn,

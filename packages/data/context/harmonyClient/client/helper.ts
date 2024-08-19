@@ -76,6 +76,10 @@ export function hasBigDecimalType(key: string): boolean {
     'initial',
     'unweighted',
     'health',
+    'longWeightInitial',
+    'priceIncrement',
+    'minSize',
+    'sizeIncrement',
   ];
   return keys.includes(key);
 }

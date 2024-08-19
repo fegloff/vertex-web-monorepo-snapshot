@@ -24,20 +24,28 @@
   },
   "spotProducts": {
     "QUOTE": {
-      "address": "0xe66F65bA2E902ED592c967DcD3C3dAf82B4cBF94",
-      "decimals": 18
-    },
-    "USDC": {
-      "address": "0x8d7937520492E5eDAca6CD89Be5a0cDd26693C85",
-      "decimals": 18
+      "address": "0xBC594CABd205bD993e7FfA6F3e9ceA75c1110da5",
+      "decimals": 6
     },
     "WBTC": {
       "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
       "decimals": 8
     },
-    "WETH": {
-      "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+    "ETH": {
+      "address": "0x4cC435d7b9557d54d6EF02d69Bbf72634905Bf11",
       "decimals": 18
+    },
+    "WONE": {
+      "address": "0xcF664087a5bB0237a0BAd6742852ec6c8d69A27a",
+      "decimals": 18
+    },
+    "USDT": {
+      "address": "0xF2732e8048f1a411C63e2df51d08f4f52E598005",
+      "decimals": 6
+    },
+    "VRTX": {
+      "address": "0x0000000000000000000000000000000000000000",
+      "decimals": 6
     }
   }
 }

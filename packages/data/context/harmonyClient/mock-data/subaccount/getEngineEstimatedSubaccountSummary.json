@@ -8,7 +8,7 @@
         "maintenance": "0",
         "unweighted": "0"
       },
-      "productId": 0,
+      "productId": 3,
       "type": 0,
       "totalBorrowed": "3.0931298424728758289068756061963811193079859e+25",
       "totalDeposited": "3.7065055215876357954574619365032743137785415e+25",
@@ -21,7 +21,7 @@
       "longWeightMaintenance": "1",
       "shortWeightInitial": "1",
       "shortWeightMaintenance": "1",
-      "tokenAddr": "0xe66F65bA2E902ED592c967DcD3C3dAf82B4cBF94",
+      "tokenAddr": "0x118f50d23810c5E09Ebffb42d7D3328dbF75C2c2",
       "totalLpBaseAmount": "100000000000000000000",
       "totalLpQuoteAmount": "100000000000000000000",
       "totalLpSupply": "100000000000000000000"
@@ -34,7 +34,7 @@
         "maintenance": "0",
         "unweighted": "0"
       },
-      "productId": 23,
+      "productId": 0,
       "type": 0,
       "totalBorrowed": "1815493025120762958.266846688545039618",
       "totalDeposited": "551716670675110422965.409119656535878768",
@@ -47,10 +47,56 @@
       "longWeightMaintenance": "0.95",
       "shortWeightInitial": "1.1",
       "shortWeightMaintenance": "1.05",
-      "tokenAddr": "0x8d7937520492E5eDAca6CD89Be5a0cDd26693C85",
+      "tokenAddr": "0xBC594CABd205bD993e7FfA6F3e9ceA75c1110da5",
       "totalLpBaseAmount": "200",
       "totalLpQuoteAmount": "200",
       "totalLpSupply": "200"
+    },
+    {
+      "amount": "0",
+      "lpAmount": "0",
+      "vQuoteBalance": "0",
+      "healthContributions": {
+        "initial": "0",
+        "maintenance": "0",
+        "unweighted": "0"
+      },
+      "productId": 4,
+      "type": 1,
+      "oraclePrice": "3344.117102526961371326",
+      "longWeightInitial": "0.95",
+      "longWeightMaintenance": "0.97",
+      "shortWeightInitial": "1.05",
+      "shortWeightMaintenance": "1.03",
+      "openInterest": "8.77133e+21",
+      "totalLpBaseAmount": "0",
+      "totalLpQuoteAmount": "0",
+      "totalLpSupply": "0",
+      "cumulativeFundingLong": "226.796415880811293183",
+      "cumulativeFundingShort": "226.796415880811293183"
+    },
+    {
+      "amount": "0",
+      "lpAmount": "0",
+      "vQuoteBalance": "0",
+      "healthContributions": {
+        "initial": "0",
+        "maintenance": "0",
+        "unweighted": "0"
+      },
+      "productId": 2,
+      "type": 1,
+      "oraclePrice": "0.812623315582889572",
+      "longWeightInitial": "0.9",
+      "longWeightMaintenance": "0.95",
+      "shortWeightInitial": "1.1",
+      "shortWeightMaintenance": "1.05",
+      "openInterest": "6.3127e+23",
+      "totalLpBaseAmount": "0",
+      "totalLpQuoteAmount": "0",
+      "totalLpSupply": "0",
+      "cumulativeFundingLong": "0.180341309559333961",
+      "cumulativeFundingShort": "0.180341309559333961"
     }
   ],
   "health": {

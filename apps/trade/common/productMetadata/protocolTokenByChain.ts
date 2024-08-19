@@ -31,8 +31,8 @@ export const PROTOCOL_TOKEN_BY_CHAIN: Record<number, Token> = {
   [blast.id]: USDB_BLAST,
   // No protocol token on mantle
   [mantleSepoliaTestnet.id]: USDC_MANTLE_SEPOLIA,
-  [hardhat.id]: USDC_HARMONY,
-  [localhost.id]: USDC_HARMONY,
+  [hardhat.id]: USDC_HARDHAT,
+  [localhost.id]: USDC_HARDHAT,
   [harmonyMainnet.id]: VRTX_HARMONY, // change to VRTX_HARMONY
   [harmonyTestnet.id]: VRTX_HARMONY, // change to VRTX_HARMONY
 } satisfies Record<PrimaryChainID, Token>;
@@ -45,9 +45,9 @@ export const PROTOCOL_TOKEN_PRODUCT_ID_BY_CHAIN: Record<number, number> = {
   [blast.id]: -1,
   // No protocol token on mantle
   [mantleSepoliaTestnet.id]: -1,
-  [hardhat.id]: 23,
-  [localhost.id]: 23,
+  [hardhat.id]: 2,
+  [localhost.id]: 2,
   // No protocol token on harmony??
-  [harmonyMainnet.id]: 23,
-  [harmonyTestnet.id]: 23,
+  [harmonyMainnet.id]: 2,
+  [harmonyTestnet.id]: 2,
 } satisfies Record<PrimaryChainID, number>;

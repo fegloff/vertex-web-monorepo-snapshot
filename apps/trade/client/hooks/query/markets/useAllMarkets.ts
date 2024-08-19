@@ -58,7 +58,6 @@ export function useAllMarkets<TSelectedData = AllMarketsData>(
     if (disabled) {
       throw new QueryDisabledError();
     }
-
     startProfiling();
     const baseResponse = harmonyClient.isHarmony
       ? await harmonyClient.market.getAllEngineMarkets()
@@ -73,7 +72,6 @@ export function useAllMarkets<TSelectedData = AllMarketsData>(
     baseResponse.forEach((market) => {
       if (market.type === ProductEngineType.SPOT) {
         const metadata = getSpotMetadata(market.product.productId);
-
         if (!metadata) {
           return;
         }
@@ -90,12 +88,10 @@ export function useAllMarkets<TSelectedData = AllMarketsData>(
         if (!metadata) {
           return;
         }
-
         // For example, if initial weight is 0.9, then max leverage is 1 / 0.1 = 10x
         const maxLeverage = Math.round(
           1 / (1 - market.product.longWeightInitial.toNumber()),
         );
-
         perpMarkets[market.productId] = {
           ...market,
           metadata,
@@ -110,7 +106,6 @@ export function useAllMarkets<TSelectedData = AllMarketsData>(
 
     const spotMarketsProductIds = Object.keys(spotMarkets).map(Number);
     const perpMarketsProductIds = Object.keys(perpMarkets).map(Number);
-
     return {
       quoteProduct,
       spotMarkets,
@@ -124,7 +119,6 @@ export function useAllMarkets<TSelectedData = AllMarketsData>(
       perpMarketsProductIds,
     };
   };
-
   return useQuery({
     queryKey: allMarketsQueryKey(primaryChainId),
     queryFn,

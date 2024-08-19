@@ -17,7 +17,7 @@ import {
   USDB_BLAST,
   USDB_BLAST_SEPOLIA,
 } from 'common/productMetadata/blast/tokens';
-import { VRTX_HARDHAT } from './local/tokens'; // 'common/productMetadata/local/tokens';
+import { USDC_HARDHAT } from './local/tokens'; // 'common/productMetadata/local/tokens';
 import { USDC_MANTLE_SEPOLIA } from 'common/productMetadata/mantle/tokens';
 import { Token } from 'common/productMetadata/types';
 import { USDC_HARMONY } from './harmony/tokens';
@@ -28,8 +28,8 @@ export const PRIMARY_QUOTE_TOKEN_BY_CHAIN: Record<number, Token> = {
   [blastSepolia.id]: USDB_BLAST_SEPOLIA,
   [blast.id]: USDB_BLAST,
   [mantleSepoliaTestnet.id]: USDC_MANTLE_SEPOLIA,
-  [hardhat.id]: VRTX_HARDHAT,
-  [localhost.id]: VRTX_HARDHAT,
+  [hardhat.id]: USDC_HARDHAT,
+  [localhost.id]: USDC_HARDHAT,
   [harmonyMainnet.id]: USDC_HARMONY,
   [harmonyTestnet.id]: USDC_HARMONY,
 } satisfies Record<PrimaryChainID, Token>;

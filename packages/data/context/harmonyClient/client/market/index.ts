@@ -7,11 +7,18 @@ import {
 import { GetEngineHealthGroupsResponse } from '@vertex-protocol/engine-client';
 
 import * as marketJson from '../../mock-data/market';
+import { hasBigDecimalType, parseBigNumber } from '../helper';
 
 export const market = {
   getAllEngineMarkets: async (): Promise<GetAllMarketsResponse> => {
     const engineMarkets = JSON.parse(
       JSON.stringify(marketJson.getAllEngineMarkets),
+      (key, value) => {
+        if (hasBigDecimalType(key)) {
+          return parseBigNumber(value);
+        }
+        return value;
+      },
     ) as GetAllMarketsResponse;
     return engineMarkets;
   },

@@ -28,7 +28,6 @@ export function DesktopNavTradeSwitcher() {
     setQuery,
     disableFavoriteButton,
   } = useNavTradeSwitcher();
-
   const productTradingLinks = useProductTradingLinks();
   const {
     run: debouncedSetSelectedMarketFilter,
