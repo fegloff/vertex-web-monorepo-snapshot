@@ -19,7 +19,7 @@ export const HARMONY_SPOT_METADATA_BY_PRODUCT_ID: Record<
     marketName: '',
     marketDetails: NOOP_MARKET_DETAILS,
   },
-  1: {
+  11: {
     // update
     token: VRTX_HARMONY,
     marketName: '', // VRTX-HARMONY

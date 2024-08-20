@@ -48,6 +48,6 @@ export const PROTOCOL_TOKEN_PRODUCT_ID_BY_CHAIN: Record<number, number> = {
   [hardhat.id]: 2,
   [localhost.id]: 2,
   // No protocol token on harmony??
-  [harmonyMainnet.id]: 2,
-  [harmonyTestnet.id]: 2,
+  [harmonyMainnet.id]: 11,
+  [harmonyTestnet.id]: 11,
 } satisfies Record<PrimaryChainID, number>;
