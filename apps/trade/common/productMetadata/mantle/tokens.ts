@@ -1,4 +1,4 @@
-import { mantleSepoliaTestnet } from '@wagmi/core/chains';
+import { mantleSepoliaTestnet } from '@vertex-protocol/web-data';
 import { PRIMARY_QUOTE_SYMBOL } from 'common/productMetadata/primaryQuoteSymbol';
 import { TOKEN_ICONS } from 'common/productMetadata/tokenIcons';
 import { Token } from 'common/productMetadata/types';

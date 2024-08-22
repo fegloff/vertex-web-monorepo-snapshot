@@ -8,7 +8,6 @@ export function useMinimumDepositAmounts(): QueryState<
   Record<number, BigDecimal>
 > {
   const { data, ...rest } = useSubaccountFeeRates();
-
   const mappedData = useMemo(() => {
     if (!data) {
       return;

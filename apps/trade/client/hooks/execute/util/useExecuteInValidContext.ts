@@ -1,5 +1,6 @@
 import { VertexClient } from '@vertex-protocol/client';
 import { useEVMContext, useVertexClient } from '@vertex-protocol/web-data';
+import { HarmonyClient } from '@vertex-protocol/web-data/context/harmonyClient/client/types';
 import { useSubaccountContext } from 'client/context/subaccount/SubaccountContext';
 import { Subaccount } from 'client/context/subaccount/types';
 import { useCallback, useMemo } from 'react';
@@ -8,6 +9,7 @@ import { Chain } from 'viem';
 export interface ValidExecuteContext {
   primaryChain: Chain;
   vertexClient: VertexClient;
+  harmonyClient: HarmonyClient;
   subaccount: Required<Subaccount>;
 }
 
@@ -18,7 +20,7 @@ export interface ValidExecuteContext {
 export function useExecuteInValidContext<TParams = unknown, TData = unknown>(
   fn: (params: TParams, context: ValidExecuteContext) => Promise<TData>,
 ): (params: TParams) => Promise<TData> {
-  const vertexClient = useVertexClient();
+  const { vertexClient, harmonyClient } = useVertexClient();
   const { connectionStatus, primaryChain } = useEVMContext();
   const {
     currentSubaccount: { name: currentSubaccountName },
@@ -34,6 +36,7 @@ export function useExecuteInValidContext<TParams = unknown, TData = unknown>(
 
     return {
       vertexClient,
+      harmonyClient,
       primaryChain,
       subaccount: {
         name: currentSubaccountName,
@@ -46,6 +49,7 @@ export function useExecuteInValidContext<TParams = unknown, TData = unknown>(
     currentSubaccountName,
     primaryChain,
     vertexClient,
+    harmonyClient,
   ]);
 
   return useCallback(

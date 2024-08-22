@@ -46,7 +46,7 @@ export function useSubaccountPaginatedHistoricalTriggerOrders({
   pageSize,
 }: Params) {
   const primaryChainId = usePrimaryChainId();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const hasLinkedSigner = useVertexClientHasLinkedSigner();
   const getRecvTime = useGetRecvTime();
   const {

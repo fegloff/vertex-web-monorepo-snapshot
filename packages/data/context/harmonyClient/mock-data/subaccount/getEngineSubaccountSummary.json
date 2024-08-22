@@ -1,0 +1,120 @@
+{
+  "balances": [
+    {
+      "amount": "100000000000000000000",
+      "lpAmount": "0",
+      "healthContributions": {
+        "initial": "0",
+        "maintenance": "0",
+        "unweighted": "0"
+      },
+      "productId": 0,
+      "type": 0,
+      "totalBorrowed": "3.192987745975195622644564891998689558912228e+25",
+      "totalDeposited": "4.008647648540114864754346421926250154218232e+25",
+      "oraclePrice": "1",
+      "interestFloor": "0.01",
+      "interestInflectionUtil": "0.8",
+      "interestLargeCap": "1",
+      "interestSmallCap": "0.04",
+      "longWeightInitial": "1",
+      "longWeightMaintenance": "1",
+      "shortWeightInitial": "1",
+      "shortWeightMaintenance": "1",
+      "tokenAddr": "0xBC594CABd205bD993e7FfA6F3e9ceA75c1110da5",
+      "totalLpBaseAmount": "100000000000000000000",
+      "totalLpQuoteAmount": "100000000000000000000",
+      "totalLpSupply": "100000000000000000000"
+    },
+    {
+      "amount": "200000000000000000000",
+      "lpAmount": "0",
+      "healthContributions": {
+        "initial": "0",
+        "maintenance": "0",
+        "unweighted": "0"
+      },
+      "productId": 3,
+      "type": 0,
+      "totalBorrowed": "5930765798251134036.112543637774575641",
+      "totalDeposited": "484881198378241485918.37936713824864685",
+      "oraclePrice": "1",
+      "interestFloor": "0.01",
+      "interestInflectionUtil": "0.8",
+      "interestLargeCap": "1",
+      "interestSmallCap": "0.04",
+      "longWeightInitial": "0.9",
+      "longWeightMaintenance": "0.95",
+      "shortWeightInitial": "1.1",
+      "shortWeightMaintenance": "1.05",
+      "tokenAddr": "0x118f50d23810c5E09Ebffb42d7D3328dbF75C2c2",
+      "totalLpBaseAmount": "200000000000000000000",
+      "totalLpQuoteAmount": "200000000000000000000",
+      "totalLpSupply": "200000000000000000000"
+    },
+    {
+      "amount": "0",
+      "lpAmount": "0",
+      "vQuoteBalance": "0",
+      "healthContributions": {
+        "initial": "0",
+        "maintenance": "0",
+        "unweighted": "0"
+      },
+      "productId": 4,
+      "type": 1,
+      "oraclePrice": "3669.934174159036275923",
+      "longWeightInitial": "0.95",
+      "longWeightMaintenance": "0.97",
+      "shortWeightInitial": "1.05",
+      "shortWeightMaintenance": "1.03",
+      "openInterest": "8.22554e+21",
+      "totalLpBaseAmount": "0",
+      "totalLpQuoteAmount": "0",
+      "totalLpSupply": "0",
+      "cumulativeFundingLong": "209.789557729302952479",
+      "cumulativeFundingShort": "209.789557729302952479"
+    },
+    {
+      "amount": "0",
+      "lpAmount": "0",
+      "vQuoteBalance": "0",
+      "healthContributions": {
+        "initial": "0",
+        "maintenance": "0",
+        "unweighted": "0"
+      },
+      "productId": 2,
+      "type": 1,
+      "oraclePrice": "0.956908897440615724",
+      "longWeightInitial": "0.9",
+      "longWeightMaintenance": "0.95",
+      "shortWeightInitial": "1.1",
+      "shortWeightMaintenance": "1.05",
+      "openInterest": "7.1271e+23",
+      "totalLpBaseAmount": "0",
+      "totalLpQuoteAmount": "0",
+      "totalLpSupply": "0",
+      "cumulativeFundingLong": "0.180933004980259834",
+      "cumulativeFundingShort": "0.180933004980259834"
+    }
+  ],
+  "exists": false,
+  "health": {
+    "initial": {
+      "health": "0",
+      "assets": "0",
+      "liabilities": "0"
+    },
+    "maintenance": {
+      "health": "0",
+      "assets": "0",
+      "liabilities": "0"
+    },
+    "unweighted": {
+      "health": "0",
+      "assets": "0",
+      "liabilities": "0"
+    }
+  }
+}

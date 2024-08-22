@@ -18,7 +18,7 @@ type Data = Record<number, string>;
  */
 export function useOrderbookAddresses() {
   const primaryChainId = usePrimaryChainId();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const disabled = !vertexClient;
 
   return useQuery({

@@ -12,6 +12,7 @@ interface Props extends TableCellProps {
 }
 
 export function DateTimeCell({ timestampMillis, className, ...rest }: Props) {
+  console.log('FLAG:::::::: DateTimeCell', timestampMillis);
   const time = formatTimestamp(timestampMillis, {
     formatSpecifier: TimeFormatSpecifier.HH_MM_SS_12H,
   });

@@ -27,15 +27,20 @@ export function useExecuteUpdateLinkedSigner() {
     useCallback(
       async (params: Params, context: ValidExecuteContext): Promise<Data> => {
         // Query the current linked signer, if this matches with the wallet, then skip authorization
-        const currentLinkedSigner =
-          await context.vertexClient.subaccount.getSubaccountLinkedSignerWithRateLimit(
-            {
-              subaccount: {
-                subaccountOwner: context.subaccount.address,
-                subaccountName: context.subaccount.name,
-              },
-            },
-          );
+        const signerParams = {
+          subaccount: {
+            subaccountOwner: context.subaccount.address,
+            subaccountName: context.subaccount.name,
+          },
+        };
+        const currentLinkedSigner = context.harmonyClient.isHarmony
+          ? await context.harmonyClient.subaccount.getSubaccountLinkedSignerWithRateLimit(
+              signerParams,
+            )
+          : await context.vertexClient.subaccount.getSubaccountLinkedSignerWithRateLimit(
+              signerParams,
+            );
+
         const currentLinkedSignerAddress =
           currentLinkedSigner.signer.toLowerCase();
 

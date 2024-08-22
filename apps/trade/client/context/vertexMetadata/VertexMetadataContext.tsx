@@ -92,7 +92,6 @@ export function VertexMetadataContextProvider({ children }: WithChildren) {
     getSpotMetadata,
     primaryChainId,
   ]);
-
   return (
     <VertexMetadataContext.Provider value={data}>
       {children}

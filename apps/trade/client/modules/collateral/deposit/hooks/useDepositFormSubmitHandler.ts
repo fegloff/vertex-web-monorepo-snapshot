@@ -50,12 +50,10 @@ export function useDepositFormSubmitHandler({
       values,
       selectedProduct.decimalAdjustedWalletBalance,
     );
-
     const amountWithAddedDecimals = addDecimals(
       amount,
       selectedProduct.tokenDecimals,
     );
-
     if (isApprove) {
       const txResponsePromise = mutateApproveAllowanceAsync({
         productId: selectedProduct.productId,

@@ -24,7 +24,7 @@ interface Data {
 
 export function useHealthGroups() {
   const primaryChainId = usePrimaryChainId();
-  const vertexClient = useVertexClient();
+  const { vertexClient, harmonyClient } = useVertexClient();
   const disabled = !vertexClient;
 
   return useQuery({
@@ -33,8 +33,12 @@ export function useHealthGroups() {
       if (disabled) {
         throw new QueryDisabledError();
       }
-      const healthGroups = (await vertexClient.market.getHealthGroups())
-        .healthGroups;
+
+      const healthGroups = (
+        harmonyClient.isHarmony
+          ? await harmonyClient.market.getHealthGroups()
+          : await vertexClient.market.getHealthGroups()
+      ).healthGroups;
 
       const spotToPerpProductId: Record<number, number> = {};
       const perpToSpotProductId: Record<number, number> = {};

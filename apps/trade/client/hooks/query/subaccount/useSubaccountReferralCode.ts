@@ -26,7 +26,7 @@ export function useSubaccountReferralCode() {
   const {
     currentSubaccount: { address, name },
   } = useSubaccountContext();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
 
   const disabled = !vertexClient || !address;
 

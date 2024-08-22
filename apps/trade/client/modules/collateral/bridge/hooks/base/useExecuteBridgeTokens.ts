@@ -11,7 +11,7 @@ import { ContractTransactionResponse } from 'ethers';
 
 export function useExecuteBridgeTokens() {
   const squidSDK = useSquidSDK();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
 
   const {
     connectionStatus: { signer },

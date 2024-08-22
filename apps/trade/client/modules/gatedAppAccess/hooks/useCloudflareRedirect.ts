@@ -15,7 +15,7 @@ const ALLOWED_DOMAINS = new Set([
  * which should redirect the user back to the app.
  */
 export function useCloudflareRedirect() {
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
 
   // the /cf-check endpoint only allows CORS for production endpoints
   const isCorsAllowedHost = (() => {

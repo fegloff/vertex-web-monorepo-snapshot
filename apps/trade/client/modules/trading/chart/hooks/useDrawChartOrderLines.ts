@@ -1,3 +1,8 @@
+/**
+ * TESTING: Mock implementation of useDrawChartOrderLines
+ * This version logs the overrides instead of applying them to a TradingView widget.
+ * Remove this mock and uncomment the original implementation to re-enable TradingView functionality.
+ */
 import { BigDecimal, toBigDecimal } from '@vertex-protocol/client';
 import { asyncResult } from '@vertex-protocol/web-common';
 import {
@@ -19,11 +24,17 @@ import { getMarketSizeFormatSpecifier } from 'client/utils/formatNumber/getMarke
 import { COLORS } from 'common/theme/colors';
 import { FONTS } from 'common/theme/fonts';
 import { debounce, random } from 'lodash';
+// import {
+//   IChartingLibraryWidget,
+//   IChartWidgetApi,
+//   IOrderLineAdapter,
+// } from 'public/charting_library/charting_library';
 import {
-  IChartingLibraryWidget,
   IChartWidgetApi,
   IOrderLineAdapter,
-} from 'public/charting_library/charting_library';
+  IChartingLibraryWidget,
+} from 'public/charting_library/mock_interfaces';
+
 import { useCallback, useEffect, useMemo, useRef } from 'react';
 import { useEnableTradingOrderLines } from '../../hooks/useEnableTradingOrderLines';
 import { OrderType } from '../../types';

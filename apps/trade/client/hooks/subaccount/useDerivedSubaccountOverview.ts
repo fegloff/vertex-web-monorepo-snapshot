@@ -83,11 +83,11 @@ function derivedSubaccountOverviewQueryKey(
 
 /**
  * A util hook to create commonly used derived data from the current subaccount summary
+ * :HARMONY: Feeds useNavAccountInfoPins (apps/trade/client/modules/navigation/accountInfo/useNavAccountInfoPins.tsx)
  */
 export function useDerivedSubaccountOverview(): QueryState<DerivedSubaccountOverviewData> {
   const { data, dataUpdatedAt, ...rest } = useCurrentSubaccountSummary();
   const quotePrice = useQuotePriceUsd();
-
   // Optional queries
   const { data: indexerSnapshot, dataUpdatedAt: indexerSnapshotUpdatedAt } =
     useSubaccountIndexerSnapshot();

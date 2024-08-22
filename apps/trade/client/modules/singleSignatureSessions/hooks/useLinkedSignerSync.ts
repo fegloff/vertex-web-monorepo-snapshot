@@ -15,7 +15,7 @@ export function useLinkedSignerSync() {
     signingPreference: { current: localSigningPreference },
     currentSubaccount,
   } = useSubaccountContext();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
 
   // Sync vertex client & local state
   useEffect(() => {

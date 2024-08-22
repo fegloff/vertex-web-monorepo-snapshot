@@ -22,7 +22,7 @@ export function useHandleProductIdChange({
 }: Params) {
   const primaryChainId = usePrimaryChainId();
   const queryClient = useQueryClient();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
 
   useEffect(() => {
     if (!isActiveWebsocket || !vertexClient || !productId) {

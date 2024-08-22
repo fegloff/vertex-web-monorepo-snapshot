@@ -40,7 +40,7 @@ export function useLatestOrderFillsForProduct<
   select,
 }: LatestOrderFillsForProductParams<TSelectedData>): QueryState<TSelectedData> {
   const primaryChainId = usePrimaryChainId();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const disabled = !vertexClient || !productId;
 
   const queryFn = async () => {

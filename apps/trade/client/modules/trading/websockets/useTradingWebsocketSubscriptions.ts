@@ -1,6 +1,10 @@
 import { QueryObserverOptions, useQueryClient } from '@tanstack/react-query';
 import { ENGINE_WS_SUBSCRIPTION_CLIENT_ENDPOINTS } from '@vertex-protocol/engine-client';
-import { useEVMContext, useVertexClient } from '@vertex-protocol/web-data';
+import {
+  ChainEnv,
+  useEVMContext,
+  useVertexClient,
+} from '@vertex-protocol/web-data';
 import { useDocumentVisibility } from 'ahooks';
 import { latestOrderFillsForProductQueryKey } from 'client/hooks/query/markets/useLatestOrderFillsForProduct';
 import { marketLiquidityQueryKey } from 'client/hooks/query/markets/useMarketLiquidity';
@@ -12,11 +16,20 @@ import useWebSocket, { ReadyState } from 'react-use-websocket';
 export function useTradingWebsocketSubscriptions(productId?: number) {
   const { primaryChainEnv } = useEVMContext();
   const queryClient = useQueryClient();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
 
   const wsEndpoint = useMemo(() => {
-    return ENGINE_WS_SUBSCRIPTION_CLIENT_ENDPOINTS[primaryChainEnv];
+    // Add a type assertion and provide a fallback
+    return (
+      (ENGINE_WS_SUBSCRIPTION_CLIENT_ENDPOINTS as Record<ChainEnv, string>)[
+        primaryChainEnv
+      ] || ''
+    );
   }, [primaryChainEnv]);
+
+  // const wsEndpoint = useMemo(() => {
+  //   return ENGINE_WS_SUBSCRIPTION_CLIENT_ENDPOINTS[primaryChainEnv];
+  // }, [primaryChainEnv]);
 
   const isReady = !!productId && !!vertexClient;
   const onMessage = useOnMessageHandler({ productId });
@@ -67,7 +80,7 @@ export function useTradingWebsocketSubscriptions(productId?: number) {
        */
       filter: () => false,
     },
-    isReady && enableWebsocket,
+    isReady && enableWebsocket && wsEndpoint !== '', // Add wsEndpoint check
   );
 
   const isActiveWebsocket = readyState === ReadyState.OPEN;

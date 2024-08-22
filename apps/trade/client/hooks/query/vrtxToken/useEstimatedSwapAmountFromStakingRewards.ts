@@ -17,7 +17,7 @@ export function estimatedSwapAmountFromStakingRewardsQueryKey(
  * Retrieves the output amount of the USDC -> VRTX swap when executing claim + stake
  */
 export function useEstimatedSwapAmountFromStakingRewards() {
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const {
     connectionStatus: { address },
   } = useEVMContext();

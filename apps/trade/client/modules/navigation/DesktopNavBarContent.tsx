@@ -84,7 +84,7 @@ export function DesktopNavBarContent() {
   })();
 
   const chainSwitcher = clientEnv.base.enableExperimentalFeatures && (
-    <BrandSpecificContent enabledBrands={['vertex']}>
+    <BrandSpecificContent enabledBrands={['harmony']}>
       <ChainSwitcherPopover />
     </BrandSpecificContent>
   );

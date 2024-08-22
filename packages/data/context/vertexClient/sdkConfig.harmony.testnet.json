@@ -1,0 +1,51 @@
+{
+  "clientContext": {
+    "contractAddresses": {
+      "querier": "0x59b670e9fa9d0a427751af201d676719a970857b",
+      "clearinghouse": "0x0486C544D6B7A846536A302102EE737f1183fFb8",
+      "spotEngine": "0x954D13Bf7f73C6967Ee07EF90C1532A074d17343",
+      "perpEngine": "0x83002DC5e14892AD0c32F1589C30F38bB558F9a9",
+      "endpoint": "0xA9c0b389AF35985b7CFB7eEa09772f96e4D9EcAf",
+      "arbAirdrop": "0x98A4aF6AE3B7C1B81587350aDbe295C1634B7Dd3",
+      "vrtxToken": "0x98A4aF6AE3B7C1B81587350aDbe295C1634B7Dd3",
+      "vrtxAirdrop": "0x98A4aF6AE3B7C1B81587350aDbe295C1634B7Dd3",
+      "vrtxLba": "0x98A4aF6AE3B7C1B81587350aDbe295C1634B7Dd3",
+      "vrtxVesting": "0x98A4aF6AE3B7C1B81587350aDbe295C1634B7Dd3",
+      "vrtxStaking": "0x98A4aF6AE3B7C1B81587350aDbe295C1634B7Dd3"
+    },
+    "graph": {
+      "candlesticksEndpoint": "http://localhost:8000/subgraphs/name/vertex-subgraphs-candlesticks",
+      "marketsEndpoint": "http://localhost:8000/subgraphs/name/vertex-subgraphs-markets",
+      "coreEndpoint": "http://localhost:8000/subgraphs/name/vertex-subgraphs-core"
+    },
+    "engineEndpoint": "http://localhost:80",
+    "indexerEndpoint": "http://localhost:80/indexer",
+    "triggerEndpoint": "http://localhost:80/trigger"
+  },
+  "spotProducts": {
+    "QUOTE": {
+      "address": "0xBC594CABd205bD993e7FfA6F3e9ceA75c1110da5",
+      "decimals": 6
+    },
+    "WBTC": {
+      "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+      "decimals": 8
+    },
+    "ETH": {
+      "address": "0x4cC435d7b9557d54d6EF02d69Bbf72634905Bf11",
+      "decimals": 18
+    },
+    "WONE": {
+      "address": "0xcF664087a5bB0237a0BAd6742852ec6c8d69A27a",
+      "decimals": 18
+    },
+    "USDT": {
+      "address": "0xF2732e8048f1a411C63e2df51d08f4f52E598005",
+      "decimals": 6
+    },
+    "VRTX": {
+      "address": "0x0000000000000000000000000000000000000000",
+      "decimals": 18
+    }
+  }
+}

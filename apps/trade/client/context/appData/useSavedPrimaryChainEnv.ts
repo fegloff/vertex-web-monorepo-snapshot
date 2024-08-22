@@ -1,4 +1,4 @@
-import { ChainEnv } from '@vertex-protocol/client';
+import { ChainEnv } from '@vertex-protocol/web-data';
 import { useSavedGlobalState } from 'client/modules/localstorage/globalState/useSavedGlobalState';
 import { useCallback } from 'react';
 

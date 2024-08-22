@@ -3,12 +3,14 @@ import { IERC20__factory } from '@vertex-protocol/client';
 import { BigDecimal, toBigDecimal } from '@vertex-protocol/utils';
 import {
   createQueryKey,
+  harmonyTestnet,
   PrimaryChainID,
   useEnableSubaccountQueries,
   useEVMContext,
   usePrimaryChainId,
   usePrimaryChainPublicClient,
 } from '@vertex-protocol/web-data';
+import useCustomMulticall from '@vertex-protocol/web-data/context/evm/hooks/useCustomMulticall';
 import { useAllMarkets } from 'client/hooks/query/markets/useAllMarkets';
 import { QueryDisabledError } from 'client/hooks/query/QueryDisabledError';
 import { QueryState } from 'client/types/QueryState';
@@ -34,6 +36,7 @@ type Data = Record<number, BigDecimal>;
  */
 export function useAllDepositableTokenBalances(): QueryState<Data> {
   const primaryChainId = usePrimaryChainId();
+  const { customMulticall } = useCustomMulticall();
   const publicClient = usePrimaryChainPublicClient();
   const {
     connectionStatus: { address },
@@ -65,36 +68,48 @@ export function useAllDepositableTokenBalances(): QueryState<Data> {
     if (disabled) {
       throw new QueryDisabledError();
     }
-
-    const multicallResult = await publicClient.multicall({
-      // In case of failure, default to 0
-      // Return type depends on this flag
-      allowFailure: true,
-      contracts: spotProducts.map((spotProduct) => {
-        return {
-          functionName: 'balanceOf',
-          address: spotProduct.product.tokenAddr as Address,
-          abi: IERC20__factory.abi,
-          args: [address],
-        };
-      }),
+    const contracts = spotProducts.map((spotProduct) => {
+      return {
+        functionName: 'balanceOf',
+        address: spotProduct.product.tokenAddr as Address,
+        abi: IERC20__factory.abi,
+        args: [address],
+      };
     });
 
-    const productIdToBalance: Data = {};
-
-    multicallResult.map(({ error, result, status }, index) => {
-      const productId = spotProducts[index].productId;
-      if (status !== 'success') {
-        console.warn(`Error fetching balance for product ${productId}`, error);
+    try {
+      let multicallResult;
+      if (primaryChainId === harmonyTestnet.id) {
+        multicallResult = await customMulticall(contracts);
+      } else {
+        multicallResult = await publicClient.multicall({
+          // In case of failure, default to 0
+          // Return type depends on this flag
+          allowFailure: true,
+          contracts,
+        });
       }
 
-      const tokenBalance = (result as bigint) ?? BigInt(0);
-      productIdToBalance[productId] = toBigDecimal(tokenBalance);
-    });
+      const productIdToBalance: Data = {};
 
-    return productIdToBalance;
+      multicallResult.map(({ error, result, status }, index) => {
+        const productId = spotProducts[index].productId;
+        if (status !== 'success') {
+          console.warn(
+            `Error fetching balance for product ${productId}`,
+            error,
+          );
+        }
+
+        const tokenBalance = (result as bigint) ?? BigInt(0);
+        productIdToBalance[productId] = toBigDecimal(tokenBalance);
+      });
+
+      return productIdToBalance;
+    } catch (e) {
+      console.log('multicallResult ERROR:', e);
+    }
   };
-
   return useQuery({
     queryKey: allDepositableTokenBalancesQueryKey(
       primaryChainId,

@@ -19,13 +19,34 @@ export interface FormatOptions {
   defaultFallback?: string;
 }
 
-export function formatTimestamp(
-  val: number | Date | undefined,
-  options?: FormatOptions,
-) {
-  if (val == null) {
+export function formatTimestamp(val: any, options?: FormatOptions) {
+  try {
+    const actualVal =
+      val && typeof val === 'object' && 'val' in val ? val.val : val;
+
+    if (
+      actualVal == null ||
+      (typeof actualVal === 'object' && Object.keys(actualVal).length === 0)
+    ) {
+      throw new Error('Invalid input');
+    }
+
+    return format(
+      actualVal,
+      options?.formatSpecifier ?? TimeFormatSpecifier.HH_MM_SS,
+    );
+  } catch (error) {
+    // console.error('Error formatting timestamp:', error);
     return options?.defaultFallback ?? '-';
   }
-
-  return format(val, options?.formatSpecifier ?? TimeFormatSpecifier.HH_MM_SS);
 }
+
+// export function formatTimestamp(
+//   val: number | Date | undefined,
+//   options?: FormatOptions,
+// ) {
+//   if (val == null) {
+//     return options?.defaultFallback ?? '-';
+//   }
+//   return format(val, options?.formatSpecifier ?? TimeFormatSpecifier.HH_MM_SS);
+// }

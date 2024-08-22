@@ -31,7 +31,7 @@ export function allProductsHistoricalSnapshotQueryKey(
 export function useAllProductsHistoricalSnapshot(
   minimumSecondsBeforeNow: number,
 ) {
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const primaryChainId = usePrimaryChainId();
   const { filteredProductIds: allProductIds } = useFilteredMarkets();
 

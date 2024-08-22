@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { BigDecimal } from '@vertex-protocol/utils';
+import { GetEngineMaxWithdrawableParams } from '@vertex-protocol/engine-client';
 import {
   PrimaryChainID,
   createQueryKey,
@@ -35,7 +36,7 @@ interface Params {
 export function useMaxWithdrawableAmount(params?: Params) {
   const primaryChainId = usePrimaryChainId();
   const { currentSubaccount } = useSubaccountContext();
-  const vertexClient = useVertexClient();
+  const { vertexClient, harmonyClient } = useVertexClient();
 
   const disabled =
     !currentSubaccount.address ||
@@ -43,6 +44,12 @@ export function useMaxWithdrawableAmount(params?: Params) {
     !vertexClient ||
     params == null;
 
+  const getMaxWithdrawableParams: GetEngineMaxWithdrawableParams = {
+    subaccountOwner: currentSubaccount.address ?? '',
+    subaccountName: currentSubaccount.name,
+    productId: params?.productId ?? 0,
+    spotLeverage: params?.spotLeverage ?? false,
+  };
   return useQuery({
     queryKey: maxWithdrawableQueryKey(
       primaryChainId,
@@ -55,12 +62,10 @@ export function useMaxWithdrawableAmount(params?: Params) {
       if (disabled) {
         throw new QueryDisabledError();
       }
-      return vertexClient.spot.getMaxWithdrawable({
-        subaccountOwner: currentSubaccount.address ?? '',
-        subaccountName: currentSubaccount.name,
-        productId: params?.productId ?? 0,
-        spotLeverage: params?.spotLeverage ?? false,
-      });
+      const maxWithdrawable = harmonyClient.isHarmony
+        ? await harmonyClient.spot.getMaxWithdrawable(getMaxWithdrawableParams)
+        : await vertexClient.spot.getMaxWithdrawable(getMaxWithdrawableParams);
+      return maxWithdrawable;
     },
     enabled: !disabled,
     refetchInterval: 30000,

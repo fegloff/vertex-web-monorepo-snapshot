@@ -30,6 +30,7 @@ import {
   MKR_PERP_MARKET_DETAILS,
   MPEPE_PERP_MARKET_DETAILS,
   NEAR_PERP_MARKET_DETAILS,
+  ONE_PERP_MARKET_DETAILS,
   OP_PERP_MARKET_DETAILS,
   PYTH_PERP_MARKET_DETAILS,
   SEI_PERP_MARKET_DETAILS,
@@ -39,11 +40,21 @@ import {
   SUI_PERP_MARKET_DETAILS,
   TIA_PERP_MARKET_DETAILS,
   TRX_PERP_MARKET_DETAILS,
+  USDT_PERP_MARKET_DETAILS,
+  WBTC_PERP_MARKET_DETAILS,
   WLD_PERP_MARKET_DETAILS,
   XRP_PERP_MARKET_DETAILS,
 } from 'common/productMetadata/marketDetailsMetadata';
 import { TOKEN_ICONS } from 'common/productMetadata/tokenIcons';
 import { PerpProductMetadata } from 'common/productMetadata/types';
+
+export const WBTC_PERP_METADATA: PerpProductMetadata = {
+  name: 'WBTC-PERP',
+  symbol: 'BTC',
+  icon: TOKEN_ICONS.btc,
+  marketName: 'WBTC-PERP',
+  marketDetails: WBTC_PERP_MARKET_DETAILS,
+};
 
 export const BTC_PERP_METADATA: PerpProductMetadata = {
   name: 'BTC-PERP',
@@ -379,4 +390,28 @@ export const JUP_PERP_METADATA: PerpProductMetadata = {
   icon: TOKEN_ICONS.jup,
   marketName: 'JUP-PERP',
   marketDetails: JUP_PERP_MARKET_DETAILS,
+};
+
+export const ONE_PERP_METADATA: PerpProductMetadata = {
+  name: 'ONE-PERP',
+  symbol: 'ONE',
+  icon: TOKEN_ICONS.one,
+  marketName: 'ONE-PERP',
+  marketDetails: ONE_PERP_MARKET_DETAILS,
+};
+
+export const WONE_PERP_METADATA: PerpProductMetadata = {
+  name: 'WONE-PERP',
+  symbol: 'WONE',
+  icon: TOKEN_ICONS.one,
+  marketName: 'WONE-PERP',
+  marketDetails: ONE_PERP_MARKET_DETAILS,
+};
+
+export const USDT_PERP_METADATA: PerpProductMetadata = {
+  name: 'USDT-PERP',
+  symbol: 'USDT',
+  icon: TOKEN_ICONS.usdt,
+  marketName: 'USDT-PERP',
+  marketDetails: USDT_PERP_MARKET_DETAILS,
 };

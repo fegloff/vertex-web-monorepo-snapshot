@@ -21,9 +21,8 @@ export function subaccountFeeRatesQueryKey(
 export function useSubaccountFeeRates() {
   const primaryChainId = usePrimaryChainId();
   const { currentSubaccount } = useSubaccountContext();
-  const vertexClient = useVertexClient();
+  const { vertexClient, harmonyClient } = useVertexClient();
   const enableSubaccountQueries = useEnableSubaccountQueries();
-
   const disabled = !vertexClient || !enableSubaccountQueries;
 
   return useQuery({
@@ -32,16 +31,19 @@ export function useSubaccountFeeRates() {
       currentSubaccount.address,
       currentSubaccount.name,
     ),
-    queryFn: () => {
+    queryFn: async () => {
       if (disabled) {
         throw new QueryDisabledError();
       }
-      // Fetch fee rates even when there's no subaccount for a set of "default" fees
-      return vertexClient.subaccount.getSubaccountFeeRates({
+      const params = {
         subaccountOwner: currentSubaccount.address ?? ZeroAddress,
         subaccountName: currentSubaccount.name ?? '',
-      });
+      };
+      return harmonyClient.isHarmony
+        ? harmonyClient.subaccount.getSubaccountFeeRates(params)
+        : vertexClient.subaccount.getSubaccountFeeRates(params);
     },
+
     // No refetch here as fee rates are unlikely to change
     enabled: !disabled,
     refetchOnMount: false,

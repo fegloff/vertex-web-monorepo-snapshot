@@ -38,12 +38,19 @@ export function useExecuteWithdrawCollateral() {
       ) => {
         console.log('Withdrawing Collateral', params);
         const currentSubaccountName = context.subaccount.name;
-        return context.vertexClient.spot.withdraw({
-          subaccountName: currentSubaccountName,
-          productId: params.productId,
-          amount: params.amount,
-          spotLeverage: params.spotLeverage,
-        });
+        return context.harmonyClient.isHarmony
+          ? context.harmonyClient.spot.withdraw({
+              subaccountName: currentSubaccountName,
+              productId: params.productId,
+              amount: params.amount,
+              spotLeverage: params.spotLeverage,
+            })
+          : context.vertexClient.spot.withdraw({
+              subaccountName: currentSubaccountName,
+              productId: params.productId,
+              amount: params.amount,
+              spotLeverage: params.spotLeverage,
+            });
       },
       [],
     ),

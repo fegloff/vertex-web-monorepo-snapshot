@@ -1,0 +1,98 @@
+[
+  {
+    "type": 0,
+    "productId": 3,
+    "minSize": "0",
+    "priceIncrement": "0",
+    "sizeIncrement": "0",
+    "product": {
+      "productId": 3,
+      "type": 0,
+      "totalBorrowed": "3.277758459369188876773709057378741658039e+25",
+      "totalDeposited": "4.0697429365987163160769649716204419194342304e+25",
+      "oraclePrice": "1",
+      "interestFloor": "0.01",
+      "interestInflectionUtil": "0.8",
+      "interestLargeCap": "1",
+      "interestSmallCap": "0.04",
+      "longWeightInitial": "1",
+      "longWeightMaintenance": "1",
+      "shortWeightInitial": "1",
+      "shortWeightMaintenance": "1",
+      "tokenAddr": "0x118f50d23810c5E09Ebffb42d7D3328dbF75C2c2",
+      "totalLpBaseAmount": "0",
+      "totalLpQuoteAmount": "0",
+      "totalLpSupply": "0"
+    }
+  },
+  {
+    "type": 0,
+    "productId": 0,
+    "minSize": "10000000000000000",
+    "priceIncrement": "1",
+    "sizeIncrement": "1000000000000000",
+    "product": {
+      "productId": 0,
+      "type": 0,
+      "totalBorrowed": "3399230921368829128.9311672401460115",
+      "totalDeposited": "483423533131358988639.229396917797138642",
+      "oraclePrice": "65996.216817345023114237",
+      "interestFloor": "0.01",
+      "interestInflectionUtil": "0.8",
+      "interestLargeCap": "1",
+      "interestSmallCap": "0.04",
+      "longWeightInitial": "0.9",
+      "longWeightMaintenance": "0.95",
+      "shortWeightInitial": "1.1",
+      "shortWeightMaintenance": "1.05",
+      "tokenAddr": "0xBC594CABd205bD993e7FfA6F3e9ceA75c1110da5",
+      "totalLpBaseAmount": "1354726755778667890",
+      "totalLpQuoteAmount": "8.9435242961248731687018e+22",
+      "totalLpSupply": "5.4494760859388086337743e+22"
+    }
+  },
+  {
+    "type": 1,
+    "productId": 2,
+    "minSize": "3000000000000000000",
+    "priceIncrement": "0.001",
+    "sizeIncrement": "500000000000000000",
+    "product": {
+      "productId": 2,
+      "type": 1,
+      "oraclePrice": "142.876063326853912527",
+      "longWeightInitial": "0.9",
+      "longWeightMaintenance": "0.95",
+      "shortWeightInitial": "1.1",
+      "shortWeightMaintenance": "1.05",
+      "openInterest": "1.73315e+22",
+      "totalLpBaseAmount": "0",
+      "totalLpQuoteAmount": "0",
+      "totalLpSupply": "0",
+      "cumulativeFundingLong": "29.71175730293603005",
+      "cumulativeFundingShort": "29.71175730293603005"
+    }
+  },
+  {
+    "type": 1,
+    "productId": 4,
+    "minSize": "500000000000000000000",
+    "priceIncrement": "0.0001",
+    "sizeIncrement": "20000000000000000000",
+    "product": {
+      "productId": 4,
+      "type": 1,
+      "oraclePrice": "0.590520446003720864",
+      "longWeightInitial": "0.9",
+      "longWeightMaintenance": "0.95",
+      "shortWeightInitial": "1.1",
+      "shortWeightMaintenance": "1.05",
+      "openInterest": "4.0474e+23",
+      "totalLpBaseAmount": "0",
+      "totalLpQuoteAmount": "0",
+      "totalLpSupply": "0",
+      "cumulativeFundingLong": "0.105331826926993836",
+      "cumulativeFundingShort": "0.105331826926993836"
+    }
+  }
+]

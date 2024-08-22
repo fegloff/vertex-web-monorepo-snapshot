@@ -1,5 +1,4 @@
 import { PrimaryChainID } from '@vertex-protocol/web-data';
-import { mantleSepoliaTestnet } from '@wagmi/core/chains';
 import {
   ARB_ONE_PERP_METADATA_BY_PRODUCT_ID,
   ARB_SEPOLIA_PERP_METADATA_BY_PRODUCT_ID,
@@ -20,6 +19,7 @@ import { HARDHAT_PERP_METADATA_BY_PRODUCT_ID } from 'common/productMetadata/loca
 import { HARDHAT_SPOT_METADATA_BY_PRODUCT_ID } from 'common/productMetadata/local/spotMetadataByProductId';
 import { MANTLE_SEPOLIA_PERP_METADATA_BY_PRODUCT_ID } from 'common/productMetadata/mantle/perpMetadataByProductId';
 import { MANTLE_SEPOLIA_SPOT_METADATA_BY_PRODUCT_ID } from 'common/productMetadata/mantle/spotMetadataByProductId';
+
 import {
   PerpProductMetadata,
   SpotProductMetadata,
@@ -31,7 +31,13 @@ import {
   blastSepolia,
   hardhat,
   localhost,
-} from 'wagmi/chains';
+  harmonyMainnet,
+  harmonyTestnet,
+  mantleSepoliaTestnet,
+} from '@vertex-protocol/web-data';
+
+import { HARMONY_SPOT_METADATA_BY_PRODUCT_ID } from './harmony/spotMetadataByProductId';
+import { HARMONY_PERP_METADATA_BY_PRODUCT_ID } from './harmony/perpMetadataByProductId';
 
 export const SPOT_METADATA_BY_CHAIN: Record<
   number,
@@ -44,6 +50,8 @@ export const SPOT_METADATA_BY_CHAIN: Record<
   [mantleSepoliaTestnet.id]: MANTLE_SEPOLIA_SPOT_METADATA_BY_PRODUCT_ID,
   [hardhat.id]: HARDHAT_SPOT_METADATA_BY_PRODUCT_ID,
   [localhost.id]: HARDHAT_SPOT_METADATA_BY_PRODUCT_ID,
+  [harmonyMainnet.id]: HARMONY_SPOT_METADATA_BY_PRODUCT_ID,
+  [harmonyTestnet.id]: HARMONY_SPOT_METADATA_BY_PRODUCT_ID,
 } satisfies Record<PrimaryChainID, Record<number, SpotProductMetadata>>;
 
 export const PERP_METADATA_BY_CHAIN: Record<
@@ -57,4 +65,6 @@ export const PERP_METADATA_BY_CHAIN: Record<
   [mantleSepoliaTestnet.id]: MANTLE_SEPOLIA_PERP_METADATA_BY_PRODUCT_ID,
   [hardhat.id]: HARDHAT_PERP_METADATA_BY_PRODUCT_ID,
   [localhost.id]: HARDHAT_PERP_METADATA_BY_PRODUCT_ID,
+  [harmonyMainnet.id]: HARMONY_PERP_METADATA_BY_PRODUCT_ID,
+  [harmonyTestnet.id]: HARMONY_PERP_METADATA_BY_PRODUCT_ID,
 } satisfies Record<PrimaryChainID, Record<number, PerpProductMetadata>>;

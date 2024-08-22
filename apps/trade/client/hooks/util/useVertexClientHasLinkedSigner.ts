@@ -2,7 +2,7 @@ import { VertexClient } from '@vertex-protocol/client';
 import { useVertexClient } from '@vertex-protocol/web-data';
 
 export function useVertexClientHasLinkedSigner() {
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
 
   return getVertexClientHasLinkedSigner(vertexClient);
 }

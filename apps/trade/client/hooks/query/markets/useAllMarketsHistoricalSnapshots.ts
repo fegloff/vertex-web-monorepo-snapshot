@@ -31,7 +31,7 @@ export function useAllMarketsHistoricalSnapshots({
     'allMarketHistoricalSnapshots',
     true,
   );
-  const vertexClient = useVertexClient();
+  const { vertexClient, harmonyClient } = useVertexClient();
 
   const disabled = !vertexClient;
 
@@ -41,13 +41,15 @@ export function useAllMarketsHistoricalSnapshots({
       if (disabled) {
         throw new QueryDisabledError();
       }
-
       startProfiling();
-      const data = await vertexClient.market.getMarketSnapshots({
+      const params = {
         granularity,
         limit,
         maxTimeInclusive: nowInSeconds(),
-      });
+      };
+      const data = harmonyClient.isHarmony
+        ? await harmonyClient.market.getMarketSnapshots(params)
+        : await vertexClient.market.getMarketSnapshots(params);
       endProfiling();
       return data;
     },

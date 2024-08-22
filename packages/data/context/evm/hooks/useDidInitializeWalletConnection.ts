@@ -21,7 +21,6 @@ export function useDidInitializeWalletConnection() {
         setDidInitialClientMount(true);
       }, 100);
     }
-
     return () => {
       clearTimeout(timeout);
     };

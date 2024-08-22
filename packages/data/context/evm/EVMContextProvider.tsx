@@ -1,4 +1,4 @@
-import { ChainEnv } from '@vertex-protocol/client';
+import { ChainEnv } from '@vertex-protocol/web-data';
 import { WithChildren } from '@vertex-protocol/web-common';
 import { useMemo } from 'react';
 import { WagmiProvider } from 'wagmi';

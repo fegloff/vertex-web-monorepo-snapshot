@@ -42,7 +42,7 @@ export interface AccountStakingState {
  */
 export function useAccountStakingState() {
   const { isArb } = useIsChainType();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const publicClient = usePrimaryChainPublicClient();
   const {
     connectionStatus: { address },

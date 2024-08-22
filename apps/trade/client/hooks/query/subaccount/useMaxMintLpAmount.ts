@@ -35,7 +35,7 @@ export function maxMintLpAmountQueryKey(
 export function useMaxMintLpAmount(params?: Params) {
   const primaryChainId = usePrimaryChainId();
   const { currentSubaccount } = useSubaccountContext();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
 
   const queryParams = useMemo(():
     | GetEngineMaxMintLpAmountParams

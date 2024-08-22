@@ -41,7 +41,7 @@ export function useMarketLiquidity({
   includeWebsocketUpdates,
 }: Params): QueryState<MarketLiquidityData> {
   const primaryChainId = usePrimaryChainId();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const disabled = !vertexClient || !productId;
   return useQuery({
     queryKey: marketLiquidityQueryKey(

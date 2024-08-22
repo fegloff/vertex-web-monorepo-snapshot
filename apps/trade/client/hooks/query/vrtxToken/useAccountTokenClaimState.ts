@@ -34,7 +34,7 @@ export interface AccountTokenClaimStateData {
  */
 export function useAccountTokenClaimState() {
   const { isArb } = useIsChainType();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const publicClient = usePrimaryChainPublicClient();
   const {
     connectionStatus: { address },

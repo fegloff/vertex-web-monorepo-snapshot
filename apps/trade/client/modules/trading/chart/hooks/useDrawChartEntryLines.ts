@@ -1,3 +1,8 @@
+/**
+ * TESTING: Mock implementation of useDrawChartEntryLines
+ * This version logs the overrides instead of applying them to a TradingView widget.
+ * Remove this mock and uncomment the original implementation to re-enable TradingView functionality.
+ */
 import { ProductEngineType } from '@vertex-protocol/contracts';
 import { useAllMarketsStaticData } from 'client/hooks/markets/useAllMarketsStaticData';
 import {
@@ -9,13 +14,34 @@ import { TradingViewSymbolInfo } from 'client/modules/trading/chart/config/dataf
 import { getMarketPriceFormatSpecifier } from 'client/utils/formatNumber/getMarketPriceFormatSpecifier';
 import { COLORS } from 'common/theme/colors';
 import { FONTS } from 'common/theme/fonts';
+import { useCallback, useEffect, useRef } from 'react';
+import { isChartSyncedToSymbolInfo } from '../utils/isChartSyncedToSymbolInfo';
+
+// import {
+//   IChartWidgetApi,
+//   IChartingLibraryWidget,
+//   IPositionLineAdapter,
+// } from 'public/charting_library';
+// Mock type for IChartingLibraryWidget
 import {
   IChartWidgetApi,
   IChartingLibraryWidget,
   IPositionLineAdapter,
-} from 'public/charting_library';
-import { useCallback, useEffect, useRef } from 'react';
-import { isChartSyncedToSymbolInfo } from '../utils/isChartSyncedToSymbolInfo';
+} from 'public/charting_library/mock_interfaces';
+
+// type IChartingLibraryWidget = {
+//   applyOverrides: (overrides: Record<string, any>) => void;
+//   setCSSCustomProperty: (key: string, value: string) => void;
+//   activeChart: () => IChartWidgetApi;
+
+// };
+
+// Mock types
+
+// interface IChartWidgetApi {
+//   createPositionLine: () => IPositionLineAdapter;
+//   symbol: () => string
+// }
 
 interface Params {
   tvWidget?: IChartingLibraryWidget;
@@ -90,17 +116,18 @@ export function useDrawChartEntryLines({
       return;
     }
 
-    // No further action needed if there's an existing line with the same price, need to do a roughly equals check
-    // here given different levels of precision
-    if (existingLine) {
-      const priceDiff = selectedPosition.price.averageEntryPrice
-        .minus(existingLine.getPrice())
-        .abs();
-      // No-op if the price difference is less than 0.001% of the average entry price, which is guaranteed to be non-zero given the above check
-      if (priceDiff.div(selectedPosition.price.averageEntryPrice).lt(0.00001)) {
-        return;
-      }
-    }
+    // Disabling TESTING: Mock implementation of useDrawChartEntryLines
+    // // No further action needed if there's an existing line with the same price, need to do a roughly equals check
+    // // here given different levels of precision
+    // if (existingLine) {
+    //   const priceDiff = selectedPosition.price.averageEntryPrice
+    //     .minus(existingLine.getPrice())
+    //     .abs();
+    //   // No-op if the price difference is less than 0.001% of the average entry price, which is guaranteed to be non-zero given the above check
+    //   if (priceDiff.div(selectedPosition.price.averageEntryPrice).lt(0.00001)) {
+    //     return;
+    //   }
+    // }
 
     console.debug(
       '[useDrawChartEntryLines]: Upserting position line:',

@@ -24,7 +24,7 @@ export interface AccountArbRewardsClaimState {
  */
 export function useAccountArbRewardsClaimState() {
   const { isArb } = useIsChainType();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const {
     connectionStatus: { address },
   } = useEVMContext();

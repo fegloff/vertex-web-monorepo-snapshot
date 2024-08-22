@@ -1,8 +1,14 @@
 import { mergeClassNames, WithChildren } from '@vertex-protocol/web-common';
 import { ReactNode } from 'react';
 import { usePopperTooltip } from 'react-popper-tooltip';
-import styles from './BaseTooltip.module.css';
 import { TooltipPortal } from './TooltipPortal';
+import 'react-popper-tooltip/dist/styles.css';
+/**
+ * TESTING: added styles import due to deploy issues
+ * This version logs the overrides instead of applying them to a TradingView widget.
+ * Remove this mock and uncomment the original implementation to re-enable TradingView functionality.
+ */
+import styles from './BaseTooltip.module.css';
 
 export interface BaseTooltipProps extends WithChildren {
   tooltipContent: ReactNode;

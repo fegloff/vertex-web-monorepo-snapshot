@@ -18,7 +18,7 @@ export function latestOraclePricesQueryKey(
 
 export function useLatestOraclePrices() {
   const primaryChainId = usePrimaryChainId();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const { filteredProductIds: allProductIds } = useFilteredMarkets();
 
   const disabled = !vertexClient || !allProductIds.length;

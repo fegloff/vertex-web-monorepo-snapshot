@@ -7,7 +7,7 @@ export function useStakingHistoryUrl() {
     primaryChain: { blockExplorers },
     connectionStatus: { address: userAddress },
   } = useEVMContext();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
 
   if (!blockExplorers || !userAddress || !vertexClient) {
     return '';

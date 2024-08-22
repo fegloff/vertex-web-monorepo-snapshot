@@ -1,8 +1,8 @@
-import { ChainEnv } from '@vertex-protocol/client';
+import { ChainEnv } from '@vertex-protocol/web-data';
 import { joinClassNames } from '@vertex-protocol/web-common';
 import { PrimaryChain, useEVMContext } from '@vertex-protocol/web-data';
 import { Card, PrimaryButton } from '@vertex-protocol/web-ui';
-import { arbitrum, arbitrumSepolia } from '@wagmi/core/chains';
+import { arbitrum, arbitrumSepolia } from '@vertex-protocol/web-data';
 import { AppPage } from 'client/modules/app/AppPage';
 import { APP_PAGE_PADDING } from 'client/modules/app/consts/padding';
 import { ARB_CHAIN_IDS } from 'client/modules/chainSpecificContent/consts/chainIds';

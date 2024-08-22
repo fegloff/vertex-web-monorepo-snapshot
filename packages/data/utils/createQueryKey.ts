@@ -17,6 +17,5 @@ export function createQueryKey(label: string, ...args: unknown[]): string[] {
       queryKey.push(key.toString());
     }
   }
-
   return queryKey;
 }

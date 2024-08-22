@@ -1,4 +1,4 @@
-import { ChainEnv } from '@vertex-protocol/client';
+import { ChainEnv } from '@vertex-protocol/web-data';
 import { WithChildren } from '@vertex-protocol/web-common';
 import { useCallback, useMemo, useState } from 'react';
 import {

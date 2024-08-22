@@ -1,5 +1,6 @@
 import { VERTEX_COMMON_LINKS } from './vertexLinks';
 import { BLITZ_COMMON_LINKS } from './blitzLinks';
+import { HARMONY_COMMON_LINKS } from './harmonyLinks';
 
 const SHARED_LINKS = {
   elixir: 'https://app.elixir.finance/',
@@ -18,4 +19,9 @@ export const VERTEX_LINKS = {
 export const BLITZ_LINKS = {
   ...SHARED_LINKS,
   ...BLITZ_COMMON_LINKS,
+};
+
+export const HARMONY_LINKS = {
+  ...SHARED_LINKS,
+  ...HARMONY_COMMON_LINKS,
 };

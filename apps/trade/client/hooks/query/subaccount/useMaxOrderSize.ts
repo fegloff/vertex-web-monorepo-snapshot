@@ -43,7 +43,7 @@ export function maxOrderSizeQueryKey(
 export function useMaxOrderSize(params?: UseMaxOrderSizeParams) {
   const primaryChainId = usePrimaryChainId();
   const { currentSubaccount } = useSubaccountContext();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
 
   const queryParams = useMemo((): GetEngineMaxOrderSizeParams | undefined => {
     if (!currentSubaccount.address || !params) {

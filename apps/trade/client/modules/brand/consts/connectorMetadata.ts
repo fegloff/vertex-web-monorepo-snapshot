@@ -11,6 +11,9 @@ const CONNECTOR_OPTIONS_METADATA_BY_BRAND_NAME: Record<
   BrandName,
   ConnectorOptionsMetadata
 > = {
+  // local: {
+
+  // },
   vertex: {
     walletConnect: {
       name: 'Vertex',
@@ -31,6 +34,17 @@ const CONNECTOR_OPTIONS_METADATA_BY_BRAND_NAME: Record<
     },
     coinbase: {
       appName: 'Blitz',
+    },
+  },
+  harmony: {
+    walletConnect: {
+      name: 'Harmony',
+      description: 'Harmony',
+      url: 'https://app.harmony.exchange/',
+      icons: ['https://app.harmony.exchange/harmony-icon.svg'],
+    },
+    coinbase: {
+      appName: 'Harmony',
     },
   },
 };

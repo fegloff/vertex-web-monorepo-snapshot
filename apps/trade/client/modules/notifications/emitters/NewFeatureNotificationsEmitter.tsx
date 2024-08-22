@@ -4,7 +4,7 @@ import {
   arbitrumSepolia,
   blast,
   blastSepolia,
-} from '@wagmi/core/chains';
+} from '@vertex-protocol/web-data';
 import { useDialog } from 'client/modules/app/dialogs/hooks/useDialog';
 import {
   NEW_FEATURE_DISCLOSURE_KEYS,

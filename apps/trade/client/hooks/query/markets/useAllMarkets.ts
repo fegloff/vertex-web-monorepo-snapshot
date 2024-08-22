@@ -48,7 +48,7 @@ export function useAllMarkets<TSelectedData = AllMarketsData>(
     'allMarkets',
     true,
   );
-  const vertexClient = useVertexClient();
+  const { vertexClient, harmonyClient } = useVertexClient();
   const { getPerpMetadata, getSpotMetadata } = useVertexMetadataContext();
   const primaryChainId = usePrimaryChainId();
 
@@ -58,9 +58,10 @@ export function useAllMarkets<TSelectedData = AllMarketsData>(
     if (disabled) {
       throw new QueryDisabledError();
     }
-
     startProfiling();
-    const baseResponse = await vertexClient.market.getAllEngineMarkets();
+    const baseResponse = harmonyClient.isHarmony
+      ? await harmonyClient.market.getAllEngineMarkets()
+      : await vertexClient.market.getAllEngineMarkets();
     endProfiling();
 
     // Construct money-markets from base data
@@ -87,12 +88,10 @@ export function useAllMarkets<TSelectedData = AllMarketsData>(
         if (!metadata) {
           return;
         }
-
         // For example, if initial weight is 0.9, then max leverage is 1 / 0.1 = 10x
         const maxLeverage = Math.round(
           1 / (1 - market.product.longWeightInitial.toNumber()),
         );
-
         perpMarkets[market.productId] = {
           ...market,
           metadata,
@@ -107,7 +106,6 @@ export function useAllMarkets<TSelectedData = AllMarketsData>(
 
     const spotMarketsProductIds = Object.keys(spotMarkets).map(Number);
     const perpMarketsProductIds = Object.keys(perpMarkets).map(Number);
-
     return {
       quoteProduct,
       spotMarkets,
@@ -121,7 +119,6 @@ export function useAllMarkets<TSelectedData = AllMarketsData>(
       perpMarketsProductIds,
     };
   };
-
   return useQuery({
     queryKey: allMarketsQueryKey(primaryChainId),
     queryFn,

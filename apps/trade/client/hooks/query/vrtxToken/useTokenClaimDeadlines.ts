@@ -18,7 +18,7 @@ export function tokenClaimDeadlinesQueryKey() {
  */
 export function useTokenClaimDeadlines() {
   const { isArb } = useIsChainType();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
 
   const disabled = !vertexClient || !isArb;
 

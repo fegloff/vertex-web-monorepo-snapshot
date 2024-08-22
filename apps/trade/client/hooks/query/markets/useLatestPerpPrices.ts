@@ -18,7 +18,7 @@ export function latestPerpPricesQueryKey(
 
 export function useLatestPerpPrices() {
   const primaryChainId = usePrimaryChainId();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const { filteredProductIds: allPerpProductIds } = useFilteredMarkets({
     marketType: ProductEngineType.PERP,
   });

@@ -12,7 +12,7 @@ export function lbaConfigQueryKey() {
 
 export function useLbaConfig() {
   const { isArb } = useIsChainType();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
 
   const disabled = !vertexClient || !isArb;
 

@@ -20,7 +20,7 @@ interface Data {
 
 export function useLbaState() {
   const { isArb } = useIsChainType();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
 
   const disabled = !vertexClient || !isArb;
 

@@ -3,8 +3,9 @@ import {
   PrimaryChainID,
   usePrimaryChainId,
   useVertexClient,
+  createQueryKey,
 } from '@vertex-protocol/web-data';
-import { createQueryKey } from '@vertex-protocol/web-data';
+
 import { useFilteredMarkets } from 'client/hooks/markets/useFilteredMarkets';
 import { QueryDisabledError } from 'client/hooks/query/QueryDisabledError';
 import { MarketFilter } from 'client/types/MarketFilter';
@@ -22,7 +23,7 @@ const PERP_MARKET_FILTER: MarketFilter = {
 };
 
 export function useAllMarkets24HrFundingRates() {
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const primaryChainId = usePrimaryChainId();
   const { filteredProductIds } = useFilteredMarkets(PERP_MARKET_FILTER);
 

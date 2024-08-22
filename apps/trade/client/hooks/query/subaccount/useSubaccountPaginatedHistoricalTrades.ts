@@ -37,7 +37,7 @@ export function useSubaccountPaginatedHistoricalTrades({
   productIds,
 }: Params) {
   const primaryChainId = usePrimaryChainId();
-  const vertexClient = useVertexClient();
+  const { vertexClient, harmonyClient } = useVertexClient();
   const {
     currentSubaccount: { address: subaccountOwner, name: subaccountName },
   } = useSubaccountContext();
@@ -64,9 +64,13 @@ export function useSubaccountPaginatedHistoricalTrades({
         startCursor: pageParam,
         productIds,
       };
-      return vertexClient.context.indexerClient.getPaginatedSubaccountMatchEvents(
-        params,
-      );
+      return harmonyClient.isHarmony
+        ? harmonyClient.context.indexerClient.getPaginatedSubaccountMatchEvents(
+            params,
+          )
+        : vertexClient.context.indexerClient.getPaginatedSubaccountMatchEvents(
+            params,
+          );
     },
     getNextPageParam: (lastPage) => {
       if (lastPage == null || !lastPage.meta.nextCursor) {

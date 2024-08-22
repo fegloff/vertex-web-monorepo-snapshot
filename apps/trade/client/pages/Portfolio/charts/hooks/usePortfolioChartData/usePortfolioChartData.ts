@@ -74,7 +74,6 @@ export function usePortfolioChartData(
   });
 
   const disabled = !indexerSummaries;
-
   const queryFn = async (): Promise<PortfolioChartDataItem[]> => {
     if (disabled) {
       throw new QueryDisabledError();

@@ -3,3 +3,4 @@ export * from './useEthersSigner';
 export * from './usePrimaryChainPublicClient';
 export * from './usePrimaryChainId';
 export * from './useDidInitializeWalletConnection';
+export * from './useCustomMulticall';

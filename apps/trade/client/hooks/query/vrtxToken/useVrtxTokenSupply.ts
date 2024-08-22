@@ -38,7 +38,7 @@ const ILLIQUID_MAINNET_TOKEN_HOLDERS: Address[] = [
 
 export function useVrtxTokenSupply() {
   const { isArb } = useIsChainType();
-  const vertexClient = useVertexClient();
+  const { vertexClient } = useVertexClient();
   const publicClient = usePrimaryChainPublicClient();
 
   const disabled = !vertexClient || !publicClient || !isArb;

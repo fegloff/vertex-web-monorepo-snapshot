@@ -48,7 +48,6 @@ export function OverviewHeroSection({
     setSelectedUntypedTabId,
     areAccountValuesPrivate,
   } = usePortfolioCharts(OVERVIEW_CHART_TABS);
-
   return (
     <PortfolioHeroSection.Container>
       <PortfolioHeroSection.MetricsPane>

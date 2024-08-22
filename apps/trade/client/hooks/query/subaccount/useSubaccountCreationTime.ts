@@ -8,6 +8,7 @@ import {
 import { QueryDisabledError } from 'client/hooks/query/QueryDisabledError';
 import { first } from 'lodash';
 import { createQueryKey } from '@vertex-protocol/web-data';
+import { GetIndexerEventsParams } from '@vertex-protocol/client';
 
 export function subaccountCreationTimeQueryKey(
   chainId?: PrimaryChainID,
@@ -28,7 +29,7 @@ export function subaccountCreationTimeQueryKey(
  */
 export function useSubaccountCreationTime() {
   const primaryChainId = usePrimaryChainId();
-  const vertexClient = useVertexClient();
+  const { vertexClient, harmonyClient } = useVertexClient();
   const {
     currentSubaccount: { address: subaccountOwner, name: subaccountName },
   } = useSubaccountContext();
@@ -45,8 +46,7 @@ export function useSubaccountCreationTime() {
       if (disabled) {
         throw new QueryDisabledError();
       }
-
-      const events = await vertexClient.context.indexerClient.getEvents({
+      const params: GetIndexerEventsParams = {
         subaccount: {
           subaccountOwner,
           subaccountName,
@@ -57,7 +57,11 @@ export function useSubaccountCreationTime() {
         },
         desc: false,
         eventTypes: ['deposit_collateral'],
-      });
+      };
+
+      const events = harmonyClient.isHarmony
+        ? await harmonyClient.context.indexerClient.getEvents(params)
+        : await vertexClient.context.indexerClient.getEvents(params);
 
       return first(events)?.timestamp ?? null;
     },

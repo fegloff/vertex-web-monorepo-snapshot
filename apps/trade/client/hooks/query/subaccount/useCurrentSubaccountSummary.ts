@@ -35,7 +35,7 @@ export function useCurrentSubaccountSummary() {
     true,
   );
   const primaryChainId = usePrimaryChainId();
-  const vertexClient = useVertexClient();
+  const { vertexClient, harmonyClient } = useVertexClient();
   const {
     currentSubaccount: { address: subaccountOwner, name: subaccountName },
   } = useSubaccountContext();
@@ -45,7 +45,6 @@ export function useCurrentSubaccountSummary() {
 
   // If no current subaccount, query (for now) for a subaccount that does not exist
   const subaccountOwnerForQuery = subaccountOwner ?? ZeroAddress;
-
   const queryFn = async (): Promise<AnnotatedSubaccountSummary> => {
     if (disabled) {
       throw new QueryDisabledError();
@@ -54,19 +53,19 @@ export function useCurrentSubaccountSummary() {
       subaccountOwner: subaccountOwnerForQuery,
       subaccountName,
     };
-
     startProfiling();
-    const baseResponse =
-      await vertexClient.subaccount.getEngineSubaccountSummary(params);
-    endProfiling();
 
+    const baseResponse = harmonyClient.isHarmony
+      ? await harmonyClient.subaccount.getEngineSubaccountSummary(params)
+      : await vertexClient.subaccount.getEngineSubaccountSummary(params);
+
+    endProfiling();
     return annotateSubaccountSummary({
       summary: baseResponse,
       getSpotMetadata,
       getPerpMetadata,
     });
   };
-
   return useQuery({
     queryKey: currentSubaccountSummaryQueryKey(
       primaryChainId,
